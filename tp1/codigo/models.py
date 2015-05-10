@@ -5,26 +5,10 @@ from clock import *
 from customExceptions import CampaignNotEndedException
 
 
-class Manager(object):
+class Admin(object):
     def __init__(self, username):
         self.username = username
 
-
-class Teacher(Manager):
-    def __init__(self, full_name):
-        super(Teacher, self).__init__(full_name)
-
-
-class Admin(Manager):
-    pass
-
-
-class Secretary(Admin):
-    pass
-
-
-class Director(Admin):
-    pass
 
 class Event(object):
     def __init__(self, name, date_from, date_to=None):
@@ -93,17 +77,4 @@ class Message(object):
         self.adressee_list = adressee_list
         self.sender = sender
 
-
-#class Assing(object):
-#    def __init__(self, course, teacher, contacts, year):
-#        self.teacher = teacher
-#        self.contacts = contacts
-#        self.year=year
-#        self.course = course
-
-
-#class Course(object):
-#    def __init__(self, grade, letter):
-#        self.grade = grade
-#        self.letter = letter
 
