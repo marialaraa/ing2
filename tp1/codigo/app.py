@@ -11,16 +11,19 @@ from utils import clear
 
 class App(object):
     def __init__(self):
+        self.clock = Clock.getInstance()
         self.currentScreen = HomeScreen()
         self.agenda = Agenda.getInstance()
         self.agenda.initialize()
-        self.clock = Clock.getInstance()
         EventManager.getInstance().setDefaults()
         CampaignManager.getInstance().setDefaults()
         # CourseManager.initialize()
         # TeacherManager.initialize()
         # AssignManager.initialize()
-        self.result_loader = ResultLoader(CampaignManager.getInstance().get_all()[0])
+        ResultLoader(CampaignManager.getInstance().get_all()[0], Result('Porcentaje de alumnos flojos aprobados',65))
+        ResultLoader(CampaignManager.getInstance().get_all()[1], Result('Porcentaje de alumnos responsables aprobados',80))
+        ResultLoader(CampaignManager.getInstance().get_all()[2], Result('Porcentaje de alumnos que trajeron la autorización',90))
+        ResultLoader(CampaignManager.getInstance().get_all()[3], Result('Porcentaje de alumnos que trajeron el alimento no perecedero',80))
 
     def run(self):
         clear()

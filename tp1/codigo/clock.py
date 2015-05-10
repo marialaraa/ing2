@@ -7,7 +7,7 @@ class Clock(object):
     @staticmethod
     def getInstance():
         if not Clock.instance:
-            Clock.instance = Clock(datetime(2015, 5, 30, 0, 0))
+            Clock.instance = Clock(datetime(2015, 5, 11, 0, 0))
         return Clock.instance
     
     def __init__(self, aTime=datetime.now()):

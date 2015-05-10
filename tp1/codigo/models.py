@@ -26,13 +26,6 @@ class Secretary(Admin):
 class Director(Admin):
     pass
 
-
-class Course(object):
-    def __init__(self, grade, letter):
-        self.grade = grade
-        self.letter = letter
-
-
 class Event(object):
     def __init__(self, name, date_from, date_to=None):
         self.name = name
@@ -65,22 +58,24 @@ class Campaign(object):
         self.results = []
         self.event.add_campaign(self)
 
+    def schedule_message(self, message, aDatetime):
+        self.outbox.add_message(message, aDatetime)
+
     def ended(self):
         return self.event.ended()
 
-    def add_result(self, description, value):
+    def add_result(self, result):
         if not self.ended():
             raise CampaignNotEndedException
 
-        self.results.append(Result(self, description, value))
+        self.results.append(result)
 
     def get_results(self):
         return [result for result in self.results]
 
 
 class Result(object):
-    def __init__(self, campaign, description, value):
-        self.campaign = campaign
+    def __init__(self, description, value):
         self.description = description
         self.value = value
 
@@ -99,9 +94,16 @@ class Message(object):
         self.sender = sender
 
 
-class Assing(object):
-    def __init__(self, course, teacher, contacts, year):
-        self.teacher = teacher
-        self.contacts = contacts
-        self.year=year
-        self.course = course
+#class Assing(object):
+#    def __init__(self, course, teacher, contacts, year):
+#        self.teacher = teacher
+#        self.contacts = contacts
+#        self.year=year
+#        self.course = course
+
+
+#class Course(object):
+#    def __init__(self, grade, letter):
+#        self.grade = grade
+#        self.letter = letter
+

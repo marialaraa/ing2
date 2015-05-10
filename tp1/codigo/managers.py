@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+from datetime import datetime, timedelta
 from models import *
 
 class Manager(object):
@@ -23,7 +23,7 @@ class Manager(object):
         self.instances.append(instance)
         
     def get_all(self):
-        return self.instances
+        return [instance for instance in self.instances]
 
 
 
@@ -63,22 +63,22 @@ class Agenda(Manager):
     
        
 
-class CourseManager(Manager):
-    @staticmethod
-    def getInstance():
-        if (CourseManager.myOnlyInstance is None):
-            CourseManager.myOnlyInstance = CourseManager()
-            CourseManager.myOnlyInstance.initialize()
-        return CourseManager.myOnlyInstance
+#class CourseManager(Manager):
+#    @staticmethod
+#    def getInstance():
+#        if (CourseManager.myOnlyInstance is None):
+#            CourseManager.myOnlyInstance = CourseManager()
+#            CourseManager.myOnlyInstance.initialize()
+#        return CourseManager.myOnlyInstance
     
      
-    def addCourse(self, course):
-        self.instances.append(course)
-        
-    def setDefaults(self):
-        self.addCourse(Course(3,'A'))
-        self.addCourse(Course(2,'B'))
-        self.addCourse(Course(5,'A'))
+ #  def addCourse(self, course):
+ #      self.instances.append(course)
+ #
+ #  def setDefaults(self):
+ #      self.addCourse(Course(3,'A'))
+ #      self.addCourse(Course(2,'B'))
+ #      self.addCourse(Course(5,'A'))
 
 
 class EventManager(Manager):
@@ -88,16 +88,16 @@ class EventManager(Manager):
             EventManager.myOnlyInstance = EventManager()
         return EventManager.myOnlyInstance
 
-    def addEvent(self,event):
+    def addEvent(self, event):
         self.instances.append(event)
 
     def setDefaults(self):
-        date_from = datetime(2015, 5, 30, 0, 4)
-        date_to = date_from + timedelta(minutes=1)
+        
+        date_exam = Clock.getInstance().getCurrentTime() + timedelta(minutes=6)
+        self.addEvent(Event('Trimestral de Biología',date_exam))
 
-        self.addEvent(Event('Prueba de Historia', date_from))
-        self.addEvent(Event('Envío de alimentos', date_from, date_to))
-        self.addEvent(Event('Envío de Geografía', date_to))
+        date_excu = Clock.getInstance().getCurrentTime() + timedelta(minutes=4)
+        self.addEvent(Event('Excursión al comedor del Tren Blanco',date_excu))
         
         
 class CampaignManager(Manager):
@@ -111,18 +111,78 @@ class CampaignManager(Manager):
         self.instances.append(campaign)
         
     def setDefaults(self):
-        event = EventManager.getInstance().get_all()[0]
+        #Prueba de Biología
+        bio_event = EventManager.getInstance().get_all()[0]
         teacher = TeacherManager.getInstance().get_all()[0]
-        
-        campaign = Campaign('Mejorar a los flojos en Historia', teacher, event)
 
-        contacts = [Agenda.getInstance().get_all()[0]]
-        body = 'Se tiene que mandar en seguida'
+        campaign = Campaign('Mejorar a los flojos en Biología',teacher, bio_event)
+
+        contacts = [Agenda.getInstance().get_all()[0]][6:9]
+
+        body = 'En tres semanas estará la trimestral de Biología. Empezar repasando los animales mamíferos. ¡Vamos que hay tiempo!'
         message = Message(body, teacher, contacts)
-        dateToSend = datetime(2015, 5, 30, 0, 1)
-        campaign.outbox.add_message(message, dateToSend)
-        
+        dateToSend = Clock.getInstance().getCurrentTime() + timedelta(minutes=2)
+
+        body2 = 'En dos semanas estará la trimestral de Biología. Continuar repasando los animales ovíparos. ¡Último tema por aprender!'
+        message2 = Message(body2, teacher, contacts)
+        dateToSend2 = Clock.getInstance().getCurrentTime() + timedelta(minutes=3)
+
+        body3 = 'El próximo martes es la trimestral de Biología. Repasar la unidad uno y dos del libro. ¡Recta final!'
+        message3 = Message(body3,teacher,contacts)
+        dateToSend3 = Clock.getInstance().getCurrentTime() + timedelta(minutes=4)
+
+        campaign.schedule_message(message, dateToSend)
+        campaign.schedule_message(message2, dateToSend2)
+        campaign.schedule_message(message3, dateToSend3)
+
         self.addCampaign(campaign)
+
+        campaign2 = Campaign('Avisar de la primera trimestral de Biología',teacher,bio_event)
+
+        contacts2 = [Agenda.getInstance().get_all()[0]][:5]
+
+        body4 = 'En tres semanas estará la trimestral de Biología.'
+        message4 = Message(body4, teacher, contacts2)
+
+        body5 = 'En dos semanas estará la trimestral de Biología.'
+        message5 = Message(body5, teacher, contacts2)
+
+        body6 = 'El próximo martes es la trimestral de Biología.'
+        message6 = Message(body6,teacher,contacts2)
+
+        campaign2.schedule_message(message4, dateToSend)
+        campaign2.schedule_message(message5,dateToSend2)
+        campaign2.schedule_message(message6,dateToSend3)
+
+        self.addCampaign(campaign2)
+
+        #Excursión Tren Blanco
+        excu_event = EventManager.getInstance().get_all()[1]
+        teacher2 = TeacherManager.getInstance().get_all()[1]
+
+        campaign3 = Campaign('Recordar autorización para la excursión',teacher2,excu_event)
+
+        contacts3 = [Agenda.getInstance().get_all()[0]]
+
+        body7 = 'No olvidar de traer la autorización firmada por el padre/tutor para la visita al comedor.'
+        message7 = Message(body7, teacher2, contacts3)
+
+        body8 = '¿Aún no trajiste la autorización? No te olvides de traerla mañana, sino te quedarás sin ir y te perderás de esta experiencia enriquecedora.'
+        message8 = Message(body8, teacher2, contacts3)
+
+        campaign3.schedule_message(message7, dateToSend)
+        campaign3.schedule_message(message8,dateToSend2)
+
+        self.addCampaign(campaign3)
+
+        campaign4 = Campaign('Recordar traer alimento no perecedero para la excursión',teacher2,excu_event)
+
+        body11 = 'No te olvides que mañana nos vamos de excursión al comedor del Tren Blanco. Vamos a darles una mano llevando cada uno un alimento no perecedero. Si tenes ropa o juguetes en buen estado que quieras regalarlos, podes traerlos.'
+        message11 = Message(body11, teacher2, contacts3)
+
+        campaign4.schedule_message(message11,dateToSend2)
+
+        self.addCampaign(campaign4)
         
         
 class TeacherManager(Manager):
@@ -140,3 +200,5 @@ class TeacherManager(Manager):
     def setDefaults(self):
         self.addTeacher(Teacher(full_name='Marcos Juarez'))
         self.addTeacher(Teacher(full_name='Pedro Troglio'))
+        self.addTeacher(Teacher(full_name='Miriam Civitillo'))
+        self.addTeacher(Teacher(full_name='Estela Pavone'))

@@ -26,7 +26,7 @@ class CampaignStringifier(Stringifier):
         event = self.instance.event
         creator = self.instance.creator
         creator_str = ManagerStringifier(creator).to_string()
-        ended_str = '(ENDED)' if self.instance.ended else ''
+        ended_str = '(ENDED)' if self.instance.ended() else ''
         return '"%s" by "%s %s"' % (name, creator_str, ended_str)
 
 
@@ -35,7 +35,8 @@ class EventStringifier(Stringifier):
         name = self.instance.name
         date_from = str(self.instance.dateFrom)
         date_to = ' - ' + str(self.instance.dateTo) if self.instance.dateTo else ''
-        return name + '(' + date_from + date_to + ')'
+        ended_str = '(ENDED)' if self.instance.ended() else ''
+        return name + '(' + date_from + date_to + ')' + ended_str
 
 
 class ManagerStringifier(Stringifier):
