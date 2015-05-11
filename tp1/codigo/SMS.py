@@ -3,7 +3,7 @@ from managers import *
 from models import *
 from managers import *
 
-class OutBox():
+class Scheduler():
     
     def __init__(self, campaign):
         self.schedule = {}
@@ -17,7 +17,7 @@ class OutBox():
         return date.strftime("%H:%M:%S %d/%m/%Y")
     
     def add_message(self, message, dateToSend):
-        strf_date_msg = OutBox.strf_date(dateToSend)
+        strf_date_msg = Scheduler.strf_date(dateToSend)
         if strf_date_msg in self.schedule.keys():
             self.schedule[strf_date_msg].append(message)
         else: 
@@ -30,9 +30,9 @@ class OutBox():
     def update(self, currentDate):
         strf_current_date = self.strf_date(currentDate)
         if strf_current_date in self.schedule.keys():
-            Sender.sendAll(self.schedule[strf_current_date], self.campaign)
+            Sender.sendAll(self.schedule[strf_current_date], self.campaign.getMessageLog())
             del self.schedule[strf_current_date]
-        
+
         
 class Sender(object):
     
@@ -40,18 +40,18 @@ class Sender(object):
         pass
     
     @staticmethod
-    def sendAll(msgList, campaign):
+    def sendAll(msgList, message_log):
         for msg in msgList:
-            campaign.sent_messages.addMessage(msg)
-    
-    
-class SentMessages():
-    
+            message_log.addMessage(msg)
+
+
+class MessageLog():
+
     def __init__(self):
         self.sent = []
-    
+
     def addMessage(self, message):
         self.sent.append(message)
-        
+
     def get_all(self):
         return self.sent

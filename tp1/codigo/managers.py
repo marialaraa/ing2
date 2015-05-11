@@ -199,7 +199,7 @@ class AdminManager(Manager):
         self.instances.append(admin)
         
     def setDefaults(self):
-        self.addAdmin(Admin(full_name='Marcos Juarez'))
-        self.addAdmin(Admin(full_name='Pedro Troglio'))
-        self.addAdmin(Admin(full_name='Miriam Civitillo'))
-        self.addAdmin(Admin(full_name='Estela Pavone'))
+        self.addAdmin(Admin('Marcos Juarez'))
+        self.addAdmin(Admin('Pedro Troglio'))
+        self.addAdmin(Admin('Miriam Civitillo'))
+        self.addAdmin(Admin('Estela Pavone'))

@@ -5,7 +5,7 @@ def setDefaults(self):
         self.addEvent(Event('Prueba de Biología',date_exam))
         
         date_excu = date_from.replace(day=date_from.dat + 4)
-        self.addEvent(Event('Excursión al comedor del Tren Blanco',date_to))
+        self.addEvent(Event('Excursión al comedor del Tren Blanco',date_excu))
         
         
 TeacherManager

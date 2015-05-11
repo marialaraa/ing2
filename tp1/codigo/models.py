@@ -36,14 +36,14 @@ class Campaign(object):
         self.name = name
         self.event = event
         self.creator = creator
-        self.sent_messages = SentMessages()
-        self.outbox = OutBox(self)
-        Clock.getInstance().attach(self.outbox)
+        self.message_log = MessageLog()
+        self.scheduler = Scheduler(self)
+        Clock.getInstance().attach(self.scheduler)
         self.results = []
         self.event.add_campaign(self)
 
     def schedule_message(self, message, aDatetime):
-        self.outbox.add_message(message, aDatetime)
+        self.scheduler.add_message(message, aDatetime)
 
     def ended(self):
         return self.event.ended()
@@ -56,6 +56,9 @@ class Campaign(object):
 
     def get_results(self):
         return [result for result in self.results]
+
+    def getMessageLog(self):
+        return self.message_log
 
 
 class Result(object):

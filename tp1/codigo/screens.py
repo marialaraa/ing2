@@ -262,7 +262,7 @@ class ListSentMessagesScreen(ListScreen):
         super(ListSentMessagesScreen, self).__init__()
         back_to_campaign_option = ScreenOption("Back to campaign", ShowCampaignScreen, campaign)
         self.options.append(back_to_campaign_option)
-        self.modelManager = campaign.sent_messages
+        self.modelManager = campaign.message_log
     
 class ListMessagesToSendScreen(ListScreen):
     
@@ -274,7 +274,7 @@ class ListMessagesToSendScreen(ListScreen):
         super(ListMessagesToSendScreen, self).__init__()
         back_to_campaign_option = ScreenOption("Back to campaign", ShowCampaignScreen, campaign)
         self.options.append(back_to_campaign_option)
-        self.modelManager = campaign.outbox
+        self.modelManager = campaign.scheduler
 
 
 class ListResultsScreen(ListScreen):
@@ -312,10 +312,10 @@ class ShowCampaignScreen(Screen):
     def __init__(self, campaign):
         self.campaign = campaign
         super(ShowCampaignScreen, self).__init__()
-        list_outbox_messages_option = ScreenOption("List outbox messages", ListMessagesToSendScreen,campaign)
-        self.options.append(list_outbox_messages_option)
-        list_sent_messages_option = ScreenOption("List sent messages", ListSentMessagesScreen,campaign)
-        self.options.append(list_sent_messages_option)
+        list_scheduler_messages_option = ScreenOption("List scheduler messages", ListMessagesToSendScreen,campaign)
+        self.options.append(list_scheduler_messages_option)
+        list_message_log_option = ScreenOption("List sent messages", ListSentMessagesScreen,campaign)
+        self.options.append(list_message_log_option)
         if campaign.ended():
             list_results_option = ScreenOption("List results", ListResultsScreen,campaign)
             self.options.append(list_results_option)
