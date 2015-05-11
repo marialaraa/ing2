@@ -392,6 +392,11 @@ ID & User Story & Tareas & Horas & Criterio de aceptación \\ \hline \hline
 \newpage
 
 \section{Documentación}
+El proyecto se basa en la metodología Scrum, como ya se viene observando previamente. Esta permite, al finalizar el tiempo de entrega de un proyecto, observar el tiempo y cumplimiento de las tareas propuestas en la sección anterior. En este caso el Product Owner requirió de únicamente algunas de las tareas a cumplirse. Se muestra, entonces, el gráfico Burndown que es definido automáticamente por la herramienta de Scrumdesk.
+
+\centerline{\includegraphics[width=1\textwidth]{./sprint1_burndown.png}}
+
+Debido a que se utilizó una herramienta beta para administrar el proyecto, no se nos permitió ingresar una fecha de finalización del proyecto, siendo esta la designada por la misma. 
 
 
 
@@ -410,8 +415,22 @@ Por otro lado, con referencia al seguimiento del proyecto con Scrum hubo errores
 \newpage
 
 \section{Diseño}
+En primer lugar se presenta el diagrama de clases correspondiente a lo que luego se implementó para la primera demostración requerida por el Product Owner. Se decidió utilizar el lenguaje Python, debido a la experiencia por parte de los integrantes del proyecto, que permitiría avanzar de manera más rápida en la implementación del sistema. 
 
-%Diseño OO y justificación. Se deben entregar todos los diagramas que crean necesarios para explicar correctamente el funcionamiento de su diseño. Esto incluye diagramas de objetos, clases y colaboración (junto a sus escenarios). Todas las decisiones deben estar correctamente justificadas, así como las alternativas planteadas y finalmente descartadas. Para la resolución de esta parte del TP se busca fuertemente que utilicen los conceptos vistos durante el curso y se corregirá en consecuencia.
+\centerline{\includegraphics[width=1.2\textwidth]{./diagramas/DiagramaDeClases.png}}
+
+Se puede observar que el objeto Admin representará a los docentes y al personal de Secretaría o Dirección. Se decide no diferenciarlos para esta etapa del proyecto, ya que no es requerida la implementación de restricciones entre usuarios. Por el otro lado, se define que al los alumnos y los padres se los definirá a partir de Contact. Esta última clase se encarga de almacenar la información necesaria de un individuo. Será el objeto Agenda quien se encargue de agrupar a los mismos. De esta manera, en un futuro se podrá implementar de manera más sencilla la separación entre un alumno y un padre. 
+
+El Clock está implementado a partir del patrón Observer. El mismo es utilizado para poder representar e implementar el paso del tiempo en el sistema. La bandeja de salida, denominada Scheduler, requiere del aviso del Clock para enviar ciertos mensajes. Los mensajes se encontrarán ordenados a partir de la fecha en la que el Admin determina que deben ser enviados. El objeto Observer, en este caso el Clock, se encargará de dar aviso del paso del tiempo para que los mensajes que fueron definidos con un tiempo menor, sean enviados.
+
+Para poder definir de manera más clara ciertas situaciones desarrolladas en el esquema del diagrama de clases, se presenta a continuación diagramas de objetos. 
+
+%\centerline{\includegraphics[width=0.8\textwidth]{./diagramas/}} 
+
+%Describir brevemente el evento. 
+
+
+Hablar sobre encapsulamiento y responsabilidades. "Existieron, a lo largo de la creación del diseño del sistema, situaciones en los que se definía un método para una clase y al implementarlo se notaba la asignación de responsabilidades a un objeto que no le correspondía. Este escenario se repitió reiteradas situaciones, corrigiéndose en el momento y adquiriéndose experiencia con respecto al comportamiento de los distintos objetos." %chamuyo mal, ni idea que poner..!!
 
 
 
