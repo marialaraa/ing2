@@ -107,6 +107,9 @@ Los casos se pueden agrupar....
 \begin{itemize}
 \item Casos de uso Visualizaci\'on.
 \item Casos de uso Administraci\'on de mensajes ()
+\item Casos de uso Campa\~nas.
+\item Casos de uso Resultados.
+\item Casos de uso Destinatarios.
 \end{itemize}
 Qué factores tuvieron en cuenta para decidir la cantidad de iteraciones?
 Cuánto dura cada iteración?
@@ -179,8 +182,54 @@ Los mismos se pueden dividir en dos tipos de riesgo principales. El de índole d
 
 \subsection{Detalle de la primera iteraci\'on}
 
-\subsection{Lista de tareas relacionadas con casos de uso de primera iteraci\'on}
 
+\subsection{Lista de tareas relacionadas con casos de uso de primera iteraci\'on}
+\subsubsection{Enviando mensajes}
+\begin{itemize}
+\item Configurar ambiente desarrollo
+\item Investigar API facebook, twitter, sms
+\item Investigar Seguridad
+\item Implementar 
+\item Dise\~no protocolo comunicaci\'on API 
+\item Dise\~no protocolo comunicaci\'on Sistema  (como lee los mensajes con destinatarios a enviar)
+\item Implementar protocolo comunicaci\'on API
+\item Implementar protocolo comunicaci\'on sistema
+\item Implementar caso de uso
+\end{itemize}
+
+\subsubsection{Creando Campa\~na}
+\begin{itemize}
+\item Configurar ambiente desarrollo
+\item Modelo Entidad Relaci\'on
+\item Diagrama Entidad Relaci\'on
+\item Configurar la base de datos (para campa\~na)
+\item Dise\~no campa\~na
+\begin{itemize}
+\item Dise\~no Mensaje
+\item Dise\~no suscripci\'on
+\item Dise\~no capa seguridad
+\end{itemize}
+\item Implementaci\'on Caso de uso
+\begin{itemize}
+\item Dise\~no Mensaje
+\item Dise\~no suscripci\'on
+\item Dise\~no capa seguridad
+\end{itemize}
+\item testing
+\end{itemize}
+
+\subsubsection{Creando Destinatario}
+\begin{itemize}
+\item Investigar Formas de almacenamiento (Big Data)
+\item Investigar formas de seguridad de acceso a los datos
+\item Dise\~no caso de uso
+\item Implementaci\'on caso de uso
+\begin{itemize}
+\item Integraci\'n con almacenamiento
+\item Implementaci\'on comunicaci\'on con almacenamiento
+\end{itemize}
+\item Testing
+\end{itemize}
 \subsection{Estimaci\'on de tiempo en horas hombre}
 
 %grafo dependencia de tareas.

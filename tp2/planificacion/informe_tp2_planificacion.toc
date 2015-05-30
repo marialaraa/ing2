@@ -5,8 +5,11 @@
 \contentsline {subsection}{\numberline {3.1}Riesgo 1}{5}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Riesgo 1}{5}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Riesgo 1}{5}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Riesgo 1}{5}{subsection.3.4}
-\contentsline {section}{\numberline {4}Cronograma}{6}{section.4}
-\contentsline {subsection}{\numberline {4.1}Detalle de la primera iteraci\'on}{6}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Lista de tareas relacionadas con casos de uso de primera iteraci\'on}{6}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Estimaci\'on de tiempo en horas hombre}{6}{subsection.4.3}
+\contentsline {subsection}{\numberline {3.4}Riesgo 1}{6}{subsection.3.4}
+\contentsline {section}{\numberline {4}Cronograma}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Detalle de la primera iteraci\'on}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Lista de tareas relacionadas con casos de uso de primera iteraci\'on}{7}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Enviando mensajes}{7}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Creando Campa\~na}{7}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}Creando Destinatario}{8}{subsubsection.4.2.3}
+\contentsline {subsection}{\numberline {4.3}Estimaci\'on de tiempo en horas hombre}{8}{subsection.4.3}
