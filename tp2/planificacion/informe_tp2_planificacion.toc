@@ -1,0 +1,12 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{3}{section.1}
+\contentsline {section}{\numberline {2}Enumeraci\'on casos de uso}{4}{section.2}
+\contentsline {section}{\numberline {3}Riesgos}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Riesgo 1}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Riesgo 1}{5}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Riesgo 1}{5}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Riesgo 1}{5}{subsection.3.4}
+\contentsline {section}{\numberline {4}Cronograma}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}Detalle de la primera iteraci\'on}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Lista de tareas relacionadas con casos de uso de primera iteraci\'on}{6}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Estimaci\'on de tiempo en horas hombre}{6}{subsection.4.3}

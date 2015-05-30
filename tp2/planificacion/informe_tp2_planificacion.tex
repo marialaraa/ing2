@@ -1,0 +1,188 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{caratula}
+\usepackage[spanish, activeacute]{babel}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[width=15.5cm, left=3cm, top=2.5cm, height= 24.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage[all]{xy}
+\usepackage{multicol}
+\usepackage{subfig}
+
+\usepackage{cancel}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{color,hyperref}
+
+\usepackage{multirow} % para las tablas
+
+
+%%%%%%%%%%%%%% ALGUNAS MACROS %%%%%%%%%%%%%%
+% For \url{SOME_URL}, links SOME_URL to the url SOME_URL
+\providecommand*\url[1]{\href{#1}{#1}}
+
+% Same as above, but pretty-prints SOME_URL in teletype fixed-width font
+\renewcommand*\url[1]{\href{#1}{\texttt{#1}}}
+
+% Comando para poner el simbolo de Reales
+\newcommand{\real}{\hbox{\bf R}}
+
+\providecommand*\code[1]{\texttt{#1}}
+
+%uso: \ponerGrafico{file}{caption}{scale}{label}
+\newcommand{\ponerGrafico}[4]
+{\begin{figure}[H]
+	\centering
+	\subfloat{\includegraphics[scale=#3]{#1}}
+	\caption{#2} \label{fig:#4}
+\end{figure}
+}
+
+%\renewcommand{\algorithmiccomment}[1]{\hfill #1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\materia{Ingeniería de Software II}
+
+\titulo{Big Tiza}
+%\fecha{fecha de entrega}
+%\grupo{Nro grupo}
+\integrante{Agustina Ciraco}{630/06}{agusciraco@gmail.com}
+\integrante{Alejandro Rebecchi}{15/10}{alejandrorebecchi@gmail.com}
+\integrante{Maria Lara Gauder}{27/10}{marialaraa@gmail.com}
+\integrante{Martin Heredia}{146/11}{martin.herediaf@gmail.com}
+
+\include{templates}
+
+\begin{document}
+\pagestyle{myheadings}
+\maketitle
+%\markboth{Nombre materia}{Nombre TP}
+
+\thispagestyle{empty}
+\tableofcontents
+
+%\setcounter{section}{-1}
+\newpage
+
+\section{Introducción}
+
+
+\newpage
+\section{Enumeraci\'on casos de uso}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ | p{10cm} | p{1cm} |}
+\hline
+Caso de Uso & Horas H.\\ \hline \hline
+Creando Destinatario \\ \hline \hline
+Cancelando Suscripci\'on& 13 \\ \hline
+Suscribiendo a una campaña& 13 \\ \hline
+%~ Importando suscripciones& 13 \\ \hline
+Modificando datos de suscripci\'on (Persona)& 13 \\ \hline
+Enviando Mensajes de campaña& 13 \\ \hline
+Recibiendo respuesta de campaña& 13 \\ \hline
+Programando envio de mensajes de campaña& 13 \\ \hline
+Creando Campaña& 13 \\ \hline
+Creando Evento& 13 \\ \hline
+Cargando Resultado de Campaña& 13 \\ \hline
+Eligiendo métrica& 13 \\ \hline
+Comparando Campañas& 13 \\ \hline
+Evaluando Campañas& 13 \\ \hline
+Visualizando Campaña& 13 \\ \hline
+Visualizando Evento& 13 \\ \hline
+Visualizando Resultados & 13 \\ \hline
+Visualizando Datos (Persona) & 13 \\ \hline
+Ingresando al sistema & 13 \\ \hline
+
+\end{tabular}
+\end{table}
+Los casos se pueden agrupar....
+\begin{itemize}
+\item Casos de uso Visualizaci\'on.
+\item Casos de uso Administraci\'on de mensajes ()
+\end{itemize}
+Qué factores tuvieron en cuenta para decidir la cantidad de iteraciones?
+Cuánto dura cada iteración?
+Cómo decidieron qué va en cada iteración?
+Cómo influyeron los riesgos?
+
+\section{Riesgos}
+
+Los casos de uso con riesgo son:
+\begin{itemize}
+\item Modificando Datos teléfono
+\item Enviando Mensajes de campaña
+\item Recibiendo respuesta de campaña
+\item Programando envio de mensajes de campaña
+\item Creando Campaña
+\item Creando Evento
+\item Cargando Resultado de Campaña
+\end{itemize}
+Los mismos se pueden dividir en dos tipos de riesgo principales. El de índole de problemas de conectividad (mensajes) y los de la índole persistencia (Bases de datos)
+
+\subsection{Riesgo 1}
+\begin{itemize}
+
+\item \textbf{Descripci\'on:} Dado que la Red telefónica (para SMS) es propensa a fallas en el envio de mensajes, es posible enviar mesajes por otro medio (facebook twitter)
+\item \textbf{Probabilidad:} Alta (Patagonia)
+\item \textbf{Impacto:} Alto
+\item \textbf{Exposici\'on:} Alta
+\item \textbf{Mitigaci\'on:} Generar pruebas de cortes temporario para disparar el reenvio.
+\item \textbf{Plan de Contingencia:} Enviar drones para generar conectividad. Reenvio de mensajes
+\end{itemize}
+
+
+\subsection{Riesgo 1}
+\begin{itemize}
+
+\item \textbf{Descripci\'on:} Dado que la Red telefónica (para SMS) es propensa a fallas es posible enviar mesajes por otro medio (facebook twitter)
+\item \textbf{Probabilidad:}
+\item \textbf{Impacto:}
+\item \textbf{Exposici\'on:}
+\item \textbf{Mitigaci\'on:}
+\item \textbf{Plan de Contingencia:}
+\end{itemize}
+
+\subsection{Riesgo 1}
+\begin{itemize}
+
+\item \textbf{Descripci\'on:} Dado que la Red telefónica (para SMS) es propensa a fallas es posible enviar mesajes por otro medio (facebook twitter)
+\item \textbf{Probabilidad:}
+\item \textbf{Impacto:}
+\item \textbf{Exposici\'on:}
+\item \textbf{Mitigaci\'on:}
+\item \textbf{Plan de Contingencia:}
+\end{itemize}
+
+\subsection{Riesgo 1}
+\begin{itemize}
+
+\item \textbf{Descripci\'on:} Dado que la conección a la base puede fallar generando que las transacciones aborten, por lo que es propenso a fallas.
+\item \textbf{Probabilidad:} Media
+\item \textbf{Impacto:} Medio
+\item \textbf{Exposici\'on:} Medio
+\item \textbf{Mitigaci\'on:} Generar archivo local con transacciones a realizar.
+\item \textbf{Plan de Contingencia:} 
+\end{itemize}
+
+\newpage
+
+\section{Cronograma}
+
+
+\subsection{Detalle de la primera iteraci\'on}
+
+\subsection{Lista de tareas relacionadas con casos de uso de primera iteraci\'on}
+
+\subsection{Estimaci\'on de tiempo en horas hombre}
+
+%grafo dependencia de tareas.
+%Gant
+\end{document}
