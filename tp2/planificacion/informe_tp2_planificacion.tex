@@ -98,21 +98,21 @@ Clasificación & Caso de Uso & Horas H.\\ \hline \hline
 Usuarios & Ingresando al sistema & 13 \\ \hline
 %~ & Importando suscripciones& 13 \\ \hline
 Eventos & Creando Evento & 16 \\ \hline
-\multirow{2}{5cm}{Campañas} & Creando Campaña & 29 \\ \cline{2-3} 
+\multirow{2}{5cm}{Campañas} & Creando Campaña & 29 \\ \cline{2-3}
 & Evaluando Campañas & 18 \\ \hline
-\multirow{3}{5cm}{Administración de mensajes} & Enviando Mensajes de campaña & 32 \\ \cline{2-3} 
-& Recibiendo respuesta de campaña & 25 \\ \cline{2-3} 
-& Programando envio de mensajes de campaña & 16 \\ \hline
-\multirow{4}{5cm}{Destinatarios} & Creando Destinatario & 14 \\  \cline{2-3} 
-& Modificando datos de suscripci\'on (Persona) & 11 \\ \cline{2-3} 
-& Cancelando Suscripci\'on & 10 \\ \cline{2-3} 
-& Suscribiendo a una campaña (Persona) & 10 \\ \hline 
-\multirow{3}{5cm}{Resultados} & Cargando Resultado de Campaña & 11 \\ \cline{2-3} 
-& Comparando Campañas & 14 \\ \cline{2-3} 
+\multirow{3}{5cm}{Administración de mensajes} & Enviando Mensajes & 32 \\ \cline{2-3}
+& Recibiendo respuesta & 25 \\ \cline{2-3}
+& Programando envio de mensajes & 16 \\ \hline
+\multirow{4}{5cm}{Destinatarios} & Creando Destinatario & 14 \\  \cline{2-3}
+& Modificando datos de suscripci\'on (Persona) & 11 \\ \cline{2-3}
+& Cancelando Suscripci\'on & 10 \\ \cline{2-3}
+& Suscribiendo a una campaña (Persona) & 10 \\ \hline
+\multirow{3}{5cm}{Resultados} & Cargando Resultado de Campaña & 11 \\ \cline{2-3}
+& Comparando Campañas & 14 \\ \cline{2-3}
 & Eligiendo métrica & 5 \\ \hline
-\multirow{4}{5cm}{Visualización} & Visualizando Campaña & 16 \\ \cline{2-3} 
-& Visualizando Evento & 16 \\ \cline{2-3} 
-& Visualizando Resultados & 16 \\ \cline{2-3} 
+\multirow{4}{5cm}{Visualización} & Visualizando Campaña & 16 \\ \cline{2-3}
+& Visualizando Evento & 16 \\ \cline{2-3}
+& Visualizando Resultados & 16 \\ \cline{2-3}
 & Visualizando Destinatario & 6 \\ \hline
 
 \end{tabular}
@@ -143,7 +143,7 @@ Cómo influyeron los riesgos?}
 
 Cada iteración presenta una duración de tres semanas. Esto decición fue tomada a partir de las fechas de comienzo (1/6) y primera entrega del proyecto (22/6) donde se deberá presentar la primera iteración del plan finalizada cumpliendo ciertos requisitos pedidos por los stakeholders. A su vez, se contemplaron lsa horas que pueden requerirse para el cumplimiento de cada caso de uso, definiendose así que con tres semanas se podrán cumplir todas las tareas definidas para cada iteración.
 
-Para decidir que casos de usos se definirían en cada iteración, en primer lugar se armó una lista definiendo a los mismos por prioridad. En primer lugar se contempla el de ''Enviando Mensajes de Campaña'', ya que representa la base del sistema a implementar y a su vez, contiene la mayor cantidad de escenarios de riesgos con impacto mayor en el correcto funcionamiento en la implementeación. También, se pide como primer atributo de calidad el de Disponibilidad, es decir, que ante una falla del sistema, se deberá solucionar rápidamente el mismo para que el suscripto pueda recibir igualmente el aviso sin demoras. 
+Para decidir que casos de usos se definirían en cada iteración, en primer lugar se armó una lista definiendo a los mismos por prioridad. En primer lugar se contempla el de ''Enviando Mensajes'', ya que representa la base del sistema a implementar y a su vez, contiene la mayor cantidad de escenarios de riesgos con impacto mayor en el correcto funcionamiento en la implementeación. También, se pide como primer atributo de calidad el de Disponibilidad, es decir, que ante una falla del sistema, se deberá solucionar rápidamente el mismo para que el suscripto pueda recibir igualmente el aviso sin demoras. 
 Por otro lado, se pide para el mes de julio poder demostrar el nivel de seguridad del sistema con respecto a los distintos objetos. Por lo que se decide desarrollar el caso de uso ''Creando Campaña'', ya que el mismo involucra varios requerimientos de seguridad. Lo mismo ocurre con el caso de uso ''Creando Destinatario''.
 Luego, se continuó definiendo la lista para las demás iteraciones, basándonos fuertemente en las prioridades definidas en lo atributos de calidad. Finalmente, se dividieron en iteraciones de acuerdo al tiempo que puede tomar cada implementación, respetando las tres semanas por cada una. 
 
@@ -152,7 +152,7 @@ Luego, se continuó definiendo la lista para las demás iteraciones, basándonos
 \subsection{Iteraciones}
 \subsubsection{Primera Iteraci\'on:}
 \begin{itemize}
-\item Enviando Mensajes de Campaña
+\item Enviando Mensajes
 \item Creando Campaña
 \item Creando Destinatario
 \end{itemize}
@@ -160,7 +160,7 @@ Luego, se continuó definiendo la lista para las demás iteraciones, basándonos
 \subsubsection{Segunda Iteraci\'on:}
 \begin{itemize}
 \item Cargando Resultado de Campaña
-\item Programando envío de Mensajes de Campaña
+\item Programando envío de Mensajes
 \item Suscribiendo a una Campaña
 \end{itemize}
 
@@ -177,7 +177,7 @@ Luego, se continuó definiendo la lista para las demás iteraciones, basándonos
 \begin{itemize}
 \item Creando Evento
 \item Visualizando Evento
-\item Recibiendo respuesta de Campaña
+\item Recibiendo respuesta de mensajes
 \end{itemize}
 
 
@@ -199,7 +199,7 @@ Luego, se continuó definiendo la lista para las demás iteraciones, basándonos
 \subsection{Detalle Primera Iteración}
 A continuación se realiza una descripción a alto nivel de los casos de uso a desarrollar durante la primera iteración del proyecto. 
 \begin{itemize}
-\item \textbf{Enviando mensajes de campaña}: Se refiere a la acción de enviar los mensajes que son definidos en la campaña. Los mismos podrán ser enviados como SMS o utilizando alguna de las redes sociales (Facebook, Twitter, etc.). Se deberá garantizar que los mismos llegarán al destinatario de forma correcta, aplicándose otra tecnología en caso de existir una falla en el sistema. En este caso de uso se contempla únicamente el envío de mesajes, pero al comunicación es bilateral. 
+\item \textbf{Enviando mensajes}: Se refiere a la acción de enviar los mensajes que son definidos en la campaña. Los mismos podrán ser enviados como SMS o utilizando alguna de las redes sociales (Facebook, Twitter, etc.). Se deberá garantizar que los mismos llegarán al destinatario de forma correcta, aplicándose otra tecnología en caso de existir una falla en el sistema. En este caso de uso se contempla únicamente el envío de mesajes, pero al comunicación es bilateral. 
 \item \textbf{Creando campaña}: Se refiere al proceso de comienzo de una campaña, donde un usuario le define el título, las fechas, los suscriptores y los mensajes que se enviarán. Luego, se podrá modificar la misma, pero teniendo en cuenta quien tiene permisos y quien no. La seguridad del sistema es fundamental en este caso de uso. Los datos deben ser almacenados de forma correcta y contemplando posibles modificaciones. 
 \item \textbf{Creando destinatario}: Se refiere al almacenamiento en el sistema de todas las peronas que sean cargadas. Se debe tener en cuenta que se estarán manipulando grandes volúmenes de datos. A su vez, es importante que a los mismos solo puedan acceder aquellos usuarios habilitados previamente. Esta información será utilizado luego en la creación de las campañas, ya que pasarán a ser suscriptores. Los destinatarios deberán estar compuestos por un Nombre, Apellido y Celular. A su vez, se deberá permitir agregar otros campos diferentes para cada destinatario. 
 \end{itemize}
@@ -210,9 +210,9 @@ A continuación se realiza una descripción a alto nivel de los casos de uso a d
 Los casos de uso que presentan escenarios de riesgo son:
 \begin{itemize}
 \item Modificando Datos teléfono
-\item Enviando Mensajes de campaña
-\item Recibiendo respuesta de campaña
-\item Programando envio de mensajes de campaña
+\item Enviando Mensajes
+\item Recibiendo respuesta de mensaje
+\item Programando envio de mensajes
 \item Creando Campaña
 \item Creando Evento
 \item Cargando Resultado de Campaña
