@@ -95,7 +95,7 @@ A continuación se presentará la parte de planificación del proyecto, que cons
 \begin{tabular}{ | p{5cm} | p{8cm} | p{1.5cm} | }
 \hline
 Clasificación & Caso de Uso & Horas H.\\ \hline \hline
-Usuarios & Ingresando al sistema & 5 \\ \hline
+Usuarios & Ingresando al sistema & 13 \\ \hline
 %~ & Importando suscripciones& 13 \\ \hline
 Eventos & Creando Evento & 16 \\ \hline
 \multirow{2}{5cm}{Campañas} & Creando Campaña & 29 \\ \cline{2-3} 
@@ -136,11 +136,18 @@ Por último, en Visualización hacemos referencia a aquellos casos de usos relac
 
 \section{Cronograma}
 %JUSTIFICAR
-Qué factores tuvieron en cuenta para decidir la cantidad de iteraciones?
-Cuánto dura cada iteración?
-Cada iteración presenta una duración de tres semanas. Esto decición fue tomada a partir de las fechas de comienzo (1/6) y primera entrega del proyecto (22/6) donde se deberá presentar la primera iteración del plan finalizada. 
-Cómo decidieron qué va en cada iteración?
-Cómo influyeron los riesgos?
+\textbf{Qué factores tuvieron en cuenta para decidir la cantidad de iteraciones?\\
+Cuánto dura cada iteración? \\
+Cómo decidieron qué va en cada iteración?\\
+Cómo influyeron los riesgos?}
+
+Cada iteración presenta una duración de tres semanas. Esto decición fue tomada a partir de las fechas de comienzo (1/6) y primera entrega del proyecto (22/6) donde se deberá presentar la primera iteración del plan finalizada cumpliendo ciertos requisitos pedidos por los stakeholders. A su vez, se contemplaron lsa horas que pueden requerirse para el cumplimiento de cada caso de uso, definiendose así que con tres semanas se podrán cumplir todas las tareas definidas para cada iteración.
+
+Para decidir que casos de usos se definirían en cada iteración, en primer lugar se armó una lista definiendo a los mismos por prioridad. En primer lugar se contempla el de ''Enviando Mensajes de Campaña'', ya que representa la base del sistema a implementar y a su vez, contiene la mayor cantidad de escenarios de riesgos con impacto mayor en el correcto funcionamiento en la implementeación. También, se pide como primer atributo de calidad el de Disponibilidad, es decir, que ante una falla del sistema, se deberá solucionar rápidamente el mismo para que el suscripto pueda recibir igualmente el aviso sin demoras. 
+Por otro lado, se pide para el mes de julio poder demostrar el nivel de seguridad del sistema con respecto a los distintos objetos. Por lo que se decide desarrollar el caso de uso ''Creando Campaña'', ya que el mismo involucra varios requerimientos de seguridad. Lo mismo ocurre con el caso de uso ''Creando Destinatario''.
+Luego, se continuó definiendo la lista para las demás iteraciones, basándonos fuertemente en las prioridades definidas en lo atributos de calidad. Finalmente, se dividieron en iteraciones de acuerdo al tiempo que puede tomar cada implementación, respetando las tres semanas por cada una. 
+
+
 
 \subsection{Iteraciones}
 \subsubsection{Primera Iteraci\'on:}
@@ -266,7 +273,7 @@ Los mismos se pueden dividir en dos tipos de riesgo principales. El de índole d
 \item Tareas:
 \begin{itemize}
 \item{E01-T01} Diseño conceptual del sistema
-\item{E01-T02} Realización del WBS
+\item{E01-T02} Realizción del WBS
 \item{E01-T03} Análisis de Riesgos
 \item{E01-T04} Reafinamiento de Objetivos y Requerimientos
 \item{E01-T05} Reconocimiento de casos de uso
@@ -277,9 +284,9 @@ Los mismos se pueden dividir en dos tipos de riesgo principales. El de índole d
 \item{E01-T10} Investigacion de tecnolog\'ias
 \item{E01-T11} Elección de tecnologías
 \item{E01-T12} Realización de tareas de caso de uso CU01 - Enviando mensajes
-\item{E01-T12} Realización de tareas de caso de uso CU02 - Creando Campa\~na
-\item{E01-T12} Realización de tareas de caso de uso CU03 - Creando Destinatario
-\item{E01-T13} Test de arquitectura del sistema a partir de un test de stress
+\item{E01-T13} Realización de tareas de caso de uso CU02 - Creando Campa\~na
+\item{E01-T14} Realización de tareas de caso de uso CU03 - Creando Destinatario
+\item{E01-T15} Test de arquitectura del sistema a partir de un test de stress
 \end{itemize}
 \end{itemize}
 
@@ -311,11 +318,11 @@ Los mismos se pueden dividir en dos tipos de riesgo principales. El de índole d
 \end{itemize}
 \item{CU\#01-T06} Implementaci\'on Caso de uso
 \begin{itemize}
-\item{CU\#01-T06 - st01} Implementaci\'on Mensaje
-\item{CU\#01-T06 - st02} Implementaci\'on suscripci\'on
-\item{CU\#01-T06 - st03} Implementaci\'on capa seguridad
+\item{CU\#01-T06 - st01} Dise\~no Mensaje
+\item{CU\#01-T06 - st02} Dise\~no suscripci\'on
+\item{CU\#01-T06 - st03} Dise\~no capa seguridad
 \end{itemize}
-\item{CU\#01-T07} Testing
+\item{CU\#01-T07} testing
 \end{itemize}
 
 \subsubsection{Creando Destinatario}
@@ -330,8 +337,6 @@ Los mismos se pueden dividir en dos tipos de riesgo principales. El de índole d
 \end{itemize}
 \item{CU\#01-T05} Testing
 \end{itemize}
-
-
 \subsection{Estimaci\'on de tiempo en horas hombre}
 
 
