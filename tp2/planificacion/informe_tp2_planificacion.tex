@@ -95,7 +95,8 @@ A continuación se presentará la parte de planificación del proyecto, que cons
 \begin{tabular}{ | p{5cm} | p{8cm} | p{1.5cm} | }
 \hline
 Clasificación & Caso de Uso & Horas H.\\ \hline \hline
-Usuarios & Ingresando al sistema & 13 \\ \hline
+\multirow{2}{5cm}{Usuarios} & Ingresando al sistema & 13 \\ \cline{2-3}
+& Cargando usuario & 13 \\ \hline
 %~ & Importando suscripciones& 13 \\ \hline
 Eventos & Creando Evento & 16 \\ \hline
 \multirow{2}{5cm}{Campañas} & Creando Campaña & 29 \\ \cline{2-3}
@@ -104,9 +105,9 @@ Eventos & Creando Evento & 16 \\ \hline
 & Recibiendo respuesta & 25 \\ \cline{2-3}
 & Programando envio de mensajes & 16 \\ \hline
 \multirow{4}{5cm}{Destinatarios} & Creando Destinatario & 14 \\  \cline{2-3}
-& Modificando datos de suscripci\'on (Persona) & 11 \\ \cline{2-3}
+& Modificando datos de Destinatario & 11 \\ \cline{2-3}
 & Cancelando Suscripci\'on & 10 \\ \cline{2-3}
-& Suscribiendo a una campaña (Persona) & 10 \\ \hline
+& Suscribiendo destinatario a una campaña & 10 \\ \hline
 \multirow{3}{5cm}{Resultados} & Cargando Resultado de Campaña & 11 \\ \cline{2-3}
 & Comparando Campañas & 14 \\ \cline{2-3}
 & Eligiendo métrica & 5 \\ \hline
@@ -143,9 +144,12 @@ Cómo influyeron los riesgos?}
 
 Cada iteración presenta una duración de tres semanas. Esto decición fue tomada a partir de las fechas de comienzo (1/6) y primera entrega del proyecto (22/6) donde se deberá presentar la primera iteración del plan finalizada cumpliendo ciertos requisitos pedidos por los stakeholders. A su vez, se contemplaron lsa horas que pueden requerirse para el cumplimiento de cada caso de uso, definiendose así que con tres semanas se podrán cumplir todas las tareas definidas para cada iteración.
 
-Para decidir que casos de usos se definirían en cada iteración, en primer lugar se armó una lista definiendo a los mismos por prioridad. En primer lugar se contempla el de ''Enviando Mensajes'', ya que representa la base del sistema a implementar y a su vez, contiene la mayor cantidad de escenarios de riesgos con impacto mayor en el correcto funcionamiento en la implementeación. También, se pide como primer atributo de calidad el de Disponibilidad, es decir, que ante una falla del sistema, se deberá solucionar rápidamente el mismo para que el suscripto pueda recibir igualmente el aviso sin demoras. 
-Por otro lado, se pide para el mes de julio poder demostrar el nivel de seguridad del sistema con respecto a los distintos objetos. Por lo que se decide desarrollar el caso de uso ''Creando Campaña'', ya que el mismo involucra varios requerimientos de seguridad. Lo mismo ocurre con el caso de uso ''Creando Destinatario''.
+Para decidir que casos de usos se definirían en cada iteración, en primer lugar se armó una lista definiendo a los mismos por prioridad. En primer lugar se contempla el de ''Enviando Mensajes'', ya que representa la base del sistema a implementar y a su vez, contiene la mayor cantidad de escenarios de riesgos con impacto mayor en el correcto funcionamiento en la implementeación. También, se pide como primer atributo de calidad el de Disponibilidad, es decir, que ante una falla del sistema, se deberá solucionar rápidamente el mismo para que el suscripto pueda recibir igualmente el aviso sin demoras.\\ 
+\\
+Por otro lado, se pide para el mes de julio poder demostrar el nivel de seguridad del sistema con respecto a los distintos objetos. Por lo que se decide desarrollar el caso de uso ''Creando Campaña'', ya que el mismo involucra varios requerimientos de seguridad. Lo mismo ocurre con el caso de uso ''Creando Destinatario''. Sin embargo, hay cuestiones de seguridad que no se estar\'ian mostrando, y por cuestiones de estimaciones de tiempos se decidi\'o elaborarlas en la segunda iteraci\'on, en particular el caso de uso ''Creando Usuario'' que contempla las limitaciones de permisos de un usuario.\\
+\\
 Luego, se continuó definiendo la lista para las demás iteraciones, basándonos fuertemente en las prioridades definidas en lo atributos de calidad. Finalmente, se dividieron en iteraciones de acuerdo al tiempo que puede tomar cada implementación, respetando las tres semanas por cada una. 
+
 
 
 
@@ -161,7 +165,8 @@ Luego, se continuó definiendo la lista para las demás iteraciones, basándonos
 \begin{itemize}
 \item Cargando Resultado de Campaña
 \item Programando envío de Mensajes
-\item Suscribiendo a una Campaña
+\item Suscribiendo destinatario a una Campaña
+\item Cargando Usuario
 \end{itemize}
 
 
