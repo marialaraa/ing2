@@ -138,13 +138,14 @@ Por último, en Visualización hacemos referencia a aquellos casos de usos relac
 %JUSTIFICAR
 Qué factores tuvieron en cuenta para decidir la cantidad de iteraciones?
 Cuánto dura cada iteración?
+Cada iteración presenta una duración de tres semanas. Esto decición fue tomada a partir de las fechas de comienzo (1/6) y primera entrega del proyecto (22/6) donde se deberá presentar la primera iteración del plan finalizada. 
 Cómo decidieron qué va en cada iteración?
 Cómo influyeron los riesgos?
 
 \subsection{Iteraciones}
 \subsubsection{Primera Iteraci\'on:}
 \begin{itemize}
-\item Enviando Mensajes de campaña
+\item Enviando Mensajes de Campaña
 \item Creando Campaña
 \item Creando Destinatario
 \end{itemize}
@@ -152,8 +153,8 @@ Cómo influyeron los riesgos?
 \subsubsection{Segunda Iteraci\'on:}
 \begin{itemize}
 \item Cargando Resultado de Campaña
-\item Programando envio de mensajes de campaña
-\item Suscribiendo a una campaña
+\item Programando envío de Mensajes de Campaña
+\item Suscribiendo a una Campaña
 \end{itemize}
 
 
@@ -169,7 +170,7 @@ Cómo influyeron los riesgos?
 \begin{itemize}
 \item Creando Evento
 \item Visualizando Evento
-\item Recibiendo respuesta de campaña
+\item Recibiendo respuesta de Campaña
 \end{itemize}
 
 
@@ -183,23 +184,23 @@ Cómo influyeron los riesgos?
 
 \subsubsection{Sexta Iteraci\'on:}
 \begin{itemize}
-\item Cancelando Suscripci\'on
-\item Modificando datos de suscripci\'on (Persona)
+\item Cancelando Suscripción
+\item Modificando datos de suscripción
 \item Ingresando al sistema
 \end{itemize}
 
 \subsection{Detalle Primera Iteración}
 A continuación se realiza una descripción a alto nivel de los casos de uso a desarrollar durante la primera iteración del proyecto. 
 \begin{itemize}
-\item Enviando Mensajes de campaña: Se refiere a la acción de enviar los mensajes que son definidos en la campaña. Los mismos podrán ser enviados como SMS o utilizando alguna de las redes sociales (Facebook, Twitter, etc.).   
-\item Creando Campaña:
-\item Creando Destinatario:
+\item \textbf{Enviando mensajes de campaña}: Se refiere a la acción de enviar los mensajes que son definidos en la campaña. Los mismos podrán ser enviados como SMS o utilizando alguna de las redes sociales (Facebook, Twitter, etc.). Se deberá garantizar que los mismos llegarán al destinatario de forma correcta, aplicándose otra tecnología en caso de existir una falla en el sistema. En este caso de uso se contempla únicamente el envío de mesajes, pero al comunicación es bilateral. 
+\item \textbf{Creando campaña}: Se refiere al proceso de comienzo de una campaña, donde un usuario le define el título, las fechas, los suscriptores y los mensajes que se enviarán. Luego, se podrá modificar la misma, pero teniendo en cuenta quien tiene permisos y quien no. La seguridad del sistema es fundamental en este caso de uso. Los datos deben ser almacenados de forma correcta y contemplando posibles modificaciones. 
+\item \textbf{Creando destinatario}: Se refiere al almacenamiento en el sistema de todas las peronas que sean cargadas. Se debe tener en cuenta que se estarán manipulando grandes volúmenes de datos. A su vez, es importante que a los mismos solo puedan acceder aquellos usuarios habilitados previamente. Esta información será utilizado luego en la creación de las campañas, ya que pasarán a ser suscriptores. Los destinatarios deberán estar compuestos por un Nombre, Apellido y Celular. A su vez, se deberá permitir agregar otros campos diferentes para cada destinatario. 
 \end{itemize}
 
-
+\newpage
 \section{Riesgos}
 
-Los casos de uso con riesgo son:
+Los casos de uso que presentan escenarios de riesgo son:
 \begin{itemize}
 \item Modificando Datos teléfono
 \item Enviando Mensajes de campaña
@@ -209,7 +210,7 @@ Los casos de uso con riesgo son:
 \item Creando Evento
 \item Cargando Resultado de Campaña
 \end{itemize}
-Los mismos se pueden dividir en dos tipos de riesgo principales. El de índole de problemas de conectividad (mensajes) y los de la índole persistencia (Bases de datos)
+Los mismos se pueden dividir en dos tipos de riesgo principales. El de índole de problemas de conectividad (mensajes) y los de la índole persistencia (bases de datos).
 
 \subsection{Riesgo Sistema de envio de mensajes SMS}
 \begin{itemize}
@@ -222,23 +223,23 @@ Los mismos se pueden dividir en dos tipos de riesgo principales. El de índole d
 \end{itemize}
 
 
-\subsection{Riesgo Sistema de envio mensajes Web}
+\subsection{Riesgo Sistema de envío mensajes Web}
 \begin{itemize}
-\item \textbf{Descripci\'on:} Dado que la Red (internet) es propensa a fallas es posible enviar mesajes por otro medio (Correo Argentino) 
+\item \textbf{Descripci\'on:} Dado que la Red de Internet es propensa a fallas es posible enviar mesajes por otro medio (ej: Correo Argentino) 
 \item \textbf{Probabilidad:} Media 
 \item \textbf{Impacto:} Alto
 \item \textbf{Exposici\'on:} Alta
 \item \textbf{Mitigaci\'on:} Hacer pruebas de env\'io por correo para estimar tiempos de respuesta. 
-\item \textbf{Plan de Contingencia:} Contactar a Correo Argentino para envio de mensajes de la campa\~na.
+\item \textbf{Plan de Contingencia:} Contactar a Correo Argentino para el envío de los mensajes de la campa\~na.
 \end{itemize}
 
-\subsection{Riesgo Sistema de envio de mensajes}
+\subsection{Riesgo Sistema de envío de mensajes}
 \begin{itemize}
-\item \textbf{Descripci\'on:} Dado que el scheduler de la programaci\'on del env\'io de mensajes es propenso a fallas (reloj, bug, etc)es posible enviar los mensajes de forma manual.
+\item \textbf{Descripci\'on:} Dado que el scheduler de la programaci\'on del env\'io de mensajes es propenso a fallas (por ejemplo: reloj, bug, etc.) es posible enviar los mensajes de forma manual.
 \item \textbf{Probabilidad:} Baja
 \item \textbf{Impacto:} Alto
 \item \textbf{Exposici\'on:} Media
-\item \textbf{Mitigaci\'on:} Hacer pruebas sosteniadas durante distintos per\'iodos de tiempo (una hora, un d\'ia, una semana.
+\item \textbf{Mitigaci\'on:} Hacer pruebas sostenidas durante distintos per\'iodos de tiempo (por ejemplo: una hora, un d\'ia, una semana).
 \item \textbf{Plan de Contingencia:} Ejecutar el env\'io de mensajes de forma manual.
 \end{itemize}
 
