@@ -10,9 +10,9 @@
 \BOOKMARK [3][-]{subsubsection.3.1.6}{Sexta Iteraci\363n:}{subsection.3.1}% 10
 \BOOKMARK [1][-]{section.4}{Riesgos}{}% 11
 \BOOKMARK [2][-]{subsection.4.1}{Riesgo Sistema de envio de mensajes SMS}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.2}{Riesgo 1}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.3}{Riesgo 1}{section.4}% 14
-\BOOKMARK [2][-]{subsection.4.4}{Riesgo 1}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.2}{Riesgo Sistema de envio mensajes Web}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.3}{Riesgo Sistema de envio de mensajes}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.4}{Riesgo Servidor con Base de Datos centralizada}{section.4}% 15
 \BOOKMARK [2][-]{subsection.4.5}{Detalle de la primera iteraci\363n}{section.4}% 16
 \BOOKMARK [2][-]{subsection.4.6}{Lista de tareas relacionadas con casos de uso de primera iteraci\363n}{section.4}% 17
 \BOOKMARK [3][-]{subsubsection.4.6.1}{Enviando mensajes}{subsection.4.6}% 18

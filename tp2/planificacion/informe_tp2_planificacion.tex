@@ -113,6 +113,8 @@ Los casos se pueden agrupar....
 \item Casos de uso Destinatarios.
 \end{itemize}
 
+\newpage
+
 \section{Cronograma}
 %JUSTIFICAR
 Qué factores tuvieron en cuenta para decidir la cantidad de iteraciones?
@@ -230,54 +232,75 @@ Los mismos se pueden dividir en dos tipos de riesgo principales. El de índole d
 
 
 \subsection{Detalle de la primera iteraci\'on}
-
+\begin{itemize}
+\item Identificador de iteraci\'on: E01
+\item Tipo de iteraci\'on: Elaboracion
+\item Tareas:
+\begin{itemize}
+\item{E01-T01} Diseño conceptual del sistema
+\item{E01-T02} Realizción del WBS
+\item{E01-T03} Análisis de Riesgos
+\item{E01-T04} Reafinamiento de Objetivos y Requerimientos
+\item{E01-T05} Reconocimiento de casos de uso
+\item{E01-T06} Priorizaci\'on de casos de uso 
+\item{E01-T07} Estimación de tiempos de casos de uso
+\item{E01-T08} Análisis de atributos de calidad del sistema
+\item{E01-T09} Diseño de arquitectura del sistema
+\item{E01-T10} Investigacion de tecnolog\'ias
+\item{E01-T11} Elección de tecnologías
+\item{E01-T12} Realización de tareas de caso de uso CU01 - Enviando mensajes
+\item{E01-T12} Realización de tareas de caso de uso CU02 - Creando Campa\~na
+\item{E01-T12} Realización de tareas de caso de uso CU03 - Creando Destinatario
+\item{E01-T13} Test de arquitectura del sistema a partir de un test de stress
+\end{itemize}
+\end{itemize}
 
 \subsection{Lista de tareas relacionadas con casos de uso de primera iteraci\'on}
 \subsubsection{Enviando mensajes}
 \begin{itemize}
-\item Configurar ambiente desarrollo
-\item Investigar API facebook, twitter, sms
-\item Investigar Seguridad
-\item Implementar 
-\item Dise\~no protocolo comunicaci\'on API 
-\item Dise\~no protocolo comunicaci\'on Sistema  (como lee los mensajes con destinatarios a enviar)
-\item Implementar protocolo comunicaci\'on API
-\item Implementar protocolo comunicaci\'on sistema
-\item Implementar caso de uso
+\item{CU\#01-T01} Configurar ambiente desarrollo
+\item{CU\#01-T02} Investigar API facebook, twitter, sms
+\item{CU\#01-T03} Investigar Seguridad
+\item{CU\#01-T04} Implementar Mock m\'odulo de recepci\'on de mensajes
+\item{CU\#01-T05} Dise\~no protocolo comunicaci\'on API 
+\item{CU\#01-T06} Dise\~no protocolo comunicaci\'on Sistema  (como lee los mensajes con destinatarios a enviar)
+\item{CU\#01-T07} Implementar protocolo comunicaci\'on API
+\item{CU\#01-T08} Implementar protocolo comunicaci\'on sistema
+\item{CU\#01-T09} Implementar caso de uso
 \end{itemize}
 
 \subsubsection{Creando Campa\~na}
 \begin{itemize}
-\item Configurar ambiente desarrollo
-\item Modelo Entidad Relaci\'on
-\item Diagrama Entidad Relaci\'on
-\item Configurar la base de datos (para campa\~na)
-\item Dise\~no campa\~na
+\item{CU\#01-T01} Configurar ambiente desarrollo
+\item{CU\#01-T02} Modelo Entidad Relaci\'on
+\item{CU\#01-T03} Diagrama Entidad Relaci\'on
+\item{CU\#01-T04} Configurar la base de datos (para campa\~na)
+\item{CU\#01-T05} Dise\~no campa\~na
 \begin{itemize}
-\item Dise\~no Mensaje
-\item Dise\~no suscripci\'on
-\item Dise\~no capa seguridad
+\item{CU\#01-T05 - st01} Dise\~no Mensaje
+\item{CU\#01-T05 - st02} Dise\~no suscripci\'on
+\item{CU\#01-T05 - st03} Dise\~no capa seguridad
 \end{itemize}
-\item Implementaci\'on Caso de uso
+\item{CU\#01-T06} Implementaci\'on Caso de uso
 \begin{itemize}
-\item Dise\~no Mensaje
-\item Dise\~no suscripci\'on
-\item Dise\~no capa seguridad
+\item{CU\#01-T06 - st01} Dise\~no Mensaje
+\item{CU\#01-T06 - st02} Dise\~no suscripci\'on
+\item{CU\#01-T06 - st03} Dise\~no capa seguridad
 \end{itemize}
-\item testing
+\item{CU\#01-T07} testing
 \end{itemize}
 
 \subsubsection{Creando Destinatario}
 \begin{itemize}
-\item Investigar Formas de almacenamiento (Big Data)
-\item Investigar formas de seguridad de acceso a los datos
-\item Dise\~no caso de uso
-\item Implementaci\'on caso de uso
+\item{CU\#01-T01} Investigar Formas de almacenamiento (Big Data)
+\item{CU\#01-T02} Investigar formas de seguridad de acceso a los datos
+\item{CU\#01-T03} Dise\~no caso de uso
+\item{CU\#01-T04} Implementaci\'on caso de uso
 \begin{itemize}
-\item Integraci\'n con almacenamiento
-\item Implementaci\'on comunicaci\'on con almacenamiento
+\item{CU\#01-T04 - st01} Integraci\'n con almacenamiento
+\item{CU\#01-T04 - st02} Implementaci\'on comunicaci\'on con almacenamiento
 \end{itemize}
-\item Testing
+\item{CU\#01-T05} Testing
 \end{itemize}
 \subsection{Estimaci\'on de tiempo en horas hombre}
 
