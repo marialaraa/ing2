@@ -70,6 +70,20 @@
 \newpage
 
 \section{Introducción}
+Debido al éxito del sistema AULA AL 2020, desarrollado para una escuela en Urquiza, se nos pidió ampliar el mismo para tener alcance nacional. Eso se debe a que notaron la eficiencia del sistema de avisos para generar mejoras el rendimiento de las campañas de comunicación y educación. Se deja de tener a los docentes y personales de la secretaría o dirección, para tener responsables de comunicación a nivel nacional, médicos sanitaristas, diseñadores de políticas culturales, empleados munincipales, entre otros. Lo mismo ocurre con los alumnos y padres, ya que ahora se podrá aplicar el sistema de envío a todas las personas que se deseen. Además, el SMS no será más el único canal de comunicación existente, sino que también se incorporarán nuevos. Es importante, también, mejorar el sistema de comparación de campañas y generación de resultados. 
+
+A partir de la consigna entragada por la cátedra y de una reunión con el asistente del Ministro de Ciencias y Tecnología, el responsable técnico de ArSat, el representante de Unión Industrial Argnentina, el representante de Defensa al Consumidor y el dueño del sistema de abono de datos, se definieron los lineamientos a seguir. Se establecen los siguientes atributos en orden de prioridad descendente: 
+\begin{itemize}
+\item Disponibilidad
+\item Performance
+\item Seguridad
+\item Certeza de Datos
+\item Modificabilidad
+\item Flexibilidad
+\item Usabilidad
+\end{itemize}
+
+A continuación se presentará la parte de planificación del proyecto, que consiste en el plan, la lista de los casos de uso y el análisis de los riesgos.  
 
 
 \newpage
@@ -78,40 +92,45 @@
 
 \begin{table}[H]
 \centering
-\begin{tabular}{ | p{10cm} | p{1cm} |}
+\begin{tabular}{ | p{5cm} | p{8cm} | p{1.5cm} | }
 \hline
-Caso de Uso & Horas H.\\ \hline \hline
-Creando Destinatario \\ \hline \hline
-Cancelando Suscripci\'on& 13 \\ \hline
-Suscribiendo a una campaña& 13 \\ \hline
-%~ Importando suscripciones& 13 \\ \hline
-Modificando datos de suscripci\'on (Persona)& 13 \\ \hline
-Enviando Mensajes de campaña& 13 \\ \hline
-Recibiendo respuesta de campaña& 13 \\ \hline
-Programando envio de mensajes de campaña& 13 \\ \hline
-Creando Campaña& 13 \\ \hline
-Creando Evento& 13 \\ \hline
-Cargando Resultado de Campaña& 13 \\ \hline
-Eligiendo métrica& 13 \\ \hline
-Comparando Campañas& 13 \\ \hline
-Evaluando Campañas& 13 \\ \hline
-Visualizando Campaña& 13 \\ \hline
-Visualizando Evento& 13 \\ \hline
-Visualizando Resultados & 13 \\ \hline
-Visualizando Destinatario & 13 \\ \hline
-Ingresando al sistema & 13 \\ \hline
+Clasificación & Caso de Uso & Horas H.\\ \hline \hline
+Usuarios & Ingresando al sistema & 13 \\ \hline
+%~ & Importando suscripciones& 13 \\ \hline
+Eventos & Creando Evento & 13 \\ \hline
+\multirow{2}{5cm}{Campañas} & Creando Campaña & 13 \\ \cline{2-3} 
+& Evaluando Campañas & 13 \\ \hline
+\multirow{3}{5cm}{Administración de mensajes} & Enviando Mensajes de campaña & 13 \\ \cline{2-3} 
+& Recibiendo respuesta de campaña & 13 \\ \cline{2-3} 
+& Programando envio de mensajes de campaña & 13 \\ \hline
+\multirow{4}{5cm}{Destinatarios} & Creando Destinatario & 13 \\  \cline{2-3} 
+& Modificando datos de suscripci\'on (Persona) & 13 \\ \cline{2-3} 
+& Cancelando Suscripci\'on & 13 \\ \cline{2-3} 
+& Suscribiendo a una campaña (Persona) & 13 \\ \hline 
+\multirow{3}{5cm}{Resultados} & Cargando Resultado de Campaña & 13 \\ \cline{2-3} 
+& Comparando Campañas & 13 \\ \cline{2-3} 
+& Eligiendo métrica & 13 \\ \hline
+\multirow{4}{5cm}{Visualización} & Visualizando Campaña & 13 \\ \cline{2-3} 
+& Visualizando Evento & 13 \\ \cline{2-3} 
+& Visualizando Resultados & 13 \\ \cline{2-3} 
+& Visualizando Destinatario & 13 \\ \hline
 
 \end{tabular}
 \end{table}
-Los casos se pueden agrupar....
+
+Como se puede observar en la tabla, se presentan los casos de usos definidos para este sistema. A su vez para cada uno se define la cantidad de horas que llevaría completar cada uno de ellos, es decir, cumplir con todas las tareas que impliquen el funcionamiento del caso de uso. Además, se agrupan los casos de usos en 7 categorías diferentes. Para definir las mismas nos basamos en el diseño orientado a objetos realizado previamente. Por ejemplo, la categoria Usuario refiere a aquellos que deberán acceder al sistema para crear, modificar o eliminar instancias de ciertos objetos. Los Eventos y Campañas se relacionan con los que implican acciones sobre ese objeto. Además, la Administración de mensajes comprende los casos en los que se contempla del envío o recepción de mensajes. 
+En el caso de Destinatario, se asignan todos los casos de usos relacionados con el objeto destinatario, es decir, la persona a quien se le enviará el aviso. Los Resultados son requeridos para poder ver la eficiencia de las campañas implementadas, por lo que entonces deberán implementarse diversos casos de usos relacionados. 
+Por último, en Visualización hacemos referencia a aquellos casos de usos relacionados con la interfaz del sistema, sin importar a que objeto están representando. 
+
+%Los casos se pueden agrupar....
 %COMENTAR PORQUE LA AGRUPACION
-\begin{itemize}
-\item Casos de uso Visualizaci\'on.
-\item Casos de uso Administraci\'on de mensajes ()
-\item Casos de uso Campa\~nas.
-\item Casos de uso Resultados.
-\item Casos de uso Destinatarios.
-\end{itemize}
+%\begin{itemize}
+%\item Casos de uso Visualizaci\'on.
+%\item Casos de uso Administraci\'on de mensajes ()
+%\item Casos de uso Campa\~nas.
+%\item Casos de uso Resultados.
+%\item Casos de uso Destinatarios.
+%$\end{itemize}
 
 \newpage
 
@@ -167,6 +186,14 @@ Cómo influyeron los riesgos?
 \item Cancelando Suscripci\'on
 \item Modificando datos de suscripci\'on (Persona)
 \item Ingresando al sistema
+\end{itemize}
+
+\subsection{Detalle Primera Iteración}
+A continuación se realiza una descripción a alto nivel de los casos de uso a desarrollar durante la primera iteración del proyecto. 
+\begin{itemize}
+\item Enviando Mensajes de campaña: Se refiere a la acción de enviar los mensajes que son definidos en la campaña. Los mismos podrán ser enviados como SMS o utilizando alguna de las redes sociales (Facebook, Twitter, etc.).   
+\item Creando Campaña:
+\item Creando Destinatario:
 \end{itemize}
 
 
