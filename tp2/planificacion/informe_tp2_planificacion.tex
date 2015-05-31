@@ -97,19 +97,19 @@ A continuación se presentará la parte de planificación del proyecto, que cons
 Clasificación & Caso de Uso & Horas H.\\ \hline \hline
 Usuarios & Ingresando al sistema & 5 \\ \hline
 %~ & Importando suscripciones& 13 \\ \hline
-Eventos & Creando Evento & 12 \\ \hline
-\multirow{2}{5cm}{Campañas} & Creando Campaña & 18 \\ \cline{2-3} 
-& Evaluando Campañas & 15 \\ \hline
-\multirow{3}{5cm}{Administración de mensajes} & Enviando Mensajes de campaña & 25 \\ \cline{2-3} 
+Eventos & Creando Evento & 16 \\ \hline
+\multirow{2}{5cm}{Campañas} & Creando Campaña & 29 \\ \cline{2-3} 
+& Evaluando Campañas & 18 \\ \hline
+\multirow{3}{5cm}{Administración de mensajes} & Enviando Mensajes de campaña & 32 \\ \cline{2-3} 
 & Recibiendo respuesta de campaña & 25 \\ \cline{2-3} 
 & Programando envio de mensajes de campaña & 16 \\ \hline
-\multirow{4}{5cm}{Destinatarios} & Creando Destinatario & 4 \\  \cline{2-3} 
-& Modificando datos de suscripci\'on (Persona) & 10 \\ \cline{2-3} 
-& Cancelando Suscripci\'on & 9 \\ \cline{2-3} 
+\multirow{4}{5cm}{Destinatarios} & Creando Destinatario & 14 \\  \cline{2-3} 
+& Modificando datos de suscripci\'on (Persona) & 11 \\ \cline{2-3} 
+& Cancelando Suscripci\'on & 10 \\ \cline{2-3} 
 & Suscribiendo a una campaña (Persona) & 10 \\ \hline 
-\multirow{3}{5cm}{Resultados} & Cargando Resultado de Campaña & 7 \\ \cline{2-3} 
+\multirow{3}{5cm}{Resultados} & Cargando Resultado de Campaña & 11 \\ \cline{2-3} 
 & Comparando Campañas & 14 \\ \cline{2-3} 
-& Eligiendo métrica & 3 \\ \hline
+& Eligiendo métrica & 5 \\ \hline
 \multirow{4}{5cm}{Visualización} & Visualizando Campaña & 16 \\ \cline{2-3} 
 & Visualizando Evento & 16 \\ \cline{2-3} 
 & Visualizando Resultados & 16 \\ \cline{2-3} 
@@ -325,7 +325,7 @@ Los mismos se pueden dividir en dos tipos de riesgo principales. El de índole d
 \item{CU\#01-T03} Dise\~no caso de uso
 \item{CU\#01-T04} Implementaci\'on caso de uso
 \begin{itemize}
-\item{CU\#01-T04 - st01} Integraci\'n con almacenamiento
+\item{CU\#01-T04 - st01} Integraci\'on con almacenamiento
 \item{CU\#01-T04 - st02} Implementaci\'on comunicaci\'on con almacenamiento
 \end{itemize}
 \item{CU\#01-T05} Testing
@@ -334,6 +334,81 @@ Los mismos se pueden dividir en dos tipos de riesgo principales. El de índole d
 
 \subsection{Estimaci\'on de tiempo en horas hombre}
 
+
+\subsubsection{CU Enviando mensajes}
+\begin{tabular}{| p{5cm} | p{5cm} |}
+
+\hline
+\bf{Tarea} & \bf{Horas Hombre} \\ \hline \hline
+CU\#01-T01 & 3 \\ \hline
+CU\#01-T02 & 6 \\ \hline
+CU\#01-T03 & 4 \\ \hline
+CU\#01-T04 & 2 \\ \hline
+CU\#01-T05 & 1 \\ \hline
+CU\#01-T06 & 2 \\ \hline
+CU\#01-T07 & 3 \\ \hline
+CU\#01-T08 & 3 \\ \hline
+CU\#01-T09 & 8 \\ \hline
+\end{tabular}
+
+
+\subsubsection{CU Creando Campa\~na}
+\begin{tabular}{| p{5cm} | p{5cm} |}
+
+\hline
+\bf{Tarea} & \bf{Horas Hombre} \\ \hline \hline
+CU\#01-T01 &  3 \\ \hline
+CU\#01-T02 &  4 \\ \hline
+CU\#01-T03 &  3 \\ \hline
+CU\#01-T04 &  2 \\ \hline
+CU\#01-T05 &  7 \\ \hline
+CU\#01-T05-st01 & 2 \\ \hline
+CU\#01-T05-st02 & 2 \\ \hline
+CU\#01-T05-st03 & 3 \\ \hline
+CU\#01-T06 &  9 \\ \hline
+CU\#01-T06-st01 & 3 \\ \hline
+CU\#01-T06-st02 & 2 \\ \hline
+CU\#01-T06-st03 & 4 \\ \hline
+CU\#01-T07 &  1 \\ \hline
+\end{tabular}
+
+\subsubsection{CU Creando Destinatario}
+\begin{tabular}{| p{5cm} | p{5cm} |}
+
+\hline
+\bf{Tarea} & \bf{Horas Hombre} \\ \hline \hline
+CU\#01-T01 & 3 \\ \hline
+CU\#01-T02 & 2 \\ \hline
+CU\#01-T03 & 3 \\ \hline
+CU\#01-T04 & 5 \\ \hline
+CU\#01-T04-st01 & 2 \\ \hline
+CU\#01-T04-st02 & 3 \\ \hline
+CU\#01-T05 & 1 \\ \hline
+\end{tabular}
+
 %grafo dependencia de tareas.
 %Gant
+
+\section{Estimaci\'on de horas de las tareas en la primera iteraci\'on}
+\begin{tabular}{| p{5cm} | p{5cm} |}
+
+\hline
+\bf{Tarea} & \bf{Horas Hombre} \\ \hline \hline
+E01-T01 & 4 \\ \hline
+E01-T02 & 6 \\ \hline
+E01-T03 & 3 \\ \hline
+E01-T04 & 7 \\ \hline
+E01-T05 & 5 \\ \hline
+E01-T06 & 2  \\ \hline
+E01-T07 & 1 \\ \hline
+E01-T08 & 10 \\ \hline
+E01-T09 & 14 \\ \hline
+E01-T10 & 12 \\ \hline
+E01-T11 & 2 \\ \hline
+E01-T12 & 32 \\ \hline
+E01-T12 & 29 \\ \hline
+E01-T12 & 14 \\ \hline
+E01-T13 & 15 \\ \hline
+\end{tabular}
+
 \end{document}
