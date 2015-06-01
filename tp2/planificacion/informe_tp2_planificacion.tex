@@ -136,22 +136,13 @@ Por último, en Visualización hacemos referencia a aquellos casos de usos relac
 \newpage
 
 \section{Cronograma}
-%JUSTIFICAR
-\textbf{Qué factores tuvieron en cuenta para decidir la cantidad de iteraciones?\\
-Cuánto dura cada iteración? \\
-Cómo decidieron qué va en cada iteración?\\
-Cómo influyeron los riesgos?}
+Para una correcta organización del proyecto se dividen los casos de uso, definidos previamente, en un cierto número de iteraciones. Cada iteración presenta una duración de tres semanas. Esto decición fue tomada a partir de las fechas de comienzo (1/6) y primera entrega del proyecto (22/6) donde se deberá presentar la primera iteración del plan finalizada cumpliendo ciertos requisitos pedidos por los stakeholders. A su vez, se contemplaron lsa horas que pueden requerirse para el cumplimiento de cada CU, definiendose así, que con tres semanas se podrán cumplir todas las tareas definidas para cada iteración.
 
-Cada iteración presenta una duración de tres semanas. Esto decición fue tomada a partir de las fechas de comienzo (1/6) y primera entrega del proyecto (22/6) donde se deberá presentar la primera iteración del plan finalizada cumpliendo ciertos requisitos pedidos por los stakeholders. A su vez, se contemplaron lsa horas que pueden requerirse para el cumplimiento de cada caso de uso, definiendose así que con tres semanas se podrán cumplir todas las tareas definidas para cada iteración.
-
-Para decidir que casos de usos se definirían en cada iteración, en primer lugar se armó una lista definiendo a los mismos por prioridad. En primer lugar se contempla el de ''Enviando Mensajes'', ya que representa la base del sistema a implementar y a su vez, contiene la mayor cantidad de escenarios de riesgos con impacto mayor en el correcto funcionamiento en la implementeación. También, se pide como primer atributo de calidad el de Disponibilidad, es decir, que ante una falla del sistema, se deberá solucionar rápidamente el mismo para que el suscripto pueda recibir igualmente el aviso sin demoras.\\ 
+Para decidir que casos de usos se definirían en cada etapa, se armó una lista definiendo a los mismos por prioridad. En primer lugar se contempla el de ''Enviando Mensajes'', ya que representa la base del sistema a implementar y a su vez, contiene la mayor cantidad de escenarios de riesgos con impacto mayor en el correcto funcionamiento en la implementeación. También, se pide como primer atributo de calidad el de Disponibilidad, es decir, que ante una falla del sistema, se deberá solucionar rápidamente el mismo para que el suscripto pueda recibir igualmente el aviso sin demoras.\\ 
 \\
 Por otro lado, se pide para el mes de julio poder demostrar el nivel de seguridad del sistema con respecto a los distintos objetos. Por lo que se decide desarrollar el caso de uso ''Creando Campaña'', ya que el mismo involucra varios requerimientos de seguridad. Lo mismo ocurre con el caso de uso ''Creando Destinatario''. Sin embargo, hay cuestiones de seguridad que no se estar\'ian mostrando, y por cuestiones de estimaciones de tiempos se decidi\'o elaborarlas en la segunda iteraci\'on, en particular el caso de uso ''Creando Usuario'' que contempla las limitaciones de permisos de un usuario.\\
 \\
 Luego, se continuó definiendo la lista para las demás iteraciones, basándonos fuertemente en las prioridades definidas en lo atributos de calidad. Finalmente, se dividieron en iteraciones de acuerdo al tiempo que puede tomar cada implementación, respetando las tres semanas por cada una. 
-
-
-
 
 \subsection{Iteraciones}
 \subsubsection{Primera Iteraci\'on:}
@@ -182,7 +173,7 @@ Luego, se continuó definiendo la lista para las demás iteraciones, basándonos
 \begin{itemize}
 \item Creando Evento
 \item Visualizando Evento
-\item Recibiendo respuesta de mensajes
+\item Recibiendo respuesta
 \end{itemize}
 
 
@@ -197,11 +188,11 @@ Luego, se continuó definiendo la lista para las demás iteraciones, basándonos
 \subsubsection{Sexta Iteraci\'on:}
 \begin{itemize}
 \item Cancelando Suscripción
-\item Modificando datos de suscripción
+\item Modificando datos de Destinatario
 \item Ingresando al sistema
 \end{itemize}
 
-\subsection{Detalle Primera Iteración}
+\subsection{Descripción CU de la primera iteración}
 A continuación se realiza una descripción a alto nivel de los casos de uso a desarrollar durante la primera iteración del proyecto. 
 \begin{itemize}
 \item \textbf{Enviando mensajes}: Se refiere a la acción de enviar los mensajes que son definidos en la campaña. Los mismos podrán ser enviados como SMS o utilizando alguna de las redes sociales (Facebook, Twitter, etc.). Se deberá garantizar que los mismos llegarán al destinatario de forma correcta, aplicándose otra tecnología en caso de existir una falla en el sistema. En este caso de uso se contempla únicamente el envío de mesajes, pero al comunicación es bilateral. 
@@ -214,9 +205,9 @@ A continuación se realiza una descripción a alto nivel de los casos de uso a d
 
 Los casos de uso que presentan escenarios de riesgo son:
 \begin{itemize}
-\item Modificando Datos teléfono
+\item Modificando datos de Destinatario
 \item Enviando Mensajes
-\item Recibiendo respuesta de mensaje
+\item Recibiendo respuesta
 \item Programando envio de mensajes
 \item Creando Campaña
 \item Creando Evento
