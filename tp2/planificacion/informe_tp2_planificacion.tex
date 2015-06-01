@@ -70,7 +70,11 @@
 \newpage
 
 \section{Introducción}
-Debido al éxito del sistema AULA AL 2020, desarrollado para una escuela en Urquiza, se nos pidió ampliar el mismo para tener alcance nacional. Eso se debe a que notaron la eficiencia del sistema de avisos para generar mejoras el rendimiento de las campañas de comunicación y educación. Se deja de tener a los docentes y personales de la secretaría o dirección, para tener responsables de comunicación a nivel nacional, médicos sanitaristas, diseñadores de políticas culturales, empleados munincipales, entre otros. Lo mismo ocurre con los alumnos y padres, ya que ahora se podrá aplicar el sistema de envío a todas las personas que se deseen. Además, el SMS no será más el único canal de comunicación existente, sino que también se incorporarán nuevos. Es importante, también, mejorar el sistema de comparación de campañas y generación de resultados. 
+Debido al éxito del sistema AULA AL 2020, desarrollado para una escuela en Urquiza, se nos pidió ampliar el mismo para tener alcance nacional. Eso se debe a que notaron la eficiencia del sistema de avisos para generar mejoras el rendimiento de las campañas de comunicación y educación.
+
+Se deja de tener a los docentes y personales de la secretaría o dirección, para tener responsables de comunicación a nivel nacional, médicos sanitaristas, diseñadores de políticas culturales, empleados munincipales, entre otros. Lo mismo ocurre con los alumnos y padres, ya que ahora se podrá aplicar el sistema de envío a todas las personas que se deseen.
+
+Además, el SMS no será más el único canal de comunicación existente, sino que también se incorporarán nuevos. Es importante, también, mejorar el sistema de comparación de campañas y generación de resultados. 
 
 A partir de la consigna entragada por la cátedra y de una reunión con el asistente del Ministro de Ciencias y Tecnología, el responsable técnico de ArSat, el representante de Unión Industrial Argnentina, el representante de Defensa al Consumidor y el dueño del sistema de abono de datos, se definieron los lineamientos a seguir. Se establecen los siguientes atributos en orden de prioridad descendente: 
 \begin{itemize}
@@ -98,9 +102,9 @@ Clasificación & Caso de Uso & Horas H.\\ \hline \hline
 \multirow{2}{5cm}{Usuarios} & Ingresando al sistema & 36 \\ \cline{2-3}
 & Cargando usuario & 13 \\ \hline
 %~ & Importando suscripciones& 13 \\ \hline
-Eventos & Creando Evento & 7 \\ \hline
-\multirow{2}{5cm}{Campañas} & Creando Campaña & 29 \\ \cline{2-3}
-& Evaluando Campañas & 18 \\ \hline
+\multirow{3}{5cm}{Campañas} & Creando Campaña & 29 \\ \cline{2-3}
+& Evaluando Campañas & 18 \\ \cline{2-3}
+& Creando Evento & 7 \\ \hline
 \multirow{3}{5cm}{Administración de mensajes} & Enviando Mensajes & 32 \\ \cline{2-3}
 & Recibiendo respuesta & 25 \\ \cline{2-3}
 & Programando envio de mensajes & 16 \\ \hline
@@ -119,9 +123,21 @@ Eventos & Creando Evento & 7 \\ \hline
 \end{tabular}
 \end{table}
 
-Como se puede observar en la tabla, se presentan los casos de usos definidos para este sistema. A su vez para cada uno se define la cantidad de horas que llevaría completar cada uno de ellos, es decir, cumplir con todas las tareas que impliquen el funcionamiento del caso de uso. Además, se agrupan los casos de usos en 7 categorías diferentes. Para definir las mismas nos basamos en el diseño orientado a objetos realizado previamente. Por ejemplo, la categoria Usuario refiere a aquellos que deberán acceder al sistema para crear, modificar o eliminar instancias de ciertos objetos. Los Eventos y Campañas se relacionan con los que implican acciones sobre ese objeto. Además, la Administración de mensajes comprende los casos en los que se contempla del envío o recepción de mensajes. 
-En el caso de Destinatario, se asignan todos los casos de usos relacionados con el objeto destinatario, es decir, la persona a quien se le enviará el aviso. Los Resultados son requeridos para poder ver la eficiencia de las campañas implementadas, por lo que entonces deberán implementarse diversos casos de usos relacionados. 
-Por último, en Visualización hacemos referencia a aquellos casos de usos relacionados con la interfaz del sistema, sin importar a que objeto están representando. 
+Como se puede observar en la tabla, se presentan los casos de usos definidos para este sistema. A su vez para cada uno se define la cantidad de horas que llevaría completar cada uno de ellos, es decir, cumplir con todas las tareas que impliquen el funcionamiento del caso de uso.
+
+Por otro lado, se presenta una agrupaci\'on de los casos de usos en 7 categorías diferentes, para una mejor comprenci\'on del sistema. Para definir dichas categor\'ias se bas\'o en el diseño orientado a objetos realizado previamente para el trabajo presentado a la escuela de Urquiza, de forma de agrupar conceptos.
+
+Se muestra la categor\'ia Usuario, que se refiere a aquellos  que deberán acceder al sistema para crear, modificar o eliminar instancias de ciertos objetos. 
+
+La agrupación Campañas, contempla los casos que se relacionan con los que implican acciones sobre el objeto campaña, y a su vez también se decidió agregar a esta categoría la creaci'on de evento, ya que en base a consultas realizadas, en esta versión del proyecto el evento ya no tiene tanta fuerza como en el presentado a la escuela de Urquiza. 
+
+En el caso de la categor\'ia Administración de mensajes, la misma comprende los casos en los que se contempla del envío o recepción de mensajes. 
+
+La agrupaci\'on Destinatarios, contempla todos los casos de usos relacionados con el objeto destinatario, es decir, la persona a quien se le enviará el aviso. 
+
+La categoría Resultados, contempla aquellos resultados  requeridos para poder ver la eficiencia de las campañas implementadas, por lo que entonces diversos casos de usos relacionados con ellos, tales como qué métrica se utilizara para evaluar un resultado. 
+
+Por último, en el caso de Visualización se hace referencia a aquellos casos de usos relacionados con la interfaz del sistema, sin importar a que objeto están representando. 
 
 %Los casos se pueden agrupar....
 %COMENTAR PORQUE LA AGRUPACION
@@ -136,23 +152,30 @@ Por último, en Visualización hacemos referencia a aquellos casos de usos relac
 \newpage
 
 \section{Cronograma}
-Para una correcta organización del proyecto se dividen los casos de uso, definidos previamente, en un cierto número de iteraciones. Cada iteración presenta una duración de tres semanas. Esto decición fue tomada a partir de las fechas de comienzo (1/6) y primera entrega del proyecto (22/6) donde se deberá presentar la primera iteración del plan finalizada cumpliendo ciertos requisitos pedidos por los stakeholders. A su vez, se contemplaron lsa horas que pueden requerirse para el cumplimiento de cada CU, definiendose así, que con tres semanas se podrán cumplir todas las tareas definidas para cada iteración.
+En esta sección se presenta todo lo relacionado al cronograma, como las iteraciones planteadas para la resolución del sistema pedido.
 
-Para decidir que casos de usos se definirían en cada etapa, se armó una lista definiendo a los mismos por prioridad. En primer lugar se contempla el de ''Enviando Mensajes'', ya que representa la base del sistema a implementar y a su vez, contiene la mayor cantidad de escenarios de riesgos con impacto mayor en el correcto funcionamiento en la implementeación. También, se pide como primer atributo de calidad el de Disponibilidad, es decir, que ante una falla del sistema, se deberá solucionar rápidamente el mismo para que el suscripto pueda recibir igualmente el aviso sin demoras.\\ 
+Para una correcta organización del proyecto se dividen los casos de uso, definidos previamente, en un cierto número de iteraciones. En particular, el cronograma presentado contempla 6 iteraciones, de las cuales 4 son de elaboración (la primera, la segunda, la tercera, y la cuarta) y 2 de construcción (la quinta y la sexta). 
+
+Cada iteración presenta una duración de tres semanas. Esto decición fue tomada a partir de las fechas de comienzo (1/6) y primera entrega del proyecto (22/6) donde se deberá presentar la primera iteración del plan finalizada cumpliendo ciertos requisitos pedidos por los stakeholders. A su vez, se contemplaron las horas que pueden requerirse para el cumplimiento de cada CU, definiendose así, que con tres semanas se podrán cumplir todas las tareas definidas para cada iteración.
+
+Para decidir que casos de usos se definirían en cada etapa, se armó una lista definiendo a los mismos por prioridad. En primer lugar se contempla el de ''Enviando Mensajes'', ya que representa la base del sistema a implementar y a su vez, contiene la mayor cantidad de escenarios de riesgos con impacto mayor en el correcto funcionamiento en la implementeación. También, se pide como primer atributo de calidad el de Disponibilidad, es decir, que ante una falla del sistema, se deberá solucionar rápidamente el mismo para que el suscripto pueda recibir igualmente el aviso sin demoras.\\  
 \\
 Por otro lado, se pide para el mes de julio poder demostrar el nivel de seguridad del sistema con respecto a los distintos objetos. Por lo que se decide desarrollar el caso de uso ''Creando Campaña'', ya que el mismo involucra varios requerimientos de seguridad. Lo mismo ocurre con el caso de uso ''Creando Destinatario''. Sin embargo, hay cuestiones de seguridad que no se estar\'ian mostrando, y por cuestiones de estimaciones de tiempos se decidi\'o elaborarlas en la segunda iteraci\'on, en particular el caso de uso ''Creando Usuario'' que contempla las limitaciones de permisos de un usuario.\\
 \\
-Luego, se continuó definiendo la lista para las demás iteraciones, basándonos fuertemente en las prioridades definidas en lo atributos de calidad. Finalmente, se dividieron en iteraciones de acuerdo al tiempo que puede tomar cada implementación, respetando las tres semanas por cada una. 
+Luego, se continuó definiendo la lista para las demás iteraciones, basándonos fuertemente en las prioridades definidas en lo atributos de calidad. Finalmente, se dividieron en iteraciones de acuerdo al tiempo que puede tomar cada implementación, respetando las tres semanas por cada una. \\ 
+
+
+
 
 \subsection{Iteraciones}
-\subsubsection{Primera Iteraci\'on:}
+\subsubsection{Primera Iteraci\'on: (Elaboraci\'on)}
 \begin{itemize}
 \item Enviando Mensajes
 \item Creando Campaña
 \item Creando Destinatario
 \end{itemize}
 
-\subsubsection{Segunda Iteraci\'on:}
+\subsubsection{Segunda Iteraci\'on: (Elaboraci\'on)}
 \begin{itemize}
 \item Cargando Resultado de Campaña
 \item Programando envío de Mensajes
@@ -161,7 +184,7 @@ Luego, se continuó definiendo la lista para las demás iteraciones, basándonos
 \end{itemize}
 
 
-\subsubsection{Tercera Iteraci\'on:}
+\subsubsection{Tercera Iteraci\'on: (Elaboraci\'on)}
 \begin{itemize}
 \item Visualizando Campaña
 \item Visualizando Resultados
@@ -169,15 +192,15 @@ Luego, se continuó definiendo la lista para las demás iteraciones, basándonos
 \end{itemize}
 
 
-\subsubsection{Cuarta Iteraci\'on:}
+\subsubsection{Cuarta Iteraci\'on: (Elaboraci\'on)}
 \begin{itemize}
 \item Creando Evento
 \item Visualizando Evento
-\item Recibiendo respuesta
+\item Recibiendo respuesta de mensajes
 \end{itemize}
 
 
-\subsubsection{Quinta Iteraci\'on:}
+\subsubsection{Quinta Iteraci\'on: (Construcci\'on)}
 \begin{itemize}
 \item Eligiendo métrica
 \item Comparando Campañas
@@ -185,17 +208,17 @@ Luego, se continuó definiendo la lista para las demás iteraciones, basándonos
 \end{itemize}
 
 
-\subsubsection{Sexta Iteraci\'on:}
+\subsubsection{Sexta Iteraci\'on: (Construcci\'on)}
 \begin{itemize}
 \item Cancelando Suscripción
-\item Modificando datos de Destinatario
+\item Modificando datos de suscripción
 \item Ingresando al sistema
 \end{itemize}
 
-\subsection{Descripción CU de la primera iteración}
+\subsection{Detalle Primera Iteración}
 A continuación se realiza una descripción a alto nivel de los casos de uso a desarrollar durante la primera iteración del proyecto. 
 \begin{itemize}
-\item \textbf{Enviando mensajes}: Se refiere a la acción de enviar los mensajes que son definidos en la campaña. Los mismos podrán ser enviados como SMS o utilizando alguna de las redes sociales (Facebook, Twitter, etc.). Se deberá garantizar que los mismos llegarán al destinatario de forma correcta, aplicándose otra tecnología en caso de existir una falla en el sistema. En este caso de uso se contempla únicamente el envío de mesajes, pero al comunicación es bilateral. 
+\item \textbf{Enviando mensajes}: Se refiere a la acción de enviar los mensajes que son definidos en la campaña. Los mismos podrán ser enviados como SMS o utilizando alguna de las redes sociales (Facebook, Twitter, etc.). Se deberá garantizar que los mismos llegarán al destinatario de forma correcta, aplicándose otra tecnología en caso de existir una falla en el sistema. En este caso de uso se contempla únicamente el envío de mesajes, pero la comunicación es bilateral. 
 \item \textbf{Creando campaña}: Se refiere al proceso de comienzo de una campaña, donde un usuario le define el título, las fechas, los suscriptores y los mensajes que se enviarán. Luego, se podrá modificar la misma, pero teniendo en cuenta quien tiene permisos y quien no. La seguridad del sistema es fundamental en este caso de uso. Los datos deben ser almacenados de forma correcta y contemplando posibles modificaciones. 
 \item \textbf{Creando destinatario}: Se refiere al almacenamiento en el sistema de todas las peronas que sean cargadas. Se debe tener en cuenta que se estarán manipulando grandes volúmenes de datos. A su vez, es importante que a los mismos solo puedan acceder aquellos usuarios habilitados previamente. Esta información será utilizado luego en la creación de las campañas, ya que pasarán a ser suscriptores. Los destinatarios deberán estar compuestos por un Nombre, Apellido y Celular. A su vez, se deberá permitir agregar otros campos diferentes para cada destinatario. 
 \end{itemize}
@@ -205,7 +228,7 @@ A continuación se realiza una descripción a alto nivel de los casos de uso a d
 
 Los casos de uso que presentan escenarios de riesgo son:
 \begin{itemize}
-\item Modificando datos de Destinatario
+\item Modificando Datos de Destinatario
 \item Enviando Mensajes
 \item Recibiendo respuesta
 \item Programando envio de mensajes
@@ -217,7 +240,7 @@ Los mismos se pueden dividir en dos tipos de riesgo principales. El de índole d
 
 \subsection{Riesgo Sistema de envio de mensajes SMS}
 \begin{itemize}
-\item \textbf{Descripci\'on:} Dado que la Red telefónica (para SMS) es propensa a fallas en el envio de mensajes, es posible enviar mesajes por otro medio (facebook twitter)
+\item \textbf{Descripci\'on:} Dado que la Red telefónica (para SMS) es propensa a fallas en el envio de mensajes, es posible enviar mesajes por otro medio (facebook, twitter)
 \item \textbf{Probabilidad:} Alta (Patagonia)
 \item \textbf{Impacto:} Alto
 \item \textbf{Exposici\'on:} Alta
@@ -262,7 +285,7 @@ Los mismos se pueden dividir en dos tipos de riesgo principales. El de índole d
 
 
 
-\subsection{Detalle de la primera iteraci\'on}
+\subsection{Descripción CU de la primera iteración}
 \begin{itemize}
 \item Identificador de iteraci\'on: E01
 \item Tipo de iteraci\'on: Elaboracion
@@ -413,5 +436,53 @@ E01-T12 & 29 \\ \hline
 E01-T12 & 14 \\ \hline
 E01-T13 & 15 \\ \hline
 \end{tabular}
+
+\section{WBS}
+En esta secci\'on se presenta el WBS del proyecto. El mismo se reali\'o utilizando la herramienta ProjecLibre, y se export\'o para ser presentado en este trabajo. \\
+\\
+El WBS que se presenta es de tipo h\'ibrido, y para realizarso se decid\'o mostrar la agrupaci\'on de los casos de uso, por ej\'emplo campaña esta en el nivel 1 luego de Big Tiza, y este se divide en los Casos de uso de campaña, y cada caso de uso se divide en sus respectivas tareas.\\
+Para mostrar esta parte se presenta el WBS de nivel 1.\\
+\\
+Para facilitar la lectura de la forma en que se export\'o el WBS hay que considerar que el formato es en hoja apaisada (Landscape) y para verlo completo se deben unir en orden agregando la hoja siguiente a la derecha, de la siguiente forma:\\
+\\
+\begin{tabular}{| p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} |}
+\hline
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
+\end{tabular}
+
+\bigskip
+El WBS se encuentra en anexo 1, y WBS de nivel 2 anexo 2.
+
+\section{Gantt}
+En esta secci\'on se presenta el Gantt correspondiente a la primera iteraci\'on. El mismo se basa en las dependencias mostradas en el WBS junto con el grafo de dependencias que se presenta en la siguiente secci\'on.\\
+Acorde a lo pedido el Gantt comienza el 1 de Junio con la primer iteraci\'on.\\
+\\
+El Gantt descripto anteriormente se muestra en el anexo 3.
+\\
+El mismo para mejor comprensi\'on hay que asumir el siguiente orden de las hojas:\\
+\\
+\begin{center}
+\begin{tabular}{| p{3cm} | p{3cm} |}
+\hline
+1 & 2 \\ \hline
+3 & 4 \\ \hline
+\end{tabular}
+\end{center}
+
+\section{Grafo de dependencia}
+En esta secci\'on se presenta el grafo de dependencias de las tareas de la primera iteracion, el cual se ve reflejado en el Gantt mostrado en la secci\'on anterior, ya que estas dependencias se reflejan en el comienzo de las tareas.\\
+Al igual que el Gantt, para mejor comprensi\'on del grafico presentado, hay que ordenar las hojas de la siguiente forma:\\
+\\
+\begin{center}
+\begin{tabular}{| p{3cm} | p{3cm} |}
+\hline
+1 & 2 \\ \hline
+3 & 4 \\ \hline
+5 & 6 \\ \hline
+7 & 8 \\ \hline
+\end{tabular}
+\end{center}
+
+El grafo comentado anteriormente se presenta en el anexo 4.
 
 \end{document}
