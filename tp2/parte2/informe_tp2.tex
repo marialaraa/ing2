@@ -1,0 +1,133 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{caratula}
+\usepackage[spanish, activeacute]{babel}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[width=15.5cm, left=3cm, top=2.5cm, height= 24.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage[all]{xy}
+\usepackage{multicol}
+\usepackage{subfig}
+
+\usepackage{cancel}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{color,hyperref}
+
+\usepackage{multirow} % para las tablas
+
+
+%%%%%%%%%%%%%% ALGUNAS MACROS %%%%%%%%%%%%%%
+% For \url{SOME_URL}, links SOME_URL to the url SOME_URL
+\providecommand*\url[1]{\href{#1}{#1}}
+
+% Same as above, but pretty-prints SOME_URL in teletype fixed-width font
+\renewcommand*\url[1]{\href{#1}{\texttt{#1}}}
+
+% Comando para poner el simbolo de Reales
+\newcommand{\real}{\hbox{\bf R}}
+
+\providecommand*\code[1]{\texttt{#1}}
+
+%uso: \ponerGrafico{file}{caption}{scale}{label}
+\newcommand{\ponerGrafico}[4]
+{\begin{figure}[H]
+	\centering
+	\subfloat{\includegraphics[scale=#3]{#1}}
+	\caption{#2} \label{fig:#4}
+\end{figure}
+}
+
+%\renewcommand{\algorithmiccomment}[1]{\hfill #1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\materia{Ingeniería de Software II}
+
+\titulo{Big Tiza}
+%\fecha{fecha de entrega}
+%\grupo{Nro grupo}
+\integrante{Agustina Ciraco}{630/06}{agusciraco@gmail.com}
+\integrante{Alejandro Rebecchi}{15/10}{alejandrorebecchi@gmail.com}
+\integrante{Maria Lara Gauder}{27/10}{marialaraa@gmail.com}
+\integrante{Martin Heredia}{146/11}{martin.herediaf@gmail.com}
+
+\include{templates}
+
+\begin{document}
+\pagestyle{myheadings}
+\maketitle
+%\markboth{Nombre materia}{Nombre TP}
+
+\thispagestyle{empty}
+\tableofcontents
+
+%\setcounter{section}{-1}
+\newpage
+
+\section{Introducci\'on}
+
+En este trabajo práctico se presentan Las arquitecturas del sistema correspondiente a la primera entrega (versión para escuela de villa urquiza) y la correspondiente al sistema pedido por el ministro, cuyo alcance es a nivel pais.
+Se detallan Los atributos de calidad pedidos, junto con sus respectivos escenarios. Por otro lado se presenta una discusión sobre las diferencias entre las metodologías utilizadas en cada tp, y por último conclusiones.
+\newpage
+\section{Atributos de Calidad}
+\subsection{Listado atributos de calidad pedidos}
+\begin{itemize}
+\item[Performance] Monitorear el estado de las campañas de manera agil. No se admiten demoras de ningún tipo .
+\item[Disponibilidad] Fallas de comunicación durante transición %??
+\item[Seguridad]Proteger datos y modificación (campañas y evaluación).
+\item[Seguridad]Auditar
+\item[Disponibilidad] Patagonia
+\end{itemize}
+\subsection{Escenarios de Atributos de calidad}
+\begin{table}[H]
+\centering
+\begin{tabular}{ | p{5cm} | p{8cm} | p{1.5cm} | }
+\hline
+Clasificación & Caso de Uso & Horas H.\\ \hline \hline
+\multirow{2}{5cm}{Usuarios} & Ingresando al sistema & 36 \\ \cline{2-3}
+& Cargando usuario & 13 \\ \hline
+%~ & Importando suscripciones& 13 \\ \hline
+Eventos & Creando Evento & 7 \\ \hline
+\multirow{2}{5cm}{Campañas} & Creando Campaña & 29 \\ \cline{2-3}
+& Evaluando Campañas & 18 \\ \hline
+\multirow{3}{5cm}{Administración de mensajes} & Enviando Mensajes & 32 \\ \cline{2-3}
+& Recibiendo respuesta & 25 \\ \cline{2-3}
+& Programando envio de mensajes & 16 \\ \hline
+\multirow{4}{5cm}{Destinatarios} & Creando Destinatario & 14 \\  \cline{2-3}
+& Modificando datos de Destinatario & 11 \\ \cline{2-3}
+& Cancelando Suscripci\'on & 10 \\ \cline{2-3}
+& Suscribiendo destinatario a una campaña & 10 \\ \hline
+\multirow{3}{5cm}{Resultados} & Cargando Resultado de Campaña & 11 \\ \cline{2-3}
+& Comparando Campañas & 14 \\ \cline{2-3}
+& Eligiendo métrica & 5 \\ \hline
+\multirow{4}{5cm}{Visualización} & Visualizando Campaña & 20 \\ \cline{2-3}
+& Visualizando Evento & 20 \\ \cline{2-3}
+& Visualizando Resultados & 20 \\ \cline{2-3}
+& Visualizando Destinatario & 20 \\ \hline
+
+\end{tabular}
+\end{table}
+
+
+\newpage
+
+\section{Arquitecturas}
+\subsection{Arquitectura TP1}
+\subsection{Arquitectura TP2}
+\subsection{Discusión de Arquitecturas}
+
+\newpage
+\section{Discusión Metodologías}
+\subsection{Metodologías TP1}
+\subsection{Metodologías TP2}
+\subsection{Diferencias}
+
+\newpage
+\section{Conclusiones}
+
+\end{document}
