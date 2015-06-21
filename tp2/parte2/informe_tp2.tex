@@ -127,10 +127,22 @@ Eventos & Creando Evento & 7 \\ \hline
 
 \section{Arquitecturas}
 \subsection{Arquitectura TP1}
+A partir del proyecto Aula al 2020, de los objetivos planteados y el prototipo desarrollado, se define el siguiente diagrama de arquitectura:
+
+\centerline{\includegraphics[width=1.2\textwidth]{./diagramas/ArquitecturaTP1.png}}
+\centerline{\includegraphics[width=0.5\textwidth]{./diagramas/ArqTP1SistEnvio.png}}
+
+En primer lugar se presenta la UI, que es la encargada de la interacción del usario con el sistema de Tiza 2020. La misma recibe los pedidos por parte del usuario. Para comenzar, se deberá validar el acceso del mismo, es decir, verificar su previa inscripción en el sistema. Para eso el UI indica al ''Gestor usuarios'' el id del usuario que intenta acceder. Este último lee la base de datos, buscando los datos del mismo. En caso de no existir, retorna al UI un aviso de usuario inválido, el cual se encargará de notificarle a la persona. Caso contrario, responde que se permite el acceso al usuario al sistema. 
+En caso de que el usuario sea válido, el UI envía un pedido al "Gestor campañas", pidiendo las campañas correspondientes al usuario para poder mostrarlas como el siguiente menú, luego del inicio de sesión. El componente "Gestor campañas", pide del repositorio las campañas que tienen en el campo de "usuario con permiso de acceso" al id del usuario. Luego, envía la información de todas las campañas, completándolo con los datos requeridos en los demás repositorios, como podría ser el caso de los teléfonos de los contactos. 
+El proceso se repite para cada menú que el usuario desee ver. Además, el gestor se encargará de recolectar la información necesaria y traducirla a una interfaz para que sea comprensible por el usuario y se le enviará al UI, quien se encarga de mostarla. En el caso de de que se desee mostrar la agenda correspondiente a un usuario, para poder incluirlo en la creación de un mensaje, el UI pedirá al "Gestor contactos", la información necesaria. Este último se encargará de acceder a la base de datos y recolecctar los datos pedidos. El proceso es el mismo para el "Gestor mensajes", "Gestor resultados", "Gestor eventos", siendo cada uno el encargado de interpretar para el UI los datos necesarios y de armar la interfaz necesaria. 
+
+Por otro lado, cuando un usuario, tanto Docente como personal de la Secretaría o Dirección, desean crear o modificar algún objeto del sistema, lo indicarán al UI, utilizando los accesos que correspondan, y este se encargará de avisar al gestor que corresponda con el objeto. El gestor correspondiente se encargará de agregar el nuevo objeto al repositorio necesario.  En caso de que se desee modificar uno existente, también levantará de la base de datos el objeto, le aplicará la modificación indicada por el usuario y lo volverá a cargar en el repositorio. 
+
+El "Sistema de envío" es el encargado de enviar los mensajes. El "Timer" le envía cada hora un mensaje asincrónico al "Scheduler" con la hora y fecha actuales. El "Scheduler" se encargará de leer en la base de datos aquellos menajes que cumplan con esa hora y fecha de envío. Al obtener todos los mensajes, los traducirá para poder ser interpretados por el "Servicio envío SMS". Este último es un sistema externo que se contratará para cumplir la función de enviar los SMS necesarios. 
 \subsection{Arquitectura TP2}
 La arquitectura de esta parte se realizó contemplando los atributos de calidad nombrados en la sección anterior. A continuación se muestra el diseño realizado para esta parte, seguido de un detalle de desiciones tomadas.
 
-\emph{Desición de Diseño} Al momento de contemplar el atributo de calidad de %\texbf{Disponibilidad} respecto el envío de mensajes, se tomó la decisión de realizar la conexión entre componete servicio mensajeria  y el componente, de lado de Big tiza, de envio de mensajes, mediante 2 conectores distintos. Dado que se tiene en cuenta que al momento  de enviar mensajes, puede fallar la conexión con los distintos servicios (twitter facebook, sms). 
+\emph{Desición de Diseño} Al momento de contemplar el atributo de calidad de \textbf{Disponibilidad} respecto el envío de mensajes, se tomó la decisión de realizar la conexión entre componete servicio mensajeria  y el componente, de lado de Big tiza, de envio de mensajes, mediante 2 conectores distintos. Dado que se tiene en cuenta que al momento  de enviar mensajes, puede fallar la conexión con los distintos servicios (twitter facebook, sms). 
 Se optó por crear 2 conectores para esta unión, uno que muestra la conxión normal, sin fallas y otro la conexión considerando falla de comunicación. 
 Viendo en detalle el conector del camino sin fallas se puede observar que existe un traductor para poder comunicarse con cada tipo de servicio (facebook, twiter etc) ya que cada uno tiene un formato distinto.
 En el caso del conector de camino alternativo (2), que contempla la falta de conexion, al ver el conector más en detalle se puede observar  que se tiene el componente servicio alternativo de mensajería, quién se encarga de tomar la decición correspondiente y conectarse con el servicio de la empresa de telefonia privada para poder concretar el envío.
@@ -145,13 +157,14 @@ Al considerar las situaciones de envío de camino sin fallas, donde como hay que
 \emph{Desicisión de Diseño}
 Al momento de contemplar en las respuestas de aquellas campañas que esperar respuestas a los mensajes enviados, se asume que los mensajes se envían con un código para vincular con dicha campaña, para de esta manera poder generar los resultados correspondientes.
 
-Por otro lado, se optó por tener un componente %\textbf{Servicio de evaluacion de estadisticas}, el cual es externo con el cual hay que conectarse al momento de evaluar los resultados, el mismo es definido por cada municipio acorde a lo que se desee evaluar (campaña de saludo, de educacion vial, etc)
+Por otro lado, se optó por tener un componente \textbf{Servicio de evaluacion de estadisticas}, el cual es externo con el cual hay que conectarse al momento de evaluar los resultados, el mismo es definido por cada municipio acorde a lo que se desee evaluar (campaña de saludo, de educacion vial, etc)
 
-%~ 
-%~ Los resultados de las campanias pueden ser cargados manualmente a travez del componente gestor de resultados(considerando aquellas campanias que no reciben respuesta para evaluar) para poder ser evaluados.
-%~ 
-%~ 
-%~ 
+Otra parte importante a la hora de hablar de la arquitectura de Big Tiza, es la parte del procesado de resultados de las campañas, ya que esta parte involucra 2 partes importantes, la de procesado de campañas y la parte de visualizarlos en por ejémplo un dashboard.
+En cuando al procesado de los resultados, primero hay que considerar cómo llegan al sistema, una opción posible es la carga manual de dichos resultado. Esta opción es considerada dado que el 
+Los resultados de las campañas pueden ser cargados manualmente a travez del componente gestor de resultados(considerando aquellas campanias que no reciben respuesta para evaluar) para poder ser evaluados.
+
+
+
 %~ Los resultados son los efectos de la campania, por ejemplo el apropbo pepe el examen, ese resultado es evaluado y dice aprobo la mitad, y eso es contrastado con una metrica lo cual define la conclusion de una campania, por ejemplo aprobo el 80 porciento y ese porcentaje es bueno o malo respecto a la metrica que se definio, y eso se muestra en esta visualizacion constante de las campanias
 %~ 
 %~ Las evaluaciones se guardan para futuras consultas, aunque se haya finalizado la campania.
