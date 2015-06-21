@@ -81,24 +81,24 @@ Se detallan Los atributos de calidad pedidos, junto con sus respectivos escenari
 Performance - Deadline
 Fuente: Externa
 Estímulo: El usuario desea ver el estado actual de la campaña. Requiere visualización de las estadísticas generadas hasta el momento, de los mensajes enviados y los no enviados. 
-Entorno: Sobrecargado
+Entorno: Normal
 Artefacto: Sistema
-Respuesta: 
-Medición de la respuesta: 
+Respuesta: Se procesa el pedido de visualizar el estado de la campaña.
+Medición de la respuesta: El pedido debe resolverse en menos de un segundo. 
 
 \item[Disponibilidad] Fallas de comunicación durante transición de servidores
 
-\textbf{Fuente}: 
-\textbf{Estímulo}:
-\textbf{Entorno}: 
-\textbf{Artefacto}: 
-\textbf{Respuesta}: 
-\textbf{Medición de la respuesta}: 
+\textbf{Fuente}: Interna
+\textbf{Estímulo}: Falla por Omisión
+\textbf{Entorno}: Normal
+\textbf{Artefacto}: Canal de comunicación
+\textbf{Respuesta}: Se deberá pasar a un entorno degradado, donde se solucionen los pedidos realizados durante la transición, sin importar la performance del sistema.
+\textbf{Medición de la respuesta}:  Se permanecerá en modo degradado hasta que se termine la transicción.
 
-\item[Modificabilidad] Cambio de servidores entre etapa de Cordoba a etapa pais.
+\item[Modificabilidad] Cambio de servidores entre etapa de Córdoba a etapa país.
 
-\textbf{Fuente}:  \\
-\textbf{Estímulo}: \\
+\textbf{Fuente}: Usuario \\
+\textbf{Estímulo}: Se quiere aumentar el \\
 \textbf{Entorno}: \\
 \textbf{Artefacto}: \\
 \textbf{Respuesta}: \\
