@@ -160,15 +160,13 @@ Al momento de contemplar en las respuestas de aquellas campañas que esperar res
 Por otro lado, se optó por tener un componente \textbf{Servicio de evaluacion de estadisticas}, el cual es externo con el cual hay que conectarse al momento de evaluar los resultados, el mismo es definido por cada municipio acorde a lo que se desee evaluar (campaña de saludo, de educacion vial, etc)
 
 Otra parte importante a la hora de hablar de la arquitectura de Big Tiza, es la parte del procesado de resultados de las campañas, ya que esta parte involucra 2 partes importantes, la de procesado de campañas y la parte de visualizarlos en por ejémplo un dashboard.
-En cuando al procesado de los resultados, primero hay que considerar cómo llegan al sistema, una opción posible es la carga manual de dichos resultado. Esta opción es considerada dado que el 
-Los resultados de las campañas pueden ser cargados manualmente a travez del componente gestor de resultados(considerando aquellas campanias que no reciben respuesta para evaluar) para poder ser evaluados.
+En cuando al procesado de los resultados, primero hay que considerar cómo llegan al sistema, una opción posible es la carga manual de dichos resultado. Esta opción es considerada dado que hay campañas, como por ejemplo una campaña de vacunación, que requiere de requiere de un proceso de que la misma llegue a la población, se considere y tenga efecto, en este ejémplo el efecto es que la persona se vacune y cuando lo haga eso suma un resultado a la campaña,como que 100 personas recibieron la vacuna para la gripe en el hospital de villa urquiza el día 4 de mayo de 2015, que luego será agregado al sistema por personal reponsable.
+Respecto a la arquitectura considerada para este punto, quién recibe los resultados dichos anteriormente es el componente gestor de resultados.
+Por otro lado, se contemplan campañas interactivas, es decir que envían mensajes cuyo efecto es una respuesta el mensaje envíado, por lo cual este tipo de resultados, se reciben directamente en el sistema, el encargado de recibirlo nuevamente es el componente gestor de resultados.
+
+Al recibir un resultado de una campaña, éste debe ser procesado inmediatamente para poder ser visualizado lo antes posible, ya que se desea obterner el dashboard siempre actualizado (el dashboard es el componente que se encargará de contemplar el requerimiento de que las campañas se puedan monitorear de manera ágil). por ejémplo se puede considerar el resultado 4 personas recibieron la vacuna contra la gripe en el hospital Posadas, estos valores deben ser evaluados acorde a las métricas definidas para la campaña definida por el ministerio de salud para la prevención de la gripe. Dependiendo de la definición de la métrica este valor (4 personas) puede ser bueno o malo. ya que por ejémplo si se espera que haya 100 personas vacunadas en el posadas, este valor es bajo. Luego de evaluar dicho resultado, el mismo está listo para ser visualizado en el dashboard, también se guarda para una vez que se haya finalizado la campaña el mismo pueda ser reunido con todos los resultados de la misma y obtener así un resultado final certero de la campaña.
 
 
-
-%~ Los resultados son los efectos de la campania, por ejemplo el apropbo pepe el examen, ese resultado es evaluado y dice aprobo la mitad, y eso es contrastado con una metrica lo cual define la conclusion de una campania, por ejemplo aprobo el 80 porciento y ese porcentaje es bueno o malo respecto a la metrica que se definio, y eso se muestra en esta visualizacion constante de las campanias
-%~ 
-%~ Las evaluaciones se guardan para futuras consultas, aunque se haya finalizado la campania.
-%~ 
 %~ Al agregar el web browser asumimos que en ese camino se contemplan los permisos de usuario, y al este solo interactuar con el web server no hay que contemplar otro caso de seguridad en este aspecto de permisos.
 %~ 
 %~ 
