@@ -1,0 +1,54 @@
+\subsection{Programming in the Large vs Programming in the Small}
+
+En esta secci\'on se comparar\'an la Arquitectura correspondiente al Dise\~no Orientado a Objetos (small programming) y la nueva Arquitectura de gran escala (large programming) correspondientes a este trabajo.
+
+{\bf Comunicaciones con entidades externas} \\
+\begin{tabular}{| p{8cm} | p{8cm} |}
+\hline
+Dise\~no O. O. & Arquitectura \\ \hline \hline
+Un solo componente externo, correspondiente al Sitema de Env\'io de Mensajes. Esto se debi\'o a que era el \'unico canal de comunicaci\'on. Con respecto a los resultados, estos eran cargados manualmente al sistema. & La cantidad de canales de comunicaci\'on aumentaron, no s\'olo abarcando al anterior Sistema de Envio de Mensajes, sino tambi\'en a redes sociales como Facebook y Twitter, y la posibilidad de env\'io por Correo Argentino. Para los resultados, como la cantidad de mensajes y respuestas son masivas, hacerlo manualmente ser\'ia imposible. Para esto se cuenta con la opci\'on de poder ser cargadas autom\'aticamente por medio de Web Services externos (como por ejemplo, un Web Service ofrecido por el Ministerio de Salud, para obtener resultados de campa\~nas de salud) \\ \hline
+\end{tabular}
+
+
+{\bf Seguridad de datos} \\
+\begin{tabular}{| p{8cm} | p{8cm} |}
+\hline
+Dise\~no O. O. & Arquitectura \\ \hline \hline
+
+La comunicaci\'on con el sevicio de Mensajer\'ia SMS era insegura. Cualquier persona podr\'ia capturar el tr\'afico y obtener datos privados de los usuarios. & Ahora nuestro sistema al ser a escala Provincial (y posteriormente a escala Nacional), debe garantizar la seguridad de los datos de cada usuario. Esto se logra por medio de algortimos de encriptaci\'on. \\ \hline
+\end{tabular}
+
+
+{\bf Disponibilidad} \\
+\begin{tabular}{| p{8cm} | p{8cm} |}
+\hline
+Dise\~no O. O. & Arquitectura \\ \hline \hline
+
+No siempre estaba garantizado que los mensajes enviados efectivamente llegaran. Si luego de 3 intentos no se lograba enviar algun mensaje, se lo descartaba. & Para intentar suplir la anterior falla, los mensajes persisten en el tiempo, y mientras tenga sentido el mensaje en el contexto de su campa\~na y a\'un no haya llegado, se prueba el env\'io por otros medios previamente mencionados o se reenintenta en caso de haber ya agotado todos los canales posibles. \\ \hline
+\end{tabular}
+
+{\bf Alocaci\'on} \\
+\begin{tabular}{| p{8cm} | p{8cm} |}
+\hline
+Dise\~no O. O. & Arquitectura \\ \hline \hline
+
+Al no ser muy grande el sistema y la cantidad de datos no era demasiada, con una m\'aquina alcanzaba para alocar cada componente del mismo y almacenar las campa\~nas, mensajes, usuarios y destinatarios. & Ahora aparece el conceto de BigData. Se cuenta con una masiva cantidad de datos y a la vez est\'a la necesidad de implementar sistemas performante. Es por esto que ahora el sistema esta alocado en varios servidores, aprovechando la capacidad de paralelizar trabajo y distribuir estrat\'egimante los datos entre todos estos lugares. \\ \hline
+\end{tabular}
+
+
+{\bf T\'acticas} \\
+\begin{tabular}{| p{8cm} | p{8cm} |}
+\hline
+Dise\~no O. O. & Arquitectura \\ \hline \hline
+
+En esta arquitectura no se ven reflejadas ninguna de las t\'acticas de atributos de calidad, ya que no fueron tenidas en cuenta. & Se vi\'o en la necesidad de aplicaci\'on de algunas t\'acticas para la resoluci\'on de problemas t\'ipicos de Disponibilidad, Performance, Seguridad entre otros. \\ \hline
+\end{tabular}
+
+
+{\bf Big Data} \\
+\begin{tabular}{| p{8cm} | p{8cm} |}
+\hline
+Dise\~no O. O. & Arquitectura \\ \hline \hline
+
+Como se mencion\'o previamente, en esta etapa la cantidad de datos es m\'inima, con lo cual esto permit\'ia que para poder obtener el estado de todas las campa\~nas, con un simple listado de las mismas se lograba visualizarlas, y no se consum\'ia mucho tiempo. & En cambio, y como tambi\'en se mencion\'o, en esta etapa al haber una inmensa cantidad de datos, la visualizaci\'on de las campa\~nas pasa a ser un reto. Aparece la necesidad de aplicar heur\'isticas usando estad\'isticas para dar una idea del estado de las mismas, debido a la imposibilidad de brindar un servicio exacto tiempo real. \\ \hline
+\end{tabular}
