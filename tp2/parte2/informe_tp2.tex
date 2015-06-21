@@ -78,10 +78,19 @@ Se detallan Los atributos de calidad pedidos, junto con sus respectivos escenari
 \subsection{Listado atributos de calidad pedidos}
 \begin{itemize}
 \item[Performance] Monitorear el estado de las campañas de manera agil. No se admiten demoras de ningún tipo .
-\item[Disponibilidad] Fallas de comunicación durante transición %??
+\item[Disponibilidad] Fallas de comunicación durante transición de servidores
+\item[Modificabilidad] Cambio de servidores entre etapa de Cordoba a etapa pais.
 \item[Seguridad]Proteger datos y modificación (campañas y evaluación).
 \item[Seguridad]Auditar
-\item[Disponibilidad] Patagonia
+\item[Disponibilidad] Envio de mensajes. (Patagonia)
+\item[Certeza de Datos] Para la estimacion de campanias
+\item[Modificabilidad-Scalabilidad] Volumen de datos
+\item[Performance-Scalabilidad] Mantener el 80 porciento de tiempo de envio.
+\item[Modificabilidad] Campanias privadas
+\item[Flexibilidad] politica nacional de metricas
+\item[Usabilidad] Crear campanias
+\item[Usabilidad] Visualizar campanias
+\item[Usabilidad] Visualizar Resultados
 \end{itemize}
 \subsection{Escenarios de Atributos de calidad}
 \begin{table}[H]
@@ -119,6 +128,53 @@ Eventos & Creando Evento & 7 \\ \hline
 \section{Arquitecturas}
 \subsection{Arquitectura TP1}
 \subsection{Arquitectura TP2}
+La arquitectura de esta parte se realizó contemplando los atributos de calidad nombrados en la sección anterior. A continuación se muestra el diseño realizado para esta parte, seguido de un detalle de desiciones tomadas.
+
+\emph{Desición de Diseño} Al momento de contemplar el atributo de calidad de %\texbf{Disponibilidad} respecto el envío de mensajes, se tomó la decisión de realizar la conexión entre componete servicio mensajeria  y el componente, de lado de Big tiza, de envio de mensajes, mediante 2 conectores distintos. Dado que se tiene en cuenta que al momento  de enviar mensajes, puede fallar la conexión con los distintos servicios (twitter facebook, sms). 
+Se optó por crear 2 conectores para esta unión, uno que muestra la conxión normal, sin fallas y otro la conexión considerando falla de comunicación. 
+Viendo en detalle el conector del camino sin fallas se puede observar que existe un traductor para poder comunicarse con cada tipo de servicio (facebook, twiter etc) ya que cada uno tiene un formato distinto.
+En el caso del conector de camino alternativo (2), que contempla la falta de conexion, al ver el conector más en detalle se puede observar  que se tiene el componente servicio alternativo de mensajería, quién se encarga de tomar la decición correspondiente y conectarse con el servicio de la empresa de telefonia privada para poder concretar el envío.
+
+%revisar que decision tomamos respecto a la version de oca
+Además en este caso se contempló un tercer caso que coincide con el análisis de riesgo, tomado para la parte de planificación, donde se considera una conexión directa con un servicio de correo (oca), para poder contar con él en el caso de no tener ningún tipo de conexión con los otros servicios. %de esa manera se desliga el sistema Big tiza de esa responsabilidad.
+
+Al considerar las situaciones de envío de camino sin fallas, donde como hay que evitar el uso de la empresa de telefonía privada, ya que esta puede generarle costos a los receptores, lo cual se desea evitar, por lo que se van a hacer varios intentos, antes de tomar la desición de cambiar de conector.
+
+%~ Para la decision de por donde enviar se la asigna a un componente dentro de componente de envio de mensajes, esto se pude observar al hacer zoom de este comp 
+
+\emph{Desicisión de Diseño}
+Al momento de contemplar en las respuestas de aquellas campañas que esperar respuestas a los mensajes enviados, se asume que los mensajes se envían con un código para vincular con dicha campaña, para de esta manera poder generar los resultados correspondientes.
+
+Por otro lado, se optó por tener un componente %\textbf{Servicio de evaluacion de estadisticas}, el cual es externo con el cual hay que conectarse al momento de evaluar los resultados, el mismo es definido por cada municipio acorde a lo que se desee evaluar (campaña de saludo, de educacion vial, etc)
+
+%~ 
+%~ Los resultados de las campanias pueden ser cargados manualmente a travez del componente gestor de resultados(considerando aquellas campanias que no reciben respuesta para evaluar) para poder ser evaluados.
+%~ 
+%~ 
+%~ 
+%~ Los resultados son los efectos de la campania, por ejemplo el apropbo pepe el examen, ese resultado es evaluado y dice aprobo la mitad, y eso es contrastado con una metrica lo cual define la conclusion de una campania, por ejemplo aprobo el 80 porciento y ese porcentaje es bueno o malo respecto a la metrica que se definio, y eso se muestra en esta visualizacion constante de las campanias
+%~ 
+%~ Las evaluaciones se guardan para futuras consultas, aunque se haya finalizado la campania.
+%~ 
+%~ Al agregar el web browser asumimos que en ese camino se contemplan los permisos de usuario, y al este solo interactuar con el web server no hay que contemplar otro caso de seguridad en este aspecto de permisos.
+%~ 
+%~ 
+%~ En el caso de los componentes que no se acceden a travez del usuario (web server), se contempla que esten preparados para evitar el robo de datos. Por ejemplo, el componente de recepcion de mensajes de resultado de campanas, ya que reciben mensajes por fuera, y alguno podria ser un potencial ataque de seguridad. pero para evitar esto se considera que se realiza un chequeo de seguridad previo a ingresarlo a la base de datos.
+%~ 
+%~ 
+%~ 
+%~ Gestor del dashboard Este componente tiene 2 caminos la muestra del tiempo real y la muestra de los resultados finalizados
+%~ 
+%~ Esto va mas que nada a que todo el tiempo se tiene que estar mostrando el resultado de la campania y dado que aca estamos considerando big data no se puede tener en tiempo razonable el resultado final. Por ello se van mostrando resultados parciales que se van extrapolando a un resultado porcentual respecto de la poblacion, (ya que es un resultado puntual pero se quiere mostrar a nivel poblacion)
+%~ Entonces el camino de procesamiento.
+%~ Esto sirve para los escenarios de performance
+%~ 
+%~ En cuanto a disponibilidad se habla de los conectores distinto
+%~ 
+%~ 
+%~ gestor de campanias ahi comentar el atributo de modificabilidad respecto de campanias privadas
+
+
 \subsection{Discusión de Arquitecturas}
 
 \newpage
