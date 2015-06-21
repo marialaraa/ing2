@@ -132,13 +132,14 @@ A partir del proyecto Aula al 2020, de los objetivos planteados y el prototipo d
 \centerline{\includegraphics[width=1.2\textwidth]{./diagramas/ArquitecturaTP1.png}}
 \centerline{\includegraphics[width=0.5\textwidth]{./diagramas/ArqTP1SistEnvio.png}}
 
-En primer lugar se presenta la UI, que es la encargada de la interacción del usario con el sistema de Tiza 2020. La misma recibe los pedidos por parte del usuario. Para comenzar, se deberá validar el acceso del mismo, es decir, verificar su previa inscripción en el sistema. Para eso el UI indica al ''Gestor usuarios'' el id del usuario que intenta acceder. Este último lee la base de datos, buscando los datos del mismo. En caso de no existir, retorna al UI un aviso de usuario inválido, el cual se encargará de notificarle a la persona. Caso contrario, responde que se permite el acceso al usuario al sistema. 
-En caso de que el usuario sea válido, el UI envía un pedido al "Gestor campañas", pidiendo las campañas correspondientes al usuario para poder mostrarlas como el siguiente menú, luego del inicio de sesión. El componente "Gestor campañas", pide del repositorio las campañas que tienen en el campo de "usuario con permiso de acceso" al id del usuario. Luego, envía la información de todas las campañas, completándolo con los datos requeridos en los demás repositorios, como podría ser el caso de los teléfonos de los contactos. 
-El proceso se repite para cada menú que el usuario desee ver. Además, el gestor se encargará de recolectar la información necesaria y traducirla a una interfaz para que sea comprensible por el usuario y se le enviará al UI, quien se encarga de mostarla. En el caso de de que se desee mostrar la agenda correspondiente a un usuario, para poder incluirlo en la creación de un mensaje, el UI pedirá al "Gestor contactos", la información necesaria. Este último se encargará de acceder a la base de datos y recolecctar los datos pedidos. El proceso es el mismo para el "Gestor mensajes", "Gestor resultados", "Gestor eventos", siendo cada uno el encargado de interpretar para el UI los datos necesarios y de armar la interfaz necesaria. 
+En primer lugar se presenta la UI, que es la encargada de la interacción del usario con el sistema de Tiza 2020. La misma recibe los pedidos por parte del usuario. Para comenzar, se deberá validar el acceso del mismo, es decir, verificar su previa inscripción en el sistema. Para eso el UI indica al \textbf{Gestor usuarios} el id del usuario que intenta acceder. Este último lee la base de datos, buscando los datos del mismo. En caso de no existir, retorna al UI un aviso de usuario inválido, el cual se encargará de notificarle a la persona. Caso contrario, responde que se permite el acceso al usuario al sistema. 
+En caso de que el usuario sea válido, el UI envía un pedido al \textbf{Gestor campañas}, pidiendo las campañas correspondientes al usuario para poder mostrarlas como el siguiente menú, luego del inicio de sesión. El componente \textbf{Gestor campañas}, pide del repositorio las campañas que tienen en el campo de \emph{usuario con permiso de acceso} al id del usuario. Luego, envía la información de todas las campañas, completándolo con los datos requeridos en los demás repositorios, como podría ser el caso de los teléfonos de los contactos. 
+El proceso se repite para cada menú que el usuario desee ver. Además, el gestor se encargará de recolectar la información necesaria y traducirla a una interfaz para que sea comprensible por el usuario y se le enviará al UI, quien se encarga de mostarla. En el caso de de que se desee mostrar la agenda correspondiente a un usuario, para poder incluirlo en la creación de un mensaje, el UI pedirá al \textbf{Gestor contactos}, la información necesaria. Este último se encargará de acceder a la base de datos y recolecctar los datos pedidos. El proceso es el mismo para el \textbf{Gestor mensajes}, \textbf{Gestor resultados}, \textbf{Gestor eventos}, siendo cada uno el encargado de interpretar para el UI los datos necesarios y de armar la interfaz necesaria. 
 
 Por otro lado, cuando un usuario, tanto Docente como personal de la Secretaría o Dirección, desean crear o modificar algún objeto del sistema, lo indicarán al UI, utilizando los accesos que correspondan, y este se encargará de avisar al gestor que corresponda con el objeto. El gestor correspondiente se encargará de agregar el nuevo objeto al repositorio necesario.  En caso de que se desee modificar uno existente, también levantará de la base de datos el objeto, le aplicará la modificación indicada por el usuario y lo volverá a cargar en el repositorio. 
 
-El "Sistema de envío" es el encargado de enviar los mensajes. El "Timer" le envía cada hora un mensaje asincrónico al "Scheduler" con la hora y fecha actuales. El "Scheduler" se encargará de leer en la base de datos aquellos menajes que cumplan con esa hora y fecha de envío. Al obtener todos los mensajes, los traducirá para poder ser interpretados por el "Servicio envío SMS". Este último es un sistema externo que se contratará para cumplir la función de enviar los SMS necesarios. 
+El \textbf{Sistema de envío} es el encargado de enviar los mensajes. El \emph{Timer} le envía cada hora un mensaje asincrónico al \emph{Scheduler} con la hora y fecha actuales. El \emph{Scheduler} se encargará de leer en la base de datos aquellos menajes que cumplan con esa hora y fecha de envío. Al obtener todos los mensajes, los traducirá para poder ser interpretados por el \textbf{Servicio envío SMS}. Este último es un sistema externo que se contratará para cumplir la función de enviar los SMS necesarios. 
+
 \subsection{Arquitectura TP2}
 La arquitectura de esta parte se realizó contemplando los atributos de calidad nombrados en la sección anterior. A continuación se muestra el diseño realizado para esta parte, seguido de un detalle de desiciones tomadas.
 
@@ -167,32 +168,28 @@ Por otro lado, se contemplan campañas interactivas, es decir que envían mensaj
 Al recibir un resultado de una campaña, éste debe ser procesado inmediatamente para poder ser visualizado lo antes posible, ya que se desea obterner el dashboard siempre actualizado (el dashboard es el componente que se encargará de contemplar el requerimiento de que las campañas se puedan monitorear de manera ágil). por ejémplo se puede considerar el resultado 4 personas recibieron la vacuna contra la gripe en el hospital Posadas, estos valores deben ser evaluados acorde a las métricas definidas para la campaña definida por el ministerio de salud para la prevención de la gripe. Dependiendo de la definición de la métrica este valor (4 personas) puede ser bueno o malo. ya que por ejémplo si se espera que haya 100 personas vacunadas en el posadas, este valor es bajo. Luego de evaluar dicho resultado, el mismo está listo para ser visualizado en el dashboard, también se guarda para una vez que se haya finalizado la campaña el mismo pueda ser reunido con todos los resultados de la misma y obtener así un resultado final certero de la campaña.
 
 
-%~ Al agregar el web browser asumimos que en ese camino se contemplan los permisos de usuario, y al este solo interactuar con el web server no hay que contemplar otro caso de seguridad en este aspecto de permisos.
-%~ 
-%~ 
-%~ En el caso de los componentes que no se acceden a travez del usuario (web server), se contempla que esten preparados para evitar el robo de datos. Por ejemplo, el componente de recepcion de mensajes de resultado de campanas, ya que reciben mensajes por fuera, y alguno podria ser un potencial ataque de seguridad. pero para evitar esto se considera que se realiza un chequeo de seguridad previo a ingresarlo a la base de datos.
-%~ 
-%~ 
-%~ 
-%~ Gestor del dashboard Este componente tiene 2 caminos la muestra del tiempo real y la muestra de los resultados finalizados
+Otro aspecto que fue considerado al momento de definir la interfaz para que un usuario pueda definir campañas es el de seguridad, ya que se hizo hincapié en que van a haber distintos tipos de usuario, y no todos pueden ver información de todas las campañas, en particular a la hora de tener la posibilidad de agregar campañas para empresas privadas, como por ejémplo addidas, se quiere tener la posibilidad de restringir la información a la que accede el usuario representante a addidas.
+\emph{Desición de diseño} Para cubrir este requerimiento se decidió agregar un web browser. 
+
+Otras consideraciones que se tienen respecto de la seguridad de la información, es que los otros canales de acceso al sistema, por ejémplo la carga de resultados, o como el componente de recepción de mensajes, tengan revisiones de seguridad previo a acceder a la base de datos para persistir información, para evitar un potencial ataque de seguridad.
+
+
+Volviendo al requerimiento de visualizar el resultado de campañas de manera ágil, como se presento anteriormente, se consideró un dashboard.
+\emph{Desición de diseño} Para ello se optó por realizar un componente \textbf{Servidor Dashboard} el cual se responsabiliza de recibir y mostrar los resultados, constantemente. Además este componente tiene dos formas de recibir resultados. Dado que se desea optener en tiempo real resultados procesados una forma de que el componente reciba es el camino de los valores que se evaluan constantemente de la campaña, y otra es cuando se tienen resultados finalizados de las misma los puede seguir visualizando a pedido del componente \textbf{Cliente Dashboard} del lado del usuario.
+
+Se tomó esta decisión teniendo en cuenta el volumen de información a procesas y los recursos con los que se cuentan, ya que durante la vigencia de una campaña se van a obtener volumenes muy grandes de resultados parciales,  que los mismos se quieren ver reflejados en el dashboard, pero también se desea tener la información correcta del resultado final conseguido a través de la campaña concretada. Al considerar resultados parciales se desea conseguir valores representativos al volumen total de insidencia de la campaña, por lo que esos resultados parciales se deben evaluar a nivel porcentaje de insidencia de dicho volumen para que al visualizar se pueda reflejar la métrica utilizada por la campaña.
+Teniendo en cuenta los escenarios de performance se tomó la desición dicha anteriormente.
 %~ 
 %~ Esto va mas que nada a que todo el tiempo se tiene que estar mostrando el resultado de la campania y dado que aca estamos considerando big data no se puede tener en tiempo razonable el resultado final. Por ello se van mostrando resultados parciales que se van extrapolando a un resultado porcentual respecto de la poblacion, (ya que es un resultado puntual pero se quiere mostrar a nivel poblacion)
 %~ Entonces el camino de procesamiento.
 %~ Esto sirve para los escenarios de performance
 %~ 
-%~ En cuanto a disponibilidad se habla de los conectores distinto
-%~ 
-%~ 
-%~ gestor de campanias ahi comentar el atributo de modificabilidad respecto de campanias privadas
 
 
-\subsection{Discusión de Arquitecturas}
+%~ \subsection{Discusión de Arquitecturas}
 
 \newpage
-\section{Discusión Metodologías}
-\subsection{Metodologías TP1}
-\subsection{Metodologías TP2}
-\subsection{Diferencias}
+\section{Discusión}
 
 \newpage
 \section{Conclusiones}
