@@ -97,27 +97,27 @@ Se detallan los atributos de calidad pedidos, junto con sus respectivos escenari
 
 \item[Modificabilidad] Cambio de servidores entre etapa de Córdoba a etapa país.
 
-\textbf{Fuente}: Usuario \\
-\textbf{Estímulo}: Se quiere aumentar el \\
-\textbf{Entorno}: \\
-\textbf{Artefacto}: \\
-\textbf{Respuesta}: \\
-\textbf{Medición de la respuesta}: \\
+\textbf{Fuente}: Administrador \\
+\textbf{Estímulo}: Se quiere aumentar la cantidad de servidores para poder almacendar datos de todos los usuarios del pa\'is' \\
+\textbf{Entorno}: En ejecución \\
+\textbf{Artefacto}: Sistema \\
+\textbf{Respuesta}: Los nuevos servidores son agregados al sistema y estan listos para ser usados \\
+\textbf{Medición de la respuesta}:  \\
 
+%\item[Seguridad] modificación (campañas y evaluación).
 
-\item[Seguridad]Proteger datos y modificación (campañas y evaluación).
+\item[Seguridad] Proteger datos.
 
-\textbf{Fuente}:  \\
-\textbf{Estímulo}: \\
-\textbf{Entorno}: \\
-\textbf{Artefacto}: \\
-\textbf{Respuesta}: \\
-\textbf{Medición de la respuesta}: \\
+\textbf{Fuente}: Gestor Mensajes\\
+\textbf{Estímulo}: Intenta enviar un mensaje\\
+\textbf{Entorno}: Online \\
+\textbf{Artefacto}: Sistema de env\'ios de Mensajes\\
+\textbf{Respuesta}: Se logra enviar el mensaje encriptado por alguno de los canales de comunicaci\'on disponibles \\
+\textbf{Medición de la respuesta}: La probabilidad de que una persona logre decoficar el algoritmo es de 0.0001\% \\
 
-\item[Seguridad]Auditar
+\item[Seguridad] Auditar
 
-
-\textbf{Fuente}:  \\
+\textbf{Fuente}: \\
 \textbf{Estímulo}: \\
 \textbf{Entorno}: \\
 \textbf{Artefacto}: \\
@@ -127,6 +127,26 @@ Se detallan los atributos de calidad pedidos, junto con sus respectivos escenari
 \item[Disponibilidad] Envio de mensajes. (Patagonia)
 
 
+\textbf{Fuente}: Gestor de Mensajes \\
+\textbf{Estímulo}: Se intenta enviar un mensaje a un usuario en la Patagonia \\
+\textbf{Entorno}: Normal \\
+\textbf{Artefacto}: Sistema de env\'io de Mensajes \\
+\textbf{Respuesta}: El mensaje es enviado al usuario en cuesti\'on por medio del uso de los drones \\
+\textbf{Medición de la respuesta}: El mensaje a la Patagonia llega el 98\% de las veces \\
+
+
+\item[Certeza de Datos] Para la estimacion de campa\~nas
+
+\textbf{Fuente}: Usuario \\
+\textbf{Estímulo}: Pide ver el estado actual de todas las campa\~nas \\
+\textbf{Entorno}: Normal \\
+\textbf{Artefacto}: Cliente resultados \\
+\textbf{Respuesta}: Se muestra por una interfaz un listado (de manera incremental) de todas las campa\~as con datos aproximados de sus estados actuales \\
+\textbf{Medición de la respuesta}: El 80\% del estado de las campa\~nas mostradas es correcto \\
+
+\item[Modificabilidad-]
+\item[Scalabilidad] Volumen de datos
+
 \textbf{Fuente}:  \\
 \textbf{Estímulo}: \\
 \textbf{Entorno}: \\
@@ -134,79 +154,66 @@ Se detallan los atributos de calidad pedidos, junto con sus respectivos escenari
 \textbf{Respuesta}: \\
 \textbf{Medición de la respuesta}: \\
 
-
-\item[Certeza de Datos] Para la estimacion de campanias
-
-\textbf{Fuente}:  \\
-\textbf{Estímulo}: \\
-\textbf{Entorno}: \\
-\textbf{Artefacto}: \\
-\textbf{Respuesta}: \\
-\textbf{Medición de la respuesta}: \\
-
-\item[Modificabilidad-Scalabilidad] Volumen de datos
-
-
-\textbf{Fuente}:  \\
-\textbf{Estímulo}: \\
-\textbf{Entorno}: \\
-\textbf{Artefacto}: \\
-\textbf{Respuesta}: \\
-\textbf{Medición de la respuesta}: \\
-
-\item[Performance-Escalabilidad] Mantener la performance en el envio de mensajes
+\item[Performance-]
+\item[Escalabilidad] Mantener la performance en el envio de mensajes
 Se quiere expandir el sistema de la provincia de Cordoba a Nivel nacional manteniendo la performance en el envio de mensajes.
-\textbf{Fuente}: Sitema
-\textbf{Estímulo}: Envio de mensaje
-\textbf{Entorno}: Funcionamiento con 40 millones de posibles destinatarios.
-\textbf{Artefacto}: Sistema de envio
-\textbf{Respuesta}: Se mantiene en valores similares el tiempo de envío
-\textbf{Medición de la respuesta}: El tiempo de envío de mensajes aumenta en menos de un 20\%
+
+\textbf{Fuente}: Sitema \\
+\textbf{Estímulo}: Envio de mensaje \\
+\textbf{Entorno}: Funcionamiento con 40 millones de posibles destinatarios. \\
+\textbf{Artefacto}: Sistema de envio \\
+\textbf{Respuesta}: Se mantiene en valores similares el tiempo de envío \\
+\textbf{Medición de la respuesta}: El tiempo de envío de mensajes aumenta en menos de un 20\% \\
 
 \item[Modificabilidad] Campanias privadas
-A futuro se quiere poder permitir a empresas privadas crear campañas de promoción de productos
-\textbf{Fuente}: Representante empresa privada
-\textbf{Estímulo}: Carga de campaña
-\textbf{Entorno}: Funcionamiento normal
-\textbf{Artefacto}: Aplicacion web
-\textbf{Respuesta}: Se adapta la aplicacion para permitir la carga de campañas privadas de productos
-\textbf{Medición de la respuesta}: En menos de 2 semanas se deben hacer los cambios y poner en produccion la nueva funcionalidad para la carga de campañas por empresas privadas
+
+A futuro se quiere poder permitir a empresas privadas crear campañas de promoción de productos \\
+\textbf{Fuente}: Representante empresa privada \\
+\textbf{Estímulo}: Carga de campaña \\
+\textbf{Entorno}: Funcionamiento normal \\
+\textbf{Artefacto}: Aplicacion web \\
+\textbf{Respuesta}: Se adapta la aplicacion para permitir la carga de campañas privadas de productos \\
+\textbf{Medición de la respuesta}: En menos de 2 semanas se deben hacer los cambios y poner en produccion la nueva funcionalidad para la carga de campañas por empresas privadas \\
 
 \item[Flexibilidad] politica nacional de metricas
-Permitir que diferentes proveedores de contenido adapten campañas nacionales a las condiciones locales de cada region
-\textbf{Fuente}:  Proveedor de contenido
-\textbf{Estímulo}: Adaptacion de campaña
-\textbf{Entorno}: Funcionamiento normal
-\textbf{Artefacto}: Aplicacion web
-\textbf{Respuesta}: Se adapta la campaña a las condiciones de la region
-\textbf{Medición de la respuesta}: Se adapta la campaña en tiempo de ejecución ( sin necesidad de bajar el servidor o detener la aplicacion )
+
+Permitir que diferentes proveedores de contenido adapten campañas nacionales a las condiciones locales de cada region \\
+\textbf{Fuente}:  Proveedor de contenido  \\
+\textbf{Estímulo}: Adaptacion de campaña \\
+\textbf{Entorno}: Funcionamiento normal \\
+\textbf{Artefacto}: Aplicacion web \\
+\textbf{Respuesta}: Se adapta la campaña a las condiciones de la region \\
+\textbf{Medición de la respuesta}: Se adapta la campaña en tiempo de ejecución ( sin necesidad de bajar el servidor o detener la aplicacion ) \\
 
 \item[Usabilidad] Crear campanias
-Se desea que los usuarios puedan crear campañas correctamente de forma facil y rapida
-\textbf{Fuente}:  Usuario
-\textbf{Estímulo}: Pedido de creacion de campaña
-\textbf{Entorno}: Funcionamiento normal
-\textbf{Artefacto}: Aplicacion web
-\textbf{Respuesta}: El usuario crea una campaña correctamente
-\textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logra crear una campaña correctamente en menos de 5 minutos
+
+Se desea que los usuarios puedan crear campañas correctamente de forma facil y rapida \\
+\textbf{Fuente}:  Usuario \\
+\textbf{Estímulo}: Pedido de creacion de campaña \\
+\textbf{Entorno}: Funcionamiento normal \\
+\textbf{Artefacto}: Aplicacion web \\
+\textbf{Respuesta}: El usuario crea una campaña correctamente \\
+\textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logra crear una campaña correctamente en menos de 5 minutos \\
 
 \item[Usabilidad] Visualizar campanias
-Se desea poder ver toda la informacion referida a una campaña de forma clara.
-\textbf{Fuente}:  Usuario
-\textbf{Estímulo}: Pedido de visualizacion de campaña
-\textbf{Entorno}: Funcionamiento normal
-\textbf{Artefacto}: Aplicación web
-\textbf{Respuesta}: Se visualiza toda la informacion disponible relacionada con la campaña
-\textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logran extraer la información esperada en menos de 30 segundos
+
+Se desea poder ver toda la informacion referida a una campaña de forma clara. \\
+\textbf{Fuente}:  Usuario \\
+\textbf{Estímulo}: Pedido de visualizacion de campaña \\
+\textbf{Entorno}: Funcionamiento normal \\
+\textbf{Artefacto}: Aplicación web \\
+\textbf{Respuesta}: Se visualiza toda la informacion disponible relacionada con la campaña \\
+\textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logran extraer la información esperada en menos de 30 segundos \\
 
 \item[Usabilidad] Visualizar Resultados
-Se desea poder comparar resultados de varias campañas de forma comparable, fàcil de entender.
-\textbf{Fuente}: Usuario
-\textbf{Estímulo}: Pedido de comparación de resultados de 2 campañas
-\textbf{Entorno}: Funcionamiento normal
-\textbf{Artefacto}: Aplicacion web
-\textbf{Respuesta}: Se muestran los resultados de ambas campañas en la misma pantalla
-\textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logran comprender los resultados en menos de 5 minutos
+
+Se desea poder comparar resultados de varias campañas de forma comparable, fàcil de entender. \\
+\textbf{Fuente}: Usuario \\
+\textbf{Estímulo}: Pedido de comparación de resultados de 2 campañas \\
+\textbf{Entorno}: Funcionamiento normal \\
+\textbf{Artefacto}: Aplicacion web \\
+\textbf{Respuesta}: Se muestran los resultados de ambas campañas en la misma pantalla \\
+\textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logran comprender los resultados en menos de 5 minutos \\
 
 \end{itemize}
 \subsection{Escenarios de Atributos de calidad}
