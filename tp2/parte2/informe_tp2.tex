@@ -77,20 +77,20 @@ Se detallan los atributos de calidad pedidos, junto con sus respectivos escenari
 \section{Atributos de Calidad}
 \subsection{Listado atributos de calidad pedidos}
 \begin{itemize}
-\item[Performance] Monitorear el estado de las campañas de manera agil. No se admiten demoras de ningún tipo .
-Performance - Deadline
-Fuente: Externa
-Estímulo: El usuario desea ver el estado actual de la campaña. Requiere visualización de las estadísticas generadas hasta el momento, de los mensajes enviados y los no enviados. 
-Entorno: Normal
-Artefacto: Sistema
-Respuesta: Se procesa el pedido de visualizar el estado de la campaña.
-Medición de la respuesta: El pedido debe resolverse en menos de un segundo. 
 
-\item[Disponibilidad] Fallas de comunicación durante transición de servidores
+\item[Performance - Deadline] No se acepta ningún tipo de demoras ante el monitoreo del estado de las campañas.
+\textbf{Fuente}: Externa
+\textbf{Estímulo}: El usuario desea ver el estado actual de la campaña. Requiere visualización de las estadísticas generadas hasta el momento, de los mensajes enviados y los no enviados. 
+\textbf{Entorno}: Normal
+\textbf{Artefacto}: Sistema
+\textbf{Respuesta}: Se procesa el pedido de visualizar el estado de la campaña.
+\textbf{Medición de la respuesta}: El pedido debe resolverse en menos de un segundo. 
+
+\item[Disponibilidad] Se pueden generar fallas de comunicación durante la transición de servidores.
 
 \textbf{Fuente}: Interna
-\textbf{Estímulo}: Falla por Omisión
-\textbf{Entorno}: Normal
+\textbf{Estímulo}: Falla por omisión
+\textbf{Entorno}: Normal, el sistema funciona en su modo habitual
 \textbf{Artefacto}: Canal de comunicación
 \textbf{Respuesta}: Se deberá pasar a un entorno degradado, donde se solucionen los pedidos realizados durante la transición, sin importar la performance del sistema.
 \textbf{Medición de la respuesta}:  Se permanecerá en modo degradado hasta que se termine la transicción.
