@@ -250,6 +250,8 @@ Otro aspecto que fue considerado al momento de definir la interfaz, es el de \un
 
 Otras consideraciones que se tienen respecto a la seguridad de la información, es que los otros canales de acceso al sistema, como por ejemplo, la carga de resultados o dentro del componente \textbf{Sistema recepción de mensajes}, tengan revisiones de seguridad previo al intento de acceso a la base de datos por parte de un usuaria. De esta manera se persiste información evitandose así un potencial ataque de seguridad.\\
 
+%Volviendo al requerimiento de visualizar el resultado de campañas de manera ágil, como se presento anteriormente, se consideró un dashboard. Para ello se optó por realizar un componente \textbf{Servidor Dashboard} el cual se responsabiliza de recibir y mostrar los resultados, constantemente. Además este componente tiene dos formas de recibir resultados. Dado que se desea optener en tiempo real resultados procesados una forma de que el componente reciba es el camino de los valores que se evaluan constantemente de la campaña, y otra es cuando se tienen resultados finalizados de las misma los puede seguir visualizando a pedido del componente \textbf{Cliente Dashboard} del lado del usuario.\\
+
 \newpage
 \subsubsection{Vista Alocación}
 
@@ -263,7 +265,7 @@ El \textbf{Proveedor de resultados} corresponde a un sistema externo encargado d
 
 El \textbf{Dashboard} es encargado de mostrar en tiempo real, estadísticas parciales realizadas de las distintas campañas. \\
 
-Por último, se puede destacar el componente \textbf{Comunicación alternativa}, a quien se le asigna en el conector que ocurre cuando hay falta de conexión por el sistema normal. El sistema Big Tiza delegará esta tarera a una empresa tercerizada cuando esto ocurra. \\
+Por último, se puede destacar el componente \textbf{Comunicación alternativa}, a quien se le asigna en el conector que ocurre cuando hay falta de conexión por el sistema normal. El sistema Big Tiza delegará esta tarera a una empresa tercerizada cuando esto ocurra.\\
 
 Se observa que la vista de la sección anterior, es representada acá como una \textbf{Implementación regional}. Eso se debe a que el sistema de Big Tiza es replicado en diversos servidores para poder tener alcance nacional. En el caso de la provincia de Córdoba y algunas cercanas, tendrán el sistema cargado en los dos servidores ofrecidos por ArSAT, mientras que el resto se encontrará en sistemas externos privados. \\
 
