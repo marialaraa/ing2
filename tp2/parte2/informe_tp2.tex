@@ -70,7 +70,7 @@
 \newpage
 
 \section{Introducci\'on}
-En el Trabajo Práctico 1 se desarrolló e implementó un sistema llamado ''AULA al 2020'' que consiste en un sistema de alertas a los alumnos de una escuela mediante un SMS a sus celulares. Los Docentes y el personal de la Secretaría o Dirección comprendían el usuario del sistema, es decir, quienes creaban campañas y/o eventos, los mensajes para las mismas y al finalizar, cargaban los resultados obtenidos. Debido al gran éxito en la implementación del mismo para una escuela de Urquiza, se decide ampliar el programa para que permita campañas a nivel masivo. Ya no hablamos de una escuela, sino que intervienen munincipios, provincias y a nivel nacional. 
+En el Trabajo Práctico 1 se desarrolló e implementó un sistema llamado ''AULA al 2020'' que consiste en un sistema de alertas a los alumnos de una escuela mediante un SMS a sus celulares. Los Docentes y el personal de la Secretaría o Dirección eran los únicos usuarios del sistema, es decir, quienes creaban campañas y/o eventos, los mensajes para las mismas y al finalizar, cargaban los resultados obtenidos. Debido al gran éxito en la implementación del mismo para una escuela de Urquiza, se decide ampliar el programa para que permita campañas a nivel masivo. Ya no hablamos de una escuela, sino que intervienen munincipios, provincias y la nación. 
 
 Se detallan, en primer lugar, los atributos de calidad junto con sus respectivos escenarios, deducidos a partir de la consigna y de la QAW realizada. 
 Se presentan, entonces, las arquitecturas del sistema inicial (''AULA al 2020'') y la correspondiente al sistema pedido por el Ministro, cuyo alcance es a nivel nacional. Para esta última arquitectura, se trata de cumplir con los objetivos requeridos por el cliente. Por otro lado, se presenta una discusión sobre las diferencias entre las metodologías utilizadas en cada proyecto.
@@ -81,7 +81,7 @@ Se presentan, entonces, las arquitecturas del sistema inicial (''AULA al 2020'')
 \subsection{Listado atributos de calidad definidos}
 \begin{itemize}
 
-\item[Performance] \textit{No se acepta ningún tipo de demoras ante el monitoreo del estado de las campañas.}\\
+\item[Performance] \textit{No se acepta ningún tipo de demoras durante el monitoreo del estado de las campañas.}\\
 \textbf{Fuente}: Externa. \\
 \textbf{Estímulo}: El usuario desea ver el estado actual de la campaña. Requiere visualización de las estadísticas generadas hasta el momento, de los mensajes enviados y los no enviados. \\
 \textbf{Entorno}: Normal.\\
@@ -212,12 +212,12 @@ El \textbf{Sistema de envío} es el encargado de enviar los mensajes. El \emph{T
 La arquitectura de esta parte se realizó contemplando los atributos de calidad nombrados en la sección anterior. A continuación se muestra el diseño realizado para esta parte, seguido de un detalle de desiciones tomadas.
 
 \centerline{\includegraphics[width=1.2\textwidth]{./diagramas/VistaCompyCon.png}}
-\centerline{\includegraphics[width=0.5\textwidth]{./diagramas/ArqTP2Envio.png}}
+\centerline{\includegraphics[width=0.5\textwidth]{./diagramas/ArqTP2conector1.png}}
 
 Al momento de contemplar el atributo de calidad de \underline{Disponibilidad} respecto el envío de mensajes, se tomó la decisión de realizar la conexión entre componente \textbf{Servicios mensajería} y el componente \textbf{Sistema envío}, mediante dos conectores distintos. Dado que se tiene en cuenta que al momento de enviar mensajes, puede fallar la conexión con los distintos servicios (Twitter, Facebook, SMS). 
 Se optó por crear dos conectores para esta unión, uno que muestra la conexión normal, sin fallas, y otro, la conexión considerando falla de comunicación.\\
 
-\centerline{\includegraphics[width=0.5\textwidth]{./diagramas/ArqTP2conector1.png}}
+\centerline{\includegraphics[width=0.5\textwidth]{./diagramas/ArqTP2Envio.png}}
 \centerline{\includegraphics[width=0.5\textwidth]{./diagramas/ArqTP2conector2.png}}
 
 Viendo en detalle el conector rojo, correspondiente al camino con posibles fallas, se puede observar que existe un traductor para poder comunicarse con cada tipo de servicio (Facebook, Twiter etc) ya que cada uno tiene un formato distinto.
@@ -277,10 +277,6 @@ Se observa que la vista de la sección anterior, es representada acá como una \
 \newpage
 
 \include{discusion}
-%\section{Discusión}
-
-%\include{agile_vs_UP}
-%\include{large_vs_small_2}
 
 \newpage
 
