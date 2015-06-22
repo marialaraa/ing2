@@ -226,53 +226,46 @@ En el caso del conector azul, de camino alternativo antes sucesivas fallas en el
 %revisar que decision tomamos respecto a la version de oca
 %Además, se contempló un tercer caso que coincide con el análisis de riesgo tomado para la parte de planificación del proyecto, donde se considera una conexión directa con un servicio de correo (OCA, por ejemplo), para poder contar con él en el caso de no tener ningún tipo de conexión con los otros servicios. No se observa este comportamiento en la arquitectora, ya que ese caso deberá ser resuelto manualmente por el usuario, ya que deja de poder solucionarse mediante el uso de software. \\ %de esa manera se desliga el sistema Big tiza de esa responsabilidad.
 
-Es pedido por parte de los stakenholder que se recurra en lo menos posible al envío de la mensajería utilizando la empresa privada, por lo cual se prioriza un alto número de intentos de envío del mensaje a través del camino directo. En caso de que el sistema de comunicación continúe fallando, entonces ahí se recurrirá a caminos alternativos.
+Es pedido por parte de los stakenholder que se recurra en lo menos posible al envío de la mensajería utilizando la empresa privada, por lo cual se prioriza un alto número de intentos de envío del mensaje a través del camino directo. En caso de que el sistema de comunicación continúe fallando, entonces ahí se recurrirá a caminos alternativos. \\
 %Al considerar las situaciones de envío de camino sin fallas, donde como hay que evitar el uso de la empresa de telefonía privada, ya que esta puede generarle costos a los receptores, lo cual se desea evitar, por lo que se van a hacer varios intentos, antes de tomar la Decisión de cambiar de conector.\\
-\\
-\\
+
 %~ Para la decision de por donde enviar se la asigna a un componente dentro de componente de envio de mensajes, esto se pude observar al hacer zoom de este comp 
 Al momento de contemplar las acciones por parte de aquellas campañas que esperan respuestas a los mensajes enviados, se asume que los mismos seran enviados con un código para vincular con dicha campaña. En otras palabras, al enviarse un mensaje, sin importar su tipo, pero que espera respuesta por parte del usuario, se le asignará un número de identificación correspondiente a su campaña. El usuario al responder dará ese mismi id, que servirá para poder almacenar la respuesta de manera correcta en el sistema. El mensaje devuelto será recibido por el componente \textbf{Sistema recepción de mensajes}, que se encargará de almacenar el nuevo resultado en el repositorio correspondiente. El \textbf{Gestor resultados} traducirá las respuestas en resultados, para ser luego procesados. \\
 
-Por otro lado, se tiene conexión con un sistema externo, denominado \textbf{Servicio de resultados de campañas}, quien brinda resultados de encuestas realizadas para una determinada campaña. El tipo de resultado brindado irá variando de acuerdo al tipo de evaluación que desee hacer el usuario sobre una campaña. \\
-\\
+Por otro lado, se tiene conexión con un sistema externo, denominado \textbf{Proveedor de resultados}, quien brinda resultados de encuestas realizadas para una determinada campaña. El tipo de resultado brindado irá variando de acuerdo al tipo de evaluación que desee hacer el usuario sobre una campaña. \\
+
 Hasta el momento se mencionaron dos tipos diferentes de almacenamiento de los resultados, es decir, mediante un sistema externo o a partir de la respuesta de los mensajes por parte del usuario final. 
 Además existe la situación de carga manual de resultados, que puede ser requerido, por ejemplo en el siguiente caso: en una campaña de vacunación, donde el efecto es que la persona se vacune y, cuando lo haga, eso suma un resultado a la campaña que será agregado al sistema por personal reponsable. 
-Respecto a la arquitectura considerada para este punto, es contemplada en el componente \textbf{Gestor de resultados}, que es quien recibe los resultados cargados por una persona.
+Respecto a la arquitectura considerada para este punto, es contemplada en el componente \textbf{Gestor de resultados}, que es quien recibe los resultados cargados por una persona.\\
 
 %Por otro lado, se contemplan campañas interactivas, es decir que envían mensajes cuyo efecto es una respuesta el mensaje envíado, por lo cual este tipo de resultados, se reciben directamente en el sistema, el encargado de recibirlo nuevamente es el componente gestor de resultados.\\
-\\
-\\
+
 El procesamiento de resultados de las campañas se divide en dos ramas diferentes, la del almacenamiento directo de los mismos y la de visualización directa. 
 Al recibir un resultado de una campaña, éste debe ser procesado inmediatamente para poder ser visualizado lo antes posible y así poder mantener un seguimiento en tiempo real de la campaña. Para poder cumplir con ese objetivo, el \textbf{Procesador de resultados en tiempo real} traduce los resultados para enviarlos al \textbf{Servidor dashboard}. El dashboard contempla el requerimiento de que las campañas se puedan monitorear de manera ágil. % El funcionamiento del mismo puede comprenderse a través de un ejemplo: se obtiene el resultado de que 4 personas recibieron la vacuna contra la gripe en el hospital Posadas, y a partir de las métricas definidas para la campaña  de ''Prevención de la gripe'', este valor dará un porcentaje de eficiencia. Es decir, cuanto progreso se obtuvo a partir de la aplicación de un campaña. Luego de evaluar dicho resultado, el mismo está listo para ser visualizado en el dashboard.\\
 Por otro lado, todos los resultados en crudo serán almacenados, para poder ser evaluados, luego, y así generarse estadísticas finales. 
 En este caso, el procedimiento será más lento, ya que se utilizará al finalizarse la ejecución de la campaña. En caso de querer observarse la eficiencia de la campaña en tiempo real, se podrá obtener la aproximación en el dashboard. 
-Se tomó esta decisión teniendo en cuenta el volumen de información a procesar y los recursos con los que se cuentan. Durante la vigencia de una campaña se van a obtener volúmenes muy grandes de resultados parciales y como es pedido que se observe en tiempo real la influencia de una campaña, se debió recurrir a un nuevo sistema de procesamiento.
+Se tomó esta decisión teniendo en cuenta el volumen de información a procesar y los recursos con los que se cuentan. Durante la vigencia de una campaña se van a obtener volúmenes muy grandes de resultados parciales y como es pedido que se observe en tiempo real la influencia de una campaña, se debió recurrir a un nuevo sistema de procesamiento.\\
 
-
-\\
-\\
-Otro aspecto que fue considerado al momento de definir la interfaz, es el de seguridad, ya que se hizo hincapié en que van a haber distintos tipos de usuario, y cada uno tendrá restricciones sobre la información. Es sumamente importante este tipo de restricciones, para cuando en un futuro se quiera agregar a empresas privadas en el sistema. Las mismas deberán tener un mínimo acceso a la información de campañas y ningún acceso a las campañas ajenas. A partir de un Web Server se controla los permisos de accesos a los usuarios. El Web Server pregunta al \textbf{Gestor de usuarios} si es correcto el intento de acceso por parte de un usuario. El gestor buscará en el repositorio \textbf{Usuarios} al usuario y retornará lo que corresponda. 
-\\
-\\
+Otro aspecto que fue considerado al momento de definir la interfaz, es el de \underline{Seguridad}, ya que se hizo hincapié en que van a haber distintos tipos de usuario, y cada uno tendrá restricciones sobre la información. Es sumamente importante este tipo de restricciones, para cuando en un futuro se quiera agregar a empresas privadas en el sistema. Las mismas deberán tener un mínimo acceso a la información de campañas y ningún acceso a las campañas ajenas. A partir de un Web Server se controla los permisos de accesos a los usuarios. El Web Server pregunta al \textbf{Gestor de usuarios} si es correcto el intento de acceso por parte de un usuario. El gestor buscará en el repositorio \textbf{Usuarios} al usuario y retornará lo que corresponda. \\
 
 Otras consideraciones que se tienen respecto a la seguridad de la información, es que los otros canales de acceso al sistema, como por ejemplo, la carga de resultados o dentro del componente \textbf{Sistema recepción de mensajes}, tengan revisiones de seguridad previo al intento de acceso a la base de datos por parte de un usuaria. De esta manera se persiste información evitandose así un potencial ataque de seguridad.\\
-\\
-\\
-Volviendo al requerimiento de visualizar el resultado de campañas de manera ágil, como se presento anteriormente, se consideró un dashboard.
-\emph{Decisión de diseño} Para ello se optó por realizar un componente \textbf{Servidor Dashboard} el cual se responsabiliza de recibir y mostrar los resultados, constantemente. Además este componente tiene dos formas de recibir resultados. Dado que se desea optener en tiempo real resultados procesados una forma de que el componente reciba es el camino de los valores que se evaluan constantemente de la campaña, y otra es cuando se tienen resultados finalizados de las misma los puede seguir visualizando a pedido del componente \textbf{Cliente Dashboard} del lado del usuario.\\
-\\
-\\
+
 \newpage
 \subsubsection{Vista Alocación}
 
 \centerline{\includegraphics[width=0.8\textwidth]{./diagramas/VistaAlocacion.png}}
 
 En esta vista se muestran donde está contenido cada componente externo presentado en la vista anterior. En este diagrama se puede observar que los servicios de mensajería se separan y muestran cada uno en particular. Se considera que cada servicio corre por separado ya que son empresas diferentes y presentan comportamientos distintos.\\
-\\
-Por otro lado el \textbf{Proveedor de contenido} es aquel componente responsable de agregar a las campañas aquellos logos, mensajes o lo que se desee mostrar al usuario final. Esto se decidió en consideración a que las campañas van a ser de distintas índoles, ya sea para creación de una por el Ministerio de Salud, como por el Ministerio de Seguridad Vial, y en particular en un futuro se consideran las campañas de empresas privadas.\\
-\\
 
-Por último, se puede destacar el componente \textbf{Comunicación alternativa}, a quien se le asigna en el conector que ocurre cuando hay falta de conexión por el sistema normal. El sistema Big Tiza delegará esta tarera a una empresa tercerizada cuando esto ocurra.
+Por otro lado el \textbf{Proveedor de contenido} es aquel componente responsable de agregar a las campañas aquellos logos, mensajes o lo que se desee mostrar al usuario final. Esto se decidió en consideración a que las campañas van a ser de distintas índoles, ya sea para creación de una por el Ministerio de Salud, como por el Ministerio de Seguridad Vial, y en particular en un futuro se consideran las campañas de empresas privadas.\\
+
+El \textbf{Proveedor de resultados} corresponde a un sistema externo encargado de enviar aquellos resultados que obtenga de las campañas y que desee sumar al momento de generar las estadísticas de las mismas. \\
+
+El \textbf{Dashboard} es encargado de mostrar en tiempo real, estadísticas parciales realizadas de las distintas campañas. \\
+
+Por último, se puede destacar el componente \textbf{Comunicación alternativa}, a quien se le asigna en el conector que ocurre cuando hay falta de conexión por el sistema normal. El sistema Big Tiza delegará esta tarera a una empresa tercerizada cuando esto ocurra. \\
+
+Se observa que la vista de la sección anterior, es representada acá como una \textbf{Implementación regional}. Eso se debe a que el sistema de Big Tiza es replicado en diversos servidores para poder tener alcance nacional. En el caso de la provincia de Córdoba y algunas cercanas, tendrán el sistema cargado en los dos servidores ofrecidos por ArSAT, mientras que el resto se encontrará en sistemas externos privados. \\
 
 
 %~ \subsection{Discusión de Arquitecturas}
