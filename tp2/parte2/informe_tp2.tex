@@ -70,7 +70,7 @@
 \newpage
 
 \section{Introducci\'on}
-En el Trabajo Práctico 1 se desarrolló e implementó un sistema llamado ''AULA al 2020'' que consiste en un sistema de alertas a los alumnos de una escuela mediante un SMS a sus celulares. Los Docentes y el personal de la Secretaría o Dirección eran los únicos usuarios del sistema, es decir, quienes creaban campañas y/o eventos, los mensajes para las mismas y al finalizar, cargaban los resultados obtenidos. Debido al gran éxito en la implementación del mismo para una escuela de Urquiza, se decide ampliar el programa para que permita campañas a nivel masivo. Ya no hablamos de una escuela, sino que intervienen munincipios, provincias y la nación. 
+En el Trabajo Práctico 1 se desarrolló e implementó un sistema llamado ''AULA al 2020'' que consiste en un sistema de alertas a los alumnos de una escuela mediante un SMS a sus celulares. Los Docentes y el personal de la Secretaría o Dirección eran los únicos usuarios del sistema, es decir, quienes creaban campa\~nas y/o eventos, los mensajes para las mismas y al finalizar, cargaban los resultados obtenidos. Debido al gran éxito en la implementación del mismo para una escuela de Urquiza, se decide ampliar el programa para que permita campa\~nas a nivel masivo. Ya no hablamos de una escuela, sino que intervienen munincipios, provincias y la nación. 
 
 Se detallan, en primer lugar, los atributos de calidad junto con sus respectivos escenarios, deducidos a partir de la consigna y de la QAW realizada. 
 Se presentan, entonces, las arquitecturas del sistema inicial (''AULA al 2020'') y la correspondiente al sistema pedido por el Ministro, cuyo alcance es a nivel nacional. Para esta última arquitectura, se trata de cumplir con los objetivos requeridos por el cliente. Por otro lado, se presenta una discusión sobre las diferencias entre las metodologías utilizadas en cada proyecto.
@@ -81,12 +81,12 @@ Se presentan, entonces, las arquitecturas del sistema inicial (''AULA al 2020'')
 \subsection{Listado atributos de calidad definidos}
 \begin{itemize}
 
-\item[Performance] \textit{No se acepta ningún tipo de demoras durante el monitoreo del estado de las campañas.}\\
+\item[Performance] \textit{No se acepta ningún tipo de demoras durante el monitoreo del estado de las campa\~nas.}\\
 \textbf{Fuente}: Externa. \\
-\textbf{Estímulo}: El usuario desea ver el estado actual de la campaña. Requiere visualización de las estadísticas generadas hasta el momento, de los mensajes enviados y los no enviados. \\
+\textbf{Estímulo}: El usuario desea ver el estado actual de la campa\~na. Requiere visualización de las estadísticas generadas hasta el momento, de los mensajes enviados y los no enviados. \\
 \textbf{Entorno}: Normal.\\
 \textbf{Artefacto}: Sistema.\\
-\textbf{Respuesta}: Se procesa el pedido de visualizar el estado de la campaña.\\
+\textbf{Respuesta}: Se procesa el pedido de visualizar el estado de la campa\~na.\\
 \textbf{Medición de la respuesta}: El pedido debe resolverse en menos de un segundo. \\
 
 \item[Disponibilidad] \textit{Se pueden generar fallas de comunicación durante la transición de servidores.}\\
@@ -105,7 +105,7 @@ Se presentan, entonces, las arquitecturas del sistema inicial (''AULA al 2020'')
 \textbf{Respuesta}: Los nuevos servidores son agregados al sistema y ya estarán listos para ser usados. \\
 \textbf{Medición de la respuesta}:  Tres horas.\\
 
-\item[Seguridad] \textit{Un empleado de la munincipalidad no podrá ingresar a campañas creadas a nivel nacional por el gobernador de la provincia.}\\
+\item[Seguridad] \textit{Un empleado de la munincipalidad no podrá ingresar a campa\~nas creadas a nivel nacional por el gobernador de la provincia.}\\
 \textbf{Fuente}: Usuario.\\
 \textbf{Estímulo}: Intenta acceder al repositorio. \\
 \textbf{Entorno}: Online \\
@@ -113,7 +113,7 @@ Se presentan, entonces, las arquitecturas del sistema inicial (''AULA al 2020'')
 \textbf{Respuesta}: Se le bloquea el acceso y, además, se registra el intento fallido de acceso. \\
 \textbf{Medición de la respuesta}: La probabilidad de que una persona logre ingresar al sistema de almacenamiento es de 0,01\%. \\
 
-\item[Seguridad] \textit{Se requiere almacenar todas las creaciones, modificaciones y accesos a los datos que se realicen. Por ejemplo, si el gobernador de Tierra del Fuego crea una campaña ''Contra el frío'', se debe registrar esa acción. }\\
+\item[Seguridad] \textit{Se requiere almacenar todas las creaciones, modificaciones y accesos a los datos que se realicen. Por ejemplo, si el gobernador de Tierra del Fuego crea una campa\~na ''Contra el frío'', se debe registrar esa acción. }\\
 \textbf{Fuente}: Usuario válido.\\
 \textbf{Estímulo}: El usuario ingresa un nuevo dato a un repositorio.\\
 \textbf{Entorno}: Control de accesos.\\
@@ -126,11 +126,11 @@ Se presentan, entonces, las arquitecturas del sistema inicial (''AULA al 2020'')
 \textbf{Estímulo}: Se intenta enviar un mensaje a un usuario en Chubut. \\
 \textbf{Entorno}: Normal. \\
 \textbf{Artefacto}: Sistema de env\'io de Mensajes. \\
-\textbf{Respuesta}: El mensaje es enviado al usuario en cuesti\'on por medio del uso de los drones que replican la señal. Para lograrlo, se avisará de la necesidad a una empresa tercerizada encargada. \\
+\textbf{Respuesta}: El mensaje es enviado al usuario en cuesti\'on por medio del uso de los drones que replican la se\~nal. Para lograrlo, se avisará de la necesidad a una empresa tercerizada encargada. \\
 \textbf{Medición de la respuesta}: El mensaje a los habitantes de la provincia llega el 98\% de las veces. \\
 
 
-\item[Certeza de Datos] \textit{El presidente actual del país quiere analizar los posibles resultados para todas las campañas a nivel nacional en actual funcionamiento.}\\
+\item[Certeza de Datos] \textit{El presidente actual del país quiere analizar los posibles resultados para todas las campa\~nas a nivel nacional en actual funcionamiento.}\\
 \textbf{Fuente}: Usuario. \\
 \textbf{Estímulo}: Pide ver el estado actual de todas las campa\~nas. \\
 \textbf{Entorno}: Normal. \\
@@ -141,50 +141,50 @@ Se presentan, entonces, las arquitecturas del sistema inicial (''AULA al 2020'')
 \item[Escalabilidad] \textit{Mantener la performance en el envío de mensajes
 Se quiere expandir el sistema de la provincia de Córdoba a nivel nacional manteniendo la performance en el envio de mensajes.}\\
 \textbf{Fuente}: Sistema. \\
-\textbf{Estímulo}: Creación de una nueva campaña. \\
+\textbf{Estímulo}: Creación de una nueva campa\~na. \\
 \textbf{Entorno}: Funcionamiento con 40 millones de posibles destinatarios para todos los mensajes. \\
 \textbf{Artefacto}: Sistema de envío. \\
 \textbf{Respuesta}: No se realiza ninguna modificación en el sistema, ya que el mismo ya se encuentra preparado para soportar los nuevos volúmenes de datos. \\
 \textbf{Medición de la respuesta}: El tiempo de envío de mensajes aumenta en menos de un 10\%.\\
 
-\item[Modificabilidad] \textit{A futuro se quiere poder permitir a empresas privadas crear campañas de promoción de productos.}\\
+\item[Modificabilidad] \textit{A futuro se quiere poder permitir a empresas privadas crear campa\~nas de promoción de productos.}\\
 \textbf{Fuente}: Representantes de una empresa privada. \\
-\textbf{Estímulo}: Carga de campaña. \\
+\textbf{Estímulo}: Carga de campa\~na. \\
 \textbf{Entorno}: Normal. \\
 \textbf{Artefacto}: Aplicación web. \\
-\textbf{Respuesta}: Se adapta la aplicación para permitir la carga de campañas privadas de productos, con el agregado de todos los permisos que se requieran. \\
-\textbf{Medición de la respuesta}: En menos de 2 semanas se deben hacer los cambios y poner en producción la nueva funcionalidad para la carga de campañas por empresas privadas. \\
+\textbf{Respuesta}: Se adapta la aplicación para permitir la carga de campa\~nas privadas de productos, con el agregado de todos los permisos que se requieran. \\
+\textbf{Medición de la respuesta}: En menos de 2 semanas se deben hacer los cambios y poner en producción la nueva funcionalidad para la carga de campa\~nas por empresas privadas. \\
 
-\item[Flexibilidad] \textit{Permitir que diferentes proveedores de contenido adapten campañas nacionales a las condiciones locales de cada region.} \\
+\item[Flexibilidad] \textit{Permitir que diferentes proveedores de contenido adapten campa\~nas nacionales a las condiciones locales de cada region.} \\
 \textbf{Fuente}:  Proveedor de contenido.  \\
-\textbf{Estímulo}: Adaptación de campaña. \\
+\textbf{Estímulo}: Adaptación de campa\~na. \\
 \textbf{Entorno}: Funcionamiento normal. \\
 \textbf{Artefacto}: Aplicacion web. \\
-\textbf{Respuesta}: Se adapta la campaña a las condiciones de la región. \\
-\textbf{Medición de la respuesta}: Se adapta la campaña en tiempo de ejecución ( sin necesidad de bajar el servidor o detener la aplicación ). \\
+\textbf{Respuesta}: Se adapta la campa\~na a las condiciones de la región. \\
+\textbf{Medición de la respuesta}: Se adapta la campa\~na en tiempo de ejecución ( sin necesidad de bajar el servidor o detener la aplicación ). \\
 
-\item[Usabilidad] \textit{Se desea que los usuarios puedan crear campañas correctamente de forma fácil y rápida.} \\
+\item[Usabilidad] \textit{Se desea que los usuarios puedan crear campa\~nas correctamente de forma fácil y rápida.} \\
 \textbf{Fuente}:  Usuario. \\
-\textbf{Estímulo}: Pedido de creación de campaña. \\
+\textbf{Estímulo}: Pedido de creación de campa\~na. \\
 \textbf{Entorno}: Funcionamiento normal. \\
 \textbf{Artefacto}: Aplicación web. \\
-\textbf{Respuesta}: El usuario crea una campaña correctamente. \\
-\textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logra crear una campaña correctamente en menos de 5 minutos. \\
+\textbf{Respuesta}: El usuario crea una campa\~na correctamente. \\
+\textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logra crear una campa\~na correctamente en menos de 5 minutos. \\
 
-\item[Usabilidad] \textit{Se desea poder ver toda la información referida a una campaña de forma clara.} \\
+\item[Usabilidad] \textit{Se desea poder ver toda la información referida a una campa\~na de forma clara.} \\
 \textbf{Fuente}:  Usuario. \\
-\textbf{Estímulo}: Pedido de visualizacion de campaña. \\
+\textbf{Estímulo}: Pedido de visualizacion de campa\~na. \\
 \textbf{Entorno}: Funcionamiento normal. \\
 \textbf{Artefacto}: Aplicación web. \\
-\textbf{Respuesta}: Se visualiza toda la información disponible relacionada con la campaña. \\
+\textbf{Respuesta}: Se visualiza toda la información disponible relacionada con la campa\~na. \\
 \textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logran extraer la información esperada en menos de 30 segundos. \\
 
-\item[Usabilidad] \textit{Se desea poder comparar resultados de varias campañas de forma comparable, fácil de entender.} \\
+\item[Usabilidad] \textit{Se desea poder comparar resultados de varias campa\~nas de forma comparable, fácil de entender.} \\
 \textbf{Fuente}: Usuario. \\
-\textbf{Estímulo}: Pedido de comparación de resultados de 2 campañas. \\
+\textbf{Estímulo}: Pedido de comparación de resultados de 2 campa\~nas. \\
 \textbf{Entorno}: Funcionamiento normal. \\
 \textbf{Artefacto}: Aplicacion web. \\
-\textbf{Respuesta}: Se muestran los resultados de ambas campañas en la misma pantalla. \\
+\textbf{Respuesta}: Se muestran los resultados de ambas campa\~nas en la misma pantalla. \\
 \textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logran comprender los resultados en menos de 5 minutos. \\
 
 \end{itemize}
@@ -199,8 +199,8 @@ A partir del proyecto Aula al 2020, de los objetivos planteados y el prototipo d
 \centerline{\includegraphics[width=0.4\textwidth]{./diagramas/ArqTP1SistEnvio.png}}
 
 En primer lugar se presenta la UI, que es la encargada de la interacción del usario con el sistema de ''Tiza 2020''. La misma recibe los pedidos por parte del usuario. Para comenzar, se deberá validar el acceso del mismo, es decir, verificar su previa inscripción en el sistema. Para eso el UI indica al \textbf{Gestor usuarios} el id del usuario que intenta acceder. Este último lee la base de datos, buscando los datos del mismo. En caso de no existir, retorna al UI un aviso de usuario inválido, el cual se encargará de notificarle a la persona. Caso contrario, responde que se permite el acceso al usuario al sistema. 
-En caso de que el usuario sea válido, el UI envía un pedido al \textbf{Gestor campañas}, pidiendo las campañas correspondientes al usuario para poder mostrarlas como el siguiente menú, luego del inicio de sesión. El componente \textbf{Gestor campañas}, pide del repositorio las campañas que tienen en el campo de \emph{usuario con permiso de acceso} al id del usuario. Luego, envía la información de todas las campañas, completándolo con los datos requeridos en los demás repositorios, como podría ser el caso de los teléfonos de los contactos. 
-El proceso se repite para cada menú que el usuario desee ver. Además, el gestor se encargará de recolectar la información necesaria y traducirla a una interfaz para que sea comprensible por el usuario y se le enviará al UI, quien se encarga de mostarla. En el caso de de que se desee mostrar la agenda correspondiente a un usuario, para poder incluirlo en la creación de un mensaje, el UI pedirá al \textbf{Gestor contactos}, la información necesaria. Este último se encargará de acceder a la base de datos y recolecctar los datos pedidos. El proceso es el mismo para el \textbf{Gestor mensajes}, \textbf{Gestor resultados}, \textbf{Gestor eventos}, siendo cada uno el encargado de interpretar para el UI los datos necesarios y de armar la interfaz necesaria. 
+En caso de que el usuario sea válido, el UI envía un pedido al \textbf{Gestor campa\~nas}, pidiendo las campa\~nas correspondientes al usuario para poder mostrarlas como el siguiente menú, luego del inicio de sesión. El componente \textbf{Gestor campa\~nas}, pide del repositorio las campa\~nas que tienen en el campo de \emph{usuario con permiso de acceso} al id del usuario. Luego, envía la información de todas las campa\~nas, completándolo con los datos requeridos en los demás repositorios, como podría ser el caso de los teléfonos de los contactos. 
+El proceso se repite para cada menú que el usuario desee ver. Además, el gestor se encargará de recolectar la información necesaria y traducirla a una interfaz para que sea comprensible por el usuario y se le enviará al UI, quien se encarga de mostarla. En el caso de de que se desee mostrar la agenda correspondiente a un usuario, para poder incluirlo en la creación de un mensaje, el UI pedirá al \textbf{Gestor contactos}, la información necesaria. Este último se encargará de acceder a la base de datos y recolectar los datos pedidos. El proceso es el mismo para el \textbf{Gestor mensajes}, \textbf{Gestor resultados}, \textbf{Gestor eventos}, siendo cada uno el encargado de interpretar para el UI los datos necesarios y de armar la interfaz necesaria. 
 
 Por otro lado, cuando un usuario, tanto Docente como personal de la Secretaría o Dirección, desean crear o modificar algún objeto del sistema, lo indicarán al UI, utilizando los accesos que correspondan, y este se encargará de avisar al gestor que corresponda con el objeto. El gestor correspondiente se encargará de agregar el nuevo objeto al repositorio necesario.  En caso de que se desee modificar uno existente, también levantará de la base de datos el objeto, le aplicará la modificación indicada por el usuario y lo volverá a cargar en el repositorio. 
 
@@ -209,7 +209,7 @@ El \textbf{Sistema de envío} es el encargado de enviar los mensajes. El \emph{T
 \newpage
 \subsection{Arquitectura TP2}
 \subsubsection{Vista Componentes y conectores}
-La arquitectura de esta parte se realizó contemplando los atributos de calidad nombrados en la sección anterior. A continuación se muestra el diseño realizado para esta parte, seguido de un detalle de desiciones tomadas.
+La arquitectura de esta parte se realizó contemplando los atributos de calidad nombrados en la sección anterior. A continuación se muestra el dise\~no realizado para esta parte, seguido de un detalle de desiciones tomadas.
 
 \centerline{\includegraphics[width=1.2\textwidth]{./diagramas/VistaCompyCon.png}}
 \centerline{\includegraphics[width=0.5\textwidth]{./diagramas/ArqTP2conector1.png}}
@@ -221,36 +221,36 @@ Se optó por crear dos conectores para esta unión, uno que muestra la conexión
 \centerline{\includegraphics[width=0.5\textwidth]{./diagramas/ArqTP2conector2.png}}
 
 Viendo en detalle el conector rojo, correspondiente al camino con posibles fallas, se puede observar que existe un traductor para poder comunicarse con cada tipo de servicio (Facebook, Twiter etc) ya que cada uno tiene un formato distinto.
-En el caso del conector azul, de camino alternativo antes sucesivas fallas en el anteriormente descripto, se puede observar que se tiene el componente \textbf{Servicio alternativo de comunicación}, quién se encarga de tomar la decisión correspondiente, y realizar el envío de una forma tal que se cumpla el mismo (por ejemplo, mediante la repetición de la señal con drones).\\
+En el caso del conector azul, de camino alternativo antes sucesivas fallas en el anteriormente descripto, se puede observar que se tiene el componente \textbf{Servicio alternativo de comunicación}, quién se encarga de tomar la decisión correspondiente, y realizar el envío de una forma tal que se cumpla el mismo (por ejemplo, mediante la repetición de la se\~nal con drones).\\
 
 %revisar que decision tomamos respecto a la version de oca
 %Además, se contempló un tercer caso que coincide con el análisis de riesgo tomado para la parte de planificación del proyecto, donde se considera una conexión directa con un servicio de correo (OCA, por ejemplo), para poder contar con él en el caso de no tener ningún tipo de conexión con los otros servicios. No se observa este comportamiento en la arquitectora, ya que ese caso deberá ser resuelto manualmente por el usuario, ya que deja de poder solucionarse mediante el uso de software. \\ %de esa manera se desliga el sistema Big tiza de esa responsabilidad.
 
-Es pedido por parte de los stakenholder que se recurra en lo menos posible al envío de la mensajería utilizando la empresa privada, por lo cual se prioriza un alto número de intentos de envío del mensaje a través del camino directo. En caso de que el sistema de comunicación continúe fallando, entonces ahí se recurrirá a caminos alternativos. \\
+Es pedido por parte de los stakeholder que se recurra en lo menos posible al envío de la mensajería utilizando la empresa privada, por lo cual se prioriza un alto número de intentos de envío del mensaje a través del camino directo. En caso de que el sistema de comunicación continúe fallando, entonces ahí se recurrirá a caminos alternativos. \\
 %Al considerar las situaciones de envío de camino sin fallas, donde como hay que evitar el uso de la empresa de telefonía privada, ya que esta puede generarle costos a los receptores, lo cual se desea evitar, por lo que se van a hacer varios intentos, antes de tomar la Decisión de cambiar de conector.\\
 
 %~ Para la decision de por donde enviar se la asigna a un componente dentro de componente de envio de mensajes, esto se pude observar al hacer zoom de este comp 
-Al momento de contemplar las acciones por parte de aquellas campañas que esperan respuestas a los mensajes enviados, se asume que los mismos seran enviados con un código para vincular con dicha campaña. En otras palabras, al enviarse un mensaje, sin importar su tipo, pero que espera respuesta por parte del usuario, se le asignará un número de identificación correspondiente a su campaña. El usuario al responder dará ese mismi id, que servirá para poder almacenar la respuesta de manera correcta en el sistema. El mensaje devuelto será recibido por el componente \textbf{Sistema recepción de mensajes}, que se encargará de almacenar el nuevo resultado en el repositorio correspondiente. El \textbf{Gestor resultados} traducirá las respuestas en resultados, para ser luego procesados. \\
+Al momento de contemplar las acciones por parte de aquellas campa\~nas que esperan respuestas a los mensajes enviados, se asume que los mismos ser\'an enviados con un código para vincular con dicha campa\~na. En otras palabras, al enviarse un mensaje, sin importar su tipo, pero que espera respuesta por parte del usuario, se le asignará un número de identificación correspondiente a su campa\~na. El usuario al responder dará ese mismo id, que servirá para poder almacenar la respuesta de manera correcta en el sistema. El mensaje devuelto será recibido por el componente \textbf{Sistema recepción de mensajes}, que se encargará de almacenar el nuevo resultado en el repositorio correspondiente. El \textbf{Gestor resultados} traducirá las respuestas en resultados, para ser luego procesados. \\
 
-Por otro lado, se tiene conexión con un sistema externo, denominado \textbf{Proveedor de resultados}, quien brinda resultados de encuestas realizadas para una determinada campaña. El tipo de resultado brindado irá variando de acuerdo al tipo de evaluación que desee hacer el usuario sobre una campaña. \\
+Por otro lado, se tiene conexión con un sistema externo, denominado \textbf{Proveedor de resultados}, quien brinda resultados de encuestas realizadas para una determinada campa\~na. El tipo de resultado brindado irá variando de acuerdo al tipo de evaluación que desee hacer el usuario sobre una campa\~na. \\
 
 Hasta el momento se mencionaron dos tipos diferentes de almacenamiento de los resultados, es decir, mediante un sistema externo o a partir de la respuesta de los mensajes por parte del usuario final. 
-Además existe la situación de carga manual de resultados, que puede ser requerido, por ejemplo en el siguiente caso: en una campaña de vacunación, donde el efecto es que la persona se vacune y, cuando lo haga, eso suma un resultado a la campaña que será agregado al sistema por personal reponsable. 
+Además existe la situación de carga manual de resultados, que puede ser requerido, por ejemplo en el siguiente caso: en una campa\~na de vacunación, donde el efecto es que la persona se vacune y, cuando lo haga, eso suma un resultado a la campa\~na que será agregado al sistema por personal reponsable. 
 Respecto a la arquitectura considerada para este punto, es contemplada en el componente \textbf{Gestor de resultados}, que es quien recibe los resultados cargados por una persona.\\
 
-%Por otro lado, se contemplan campañas interactivas, es decir que envían mensajes cuyo efecto es una respuesta el mensaje envíado, por lo cual este tipo de resultados, se reciben directamente en el sistema, el encargado de recibirlo nuevamente es el componente gestor de resultados.\\
+%Por otro lado, se contemplan campa\~nas interactivas, es decir que envían mensajes cuyo efecto es una respuesta el mensaje envíado, por lo cual este tipo de resultados, se reciben directamente en el sistema, el encargado de recibirlo nuevamente es el componente gestor de resultados.\\
 
-El procesamiento de resultados de las campañas se divide en dos ramas diferentes, la del almacenamiento directo de los mismos y la de visualización directa. 
-Al recibir un resultado de una campaña, éste debe ser procesado inmediatamente para poder ser visualizado lo antes posible y así poder mantener un seguimiento en tiempo real de la campaña. Para poder cumplir con ese objetivo, el \textbf{Procesador de resultados en tiempo real} traduce los resultados para enviarlos al \textbf{Servidor dashboard}. El dashboard contempla el requerimiento de que las campañas se puedan monitorear de manera ágil. % El funcionamiento del mismo puede comprenderse a través de un ejemplo: se obtiene el resultado de que 4 personas recibieron la vacuna contra la gripe en el hospital Posadas, y a partir de las métricas definidas para la campaña  de ''Prevención de la gripe'', este valor dará un porcentaje de eficiencia. Es decir, cuanto progreso se obtuvo a partir de la aplicación de un campaña. Luego de evaluar dicho resultado, el mismo está listo para ser visualizado en el dashboard.\\
+El procesamiento de resultados de las campa\~nas se divide en dos ramas diferentes, la del almacenamiento directo de los mismos y la de visualización directa. 
+Al recibir un resultado de una campa\~na, éste debe ser procesado inmediatamente para poder ser visualizado lo antes posible y así poder mantener un seguimiento en tiempo real de la campa\~na. Para poder cumplir con ese objetivo, el \textbf{Procesador de resultados en tiempo real} traduce los resultados para enviarlos al \textbf{Servidor dashboard}. El dashboard contempla el requerimiento de que las campa\~nas se puedan monitorear de manera ágil. % El funcionamiento del mismo puede comprenderse a través de un ejemplo: se obtiene el resultado de que 4 personas recibieron la vacuna contra la gripe en el hospital Posadas, y a partir de las métricas definidas para la campa\~na  de ''Prevención de la gripe'', este valor dará un porcentaje de eficiencia. Es decir, cuanto progreso se obtuvo a partir de la aplicación de un campa\~na. Luego de evaluar dicho resultado, el mismo está listo para ser visualizado en el dashboard.\\
 Por otro lado, todos los resultados en crudo serán almacenados, para poder ser evaluados, luego, y así generarse estadísticas finales. 
-En este caso, el procedimiento será más lento, ya que se utilizará al finalizarse la ejecución de la campaña. En caso de querer observarse la eficiencia de la campaña en tiempo real, se podrá obtener la aproximación en el dashboard. 
-Se tomó esta decisión teniendo en cuenta el volumen de información a procesar y los recursos con los que se cuentan. Durante la vigencia de una campaña se van a obtener volúmenes muy grandes de resultados parciales y como es pedido que se observe en tiempo real la influencia de una campaña, se debió recurrir a un nuevo sistema de procesamiento.\\
+En este caso, el procedimiento será más lento, ya que se utilizará al finalizarse la ejecución de la campa\~na. En caso de querer observarse la eficiencia de la campa\~na en tiempo real, se podrá obtener la aproximación en el dashboard. 
+Se tomó esta decisión teniendo en cuenta el volumen de información a procesar y los recursos con los que se cuentan. Durante la vigencia de una campa\~na se van a obtener volúmenes muy grandes de resultados parciales y como es pedido que se observe en tiempo real la influencia de una campa\~na, se debió recurrir a un nuevo sistema de procesamiento.\\
 
-Otro aspecto que fue considerado al momento de definir la interfaz, es el de \underline{Seguridad}, ya que se hizo hincapié en que van a haber distintos tipos de usuario, y cada uno tendrá restricciones sobre la información. Es sumamente importante este tipo de restricciones, para cuando en un futuro se quiera agregar a empresas privadas en el sistema. Las mismas deberán tener un mínimo acceso a la información de campañas y ningún acceso a las campañas ajenas. A partir de un Web Server se controla los permisos de accesos a los usuarios. El Web Server pregunta al \textbf{Gestor de usuarios} si es correcto el intento de acceso por parte de un usuario. El gestor buscará en el repositorio \textbf{Usuarios} al usuario y retornará lo que corresponda. \\
+Otro aspecto que fue considerado al momento de definir la interfaz, es el de \underline{Seguridad}, ya que se hizo hincapié en que van a haber distintos tipos de usuario, y cada uno tendrá restricciones sobre la información. Es sumamente importante este tipo de restricciones, para cuando en un futuro se quiera agregar a empresas privadas en el sistema. Las mismas deberán tener un mínimo acceso a la información de campa\~nas y ningún acceso a las campa\~nas ajenas. A partir de un Web Server se controla los permisos de accesos a los usuarios. El Web Server pregunta al \textbf{Gestor de usuarios} si es correcto el intento de acceso por parte de un usuario. El gestor buscará en el repositorio \textbf{Usuarios} al usuario y retornará lo que corresponda. \\
 
-Otras consideraciones que se tienen respecto a la seguridad de la información, es que los otros canales de acceso al sistema, como por ejemplo, la carga de resultados o dentro del componente \textbf{Sistema recepción de mensajes}, tengan revisiones de seguridad previo al intento de acceso a la base de datos por parte de un usuaria. De esta manera se persiste información evitandose así un potencial ataque de seguridad.\\
+Otras consideraciones que se tienen respecto a la seguridad de la información, es que los otros canales de acceso al sistema, como por ejemplo, la carga de resultados o dentro del componente \textbf{Sistema recepción de mensajes}, tengan revisiones de seguridad previo al intento de acceso a la base de datos por parte de un usuario. De esta manera se persiste información evitandose así un potencial ataque de seguridad.\\
 
-%Volviendo al requerimiento de visualizar el resultado de campañas de manera ágil, como se presento anteriormente, se consideró un dashboard. Para ello se optó por realizar un componente \textbf{Servidor Dashboard} el cual se responsabiliza de recibir y mostrar los resultados, constantemente. Además este componente tiene dos formas de recibir resultados. Dado que se desea optener en tiempo real resultados procesados una forma de que el componente reciba es el camino de los valores que se evaluan constantemente de la campaña, y otra es cuando se tienen resultados finalizados de las misma los puede seguir visualizando a pedido del componente \textbf{Cliente Dashboard} del lado del usuario.\\
+%Volviendo al requerimiento de visualizar el resultado de campa\~nas de manera ágil, como se presento anteriormente, se consideró un dashboard. Para ello se optó por realizar un componente \textbf{Servidor Dashboard} el cual se responsabiliza de recibir y mostrar los resultados, constantemente. Además este componente tiene dos formas de recibir resultados. Dado que se desea optener en tiempo real resultados procesados una forma de que el componente reciba es el camino de los valores que se evaluan constantemente de la campa\~na, y otra es cuando se tienen resultados finalizados de las misma los puede seguir visualizando a pedido del componente \textbf{Cliente Dashboard} del lado del usuario.\\
 
 \newpage
 \subsubsection{Vista Alocación}
@@ -259,11 +259,11 @@ Otras consideraciones que se tienen respecto a la seguridad de la información, 
 
 En esta vista se muestran donde está contenido cada componente externo presentado en la vista anterior. En este diagrama se puede observar que los servicios de mensajería se separan y muestran cada uno en particular. Se considera que cada servicio corre por separado ya que son empresas diferentes y presentan comportamientos distintos.\\
 
-Por otro lado el \textbf{Proveedor de contenido} es aquel componente responsable de agregar a las campañas aquellos logos, mensajes o lo que se desee mostrar al usuario final. Esto se decidió en consideración a que las campañas van a ser de distintas índoles, ya sea para creación de una por el Ministerio de Salud, como por el Ministerio de Seguridad Vial, y en particular en un futuro se consideran las campañas de empresas privadas.\\
+Por otro lado el \textbf{Proveedor de contenido} es aquel componente responsable de agregar a las campa\~nas aquellos logos, mensajes o lo que se desee mostrar al usuario final. Esto se decidió en consideración a que las campa\~nas van a ser de distintas índoles, ya sea para creación de una por el Ministerio de Salud, como por el Ministerio de Seguridad Vial, y en particular en un futuro se consideran las campa\~nas de empresas privadas.\\
 
-El \textbf{Proveedor de resultados} corresponde a un sistema externo encargado de enviar aquellos resultados que obtenga de las campañas y que desee sumar al momento de generar las estadísticas de las mismas. \\
+El \textbf{Proveedor de resultados} corresponde a un sistema externo encargado de enviar aquellos resultados que obtenga de las campa\~nas y que desee sumar al momento de generar las estadísticas de las mismas. \\
 
-El \textbf{Dashboard} es encargado de mostrar en tiempo real, estadísticas parciales realizadas de las distintas campañas. \\
+El \textbf{Dashboard} es encargado de mostrar en tiempo real, estadísticas parciales realizadas de las distintas campa\~nas. \\
 
 Por último, se puede destacar el componente \textbf{Comunicación alternativa}, a quien se le asigna en el conector que ocurre cuando hay falta de conexión por el sistema normal. El sistema Big Tiza delegará esta tarera a una empresa tercerizada cuando esto ocurra.\\
 
