@@ -234,8 +234,8 @@ Clasificación & Caso de Uso & Horas H.\\ \hline \hline
 \subsection{Arquitectura TP1}
 A partir del proyecto Aula al 2020, de los objetivos planteados y el prototipo desarrollado, se define el siguiente diagrama de arquitectura:
 
-\centerline{\includegraphics[width=1.2\textwidth]{./diagramas/ArquitecturaTP1.png}}
-\centerline{\includegraphics[width=0.5\textwidth]{./diagramas/ArqTP1SistEnvio.png}}
+\centerline{\includegraphics[width=1\textwidth]{./diagramas/ArquitecturaTP1.png}}
+\centerline{\includegraphics[width=0.4\textwidth]{./diagramas/ArqTP1SistEnvio.png}}
 
 En primer lugar se presenta la UI, que es la encargada de la interacción del usario con el sistema de Tiza 2020. La misma recibe los pedidos por parte del usuario. Para comenzar, se deberá validar el acceso del mismo, es decir, verificar su previa inscripción en el sistema. Para eso el UI indica al \textbf{Gestor usuarios} el id del usuario que intenta acceder. Este último lee la base de datos, buscando los datos del mismo. En caso de no existir, retorna al UI un aviso de usuario inválido, el cual se encargará de notificarle a la persona. Caso contrario, responde que se permite el acceso al usuario al sistema. 
 En caso de que el usuario sea válido, el UI envía un pedido al \textbf{Gestor campañas}, pidiendo las campañas correspondientes al usuario para poder mostrarlas como el siguiente menú, luego del inicio de sesión. El componente \textbf{Gestor campañas}, pide del repositorio las campañas que tienen en el campo de \emph{usuario con permiso de acceso} al id del usuario. Luego, envía la información de todas las campañas, completándolo con los datos requeridos en los demás repositorios, como podría ser el caso de los teléfonos de los contactos. 
@@ -248,25 +248,27 @@ El \textbf{Sistema de envío} es el encargado de enviar los mensajes. El \emph{T
 \subsection{Arquitectura TP2}
 \subsubsection{Vista Componentes y conectores}
 La arquitectura de esta parte se realizó contemplando los atributos de calidad nombrados en la sección anterior. A continuación se muestra el diseño realizado para esta parte, seguido de un detalle de desiciones tomadas.
-\begin{flushleft}
-\includegraphics[width=1.3\textwidth]{./diagramas/VistaCompyCon.png}
-\end{flushleft}
-\emph{Desición de Diseño} Al momento de contemplar el atributo de calidad de \textbf{Disponibilidad} respecto el envío de mensajes, se tomó la decisión de realizar la conexión entre componete servicio mensajeria  y el componente, de lado de Big tiza, de envio de mensajes, mediante 2 conectores distintos. Dado que se tiene en cuenta que al momento  de enviar mensajes, puede fallar la conexión con los distintos servicios (twitter facebook, sms). 
+
+\centerline{\includegraphics[width=1.1\textwidth]{./diagramas/VistaCompyCon.png}}
+\centerline{\includegraphics[width=0.5\textwidth]{./diagramas/ArqTP2Envio.png}}
+
+\emph{Decisión de Diseño} Al momento de contemplar el atributo de calidad de \textbf{Disponibilidad} respecto el envío de mensajes, se tomó la decisión de realizar la conexión entre componete servicio mensajeria  y el componente, de lado de Big tiza, de envio de mensajes, mediante 2 conectores distintos. Dado que se tiene en cuenta que al momento  de enviar mensajes, puede fallar la conexión con los distintos servicios (twitter facebook, sms). 
 Se optó por crear 2 conectores para esta unión, uno que muestra la conxión normal, sin fallas y otro la conexión considerando falla de comunicación.\\
 
-\centerline{\includegraphics[width=0.6\textwidth]{./diagramas/conector_normal.png}}
+\centerline{\includegraphics[width=0.5\textwidth]{./diagramas/ArqTP2conector1.png}}
+\centerline{\includegraphics[width=0.5\textwidth]{./diagramas/ArqTP2conector2.png}}
 
-Viendo en detalle el conector (1) del camino sin fallas se puede observar que existe un traductor para poder comunicarse con cada tipo de servicio (facebook, twiter etc) ya que cada uno tiene un formato distinto.
-En el caso del conector (2) de camino alternativo, que contempla la falta de conexion, al ver el conector más en detalle se puede observar  que se tiene el componente servicio alternativo de mensajería, quién se encarga de tomar la decición correspondiente y conectarse con el servicio de la empresa de telefonia privada para poder concretar el envío.\\
+Viendo en detalle el conector rojo del camino sin fallas se puede observar que existe un traductor para poder comunicarse con cada tipo de servicio (Facebook, Twiter etc) ya que cada uno tiene un formato distinto.
+En el caso del conector azul de camino alternativo, que contempla la falta de conexion, al ver el conector más en detalle se puede observar  que se tiene el componente servicio alternativo de mensajería, quién se encarga de tomar la decición correspondiente y conectarse con el servicio de la empresa de telefonia privada para poder concretar el envío.\\
 
 %revisar que decision tomamos respecto a la version de oca
-Además en este caso se contempló un tercer caso que coincide con el análisis de riesgo, tomado para la parte de planificación, donde se considera una conexión directa con un servicio de correo (oca), para poder contar con él en el caso de no tener ningún tipo de conexión con los otros servicios.\\ %de esa manera se desliga el sistema Big tiza de esa responsabilidad.
+Además en este caso se contempló un tercer caso que coincide con el análisis de riesgo, tomado para la parte de planificación, donde se considera una conexión directa con un servicio de correo (OCA), para poder contar con él en el caso de no tener ningún tipo de conexión con los otros servicios.\\ %de esa manera se desliga el sistema Big tiza de esa responsabilidad.
 
-Al considerar las situaciones de envío de camino sin fallas, donde como hay que evitar el uso de la empresa de telefonía privada, ya que esta puede generarle costos a los receptores, lo cual se desea evitar, por lo que se van a hacer varios intentos, antes de tomar la desición de cambiar de conector.\\
+Al considerar las situaciones de envío de camino sin fallas, donde como hay que evitar el uso de la empresa de telefonía privada, ya que esta puede generarle costos a los receptores, lo cual se desea evitar, por lo que se van a hacer varios intentos, antes de tomar la Decisión de cambiar de conector.\\
 \\
 \\
 %~ Para la decision de por donde enviar se la asigna a un componente dentro de componente de envio de mensajes, esto se pude observar al hacer zoom de este comp 
-\emph{Desicisión de Diseño}
+\emph{Decisión de Diseño}
 Al momento de contemplar en las respuestas de aquellas campañas que esperar respuestas a los mensajes enviados, se asume que los mensajes se envían con un código para vincular con dicha campaña, para de esta manera poder generar los resultados correspondientes.\\
 
 Por otro lado, se optó por tener un componente \textbf{Servicio de evaluacion de estadisticas}, el cual es externo con el cual hay que conectarse al momento de evaluar los resultados, el mismo es definido por cada municipio acorde a lo que se desee evaluar (campaña de saludo, de educacion vial, etc)\\
@@ -282,22 +284,22 @@ Al recibir un resultado de una campaña, éste debe ser procesado inmediatamente
 \\
 \\
 Otro aspecto que fue considerado al momento de definir la interfaz para que un usuario pueda definir campañas es el de seguridad, ya que se hizo hincapié en que van a haber distintos tipos de usuario, y no todos pueden ver información de todas las campañas, en particular a la hora de tener la posibilidad de agregar campañas para empresas privadas, como por ejémplo addidas, se quiere tener la posibilidad de restringir la información a la que accede el usuario representante a addidas.
-\emph{Desición de diseño} Para cubrir este requerimiento se decidió agregar un web browser. \\
+\emph{Decisión de diseño} Para cubrir este requerimiento se decidió agregar un web browser. \\
 \\
 \\
 Otras consideraciones que se tienen respecto de la seguridad de la información, es que los otros canales de acceso al sistema, por ejémplo la carga de resultados, o como el componente de recepción de mensajes, tengan revisiones de seguridad previo a acceder a la base de datos para persistir información, para evitar un potencial ataque de seguridad.\\
 \\
 \\s
 Volviendo al requerimiento de visualizar el resultado de campañas de manera ágil, como se presento anteriormente, se consideró un dashboard.
-\emph{Desición de diseño} Para ello se optó por realizar un componente \textbf{Servidor Dashboard} el cual se responsabiliza de recibir y mostrar los resultados, constantemente. Además este componente tiene dos formas de recibir resultados. Dado que se desea optener en tiempo real resultados procesados una forma de que el componente reciba es el camino de los valores que se evaluan constantemente de la campaña, y otra es cuando se tienen resultados finalizados de las misma los puede seguir visualizando a pedido del componente \textbf{Cliente Dashboard} del lado del usuario.\\
+\emph{Decisión de diseño} Para ello se optó por realizar un componente \textbf{Servidor Dashboard} el cual se responsabiliza de recibir y mostrar los resultados, constantemente. Además este componente tiene dos formas de recibir resultados. Dado que se desea optener en tiempo real resultados procesados una forma de que el componente reciba es el camino de los valores que se evaluan constantemente de la campaña, y otra es cuando se tienen resultados finalizados de las misma los puede seguir visualizando a pedido del componente \textbf{Cliente Dashboard} del lado del usuario.\\
 \\
 \\
 Se tomó esta decisión teniendo en cuenta el volumen de información a procesas y los recursos con los que se cuentan, ya que durante la vigencia de una campaña se van a obtener volumenes muy grandes de resultados parciales,  que los mismos se quieren ver reflejados en el dashboard, pero también se desea tener la información correcta del resultado final conseguido a través de la campaña concretada. Al considerar resultados parciales se desea conseguir valores representativos al volumen total de insidencia de la campaña, por lo que esos resultados parciales se deben evaluar a nivel porcentaje de insidencia de dicho volumen para que al visualizar se pueda reflejar la métrica utilizada por la campaña.
-Teniendo en cuenta los escenarios de performance se tomó la desición dicha anteriormente.
+Teniendo en cuenta los escenarios de performance se tomó la Decisión dicha anteriormente.
 
 \subsubsection{Vista Alocación}
 
-\centerline{\includegraphics[width=0.6\textwidth]{./diagramas/VistaAlocacion.png}}
+\centerline{\includegraphics[width=0.8\textwidth]{./diagramas/VistaAlocacion.png}}
 
 En esta vista se muestran dónde está contenido cada componente externo presentado en la vista anterior. En este diagrama se puede observar que los servicios de mensajería se separan y muestran cada uno en particular, ya que se considera que cada servicio corre por separado ya que son empresas diferentes.\\
 \\
@@ -307,6 +309,7 @@ Por último, se puede destacar el componente \textbf{Empresa de telecomunicacion
 
 
 %~ \subsection{Discusión de Arquitecturas}
+\include{large_vs_small}
 
 \newpage
 \section{Discusión}
@@ -314,6 +317,6 @@ Por último, se puede destacar el componente \textbf{Empresa de telecomunicacion
 \newpage
 \section{Conclusiones}
 
-\include{large_vs_small}
+
 
 \end{document}
