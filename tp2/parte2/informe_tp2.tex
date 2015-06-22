@@ -73,159 +73,130 @@
 
 En este trabajo práctico se presentan las arquitecturas del sistema correspondiente a la primera entrega (versión para escuela de villa urquiza) y la correspondiente al sistema pedido por el ministro, cuyo alcance es a nivel pais.
 Se detallan los atributos de calidad pedidos, junto con sus respectivos escenarios. Por otro lado se presenta una discusión sobre las diferencias entre las metodologías utilizadas en cada tp, y por último conclusiones.
+
+
 \newpage
 \section{Atributos de Calidad}
-\subsection{Listado atributos de calidad pedidos}
+\subsection{Listado atributos de calidad definidos}
 \begin{itemize}
 
-\item[Performance - Deadline] No se acepta ningún tipo de demoras ante el monitoreo del estado de las campañas.
-\textbf{Fuente}: Externa
-\textbf{Estímulo}: El usuario desea ver el estado actual de la campaña. Requiere visualización de las estadísticas generadas hasta el momento, de los mensajes enviados y los no enviados. 
-\textbf{Entorno}: Normal
-\textbf{Artefacto}: Sistema
-\textbf{Respuesta}: Se procesa el pedido de visualizar el estado de la campaña.
-\textbf{Medición de la respuesta}: El pedido debe resolverse en menos de un segundo. 
+\item[Performance] \textit{No se acepta ningún tipo de demoras ante el monitoreo del estado de las campañas.}\\
+\textbf{Fuente}: Externa. \\
+\textbf{Estímulo}: El usuario desea ver el estado actual de la campaña. Requiere visualización de las estadísticas generadas hasta el momento, de los mensajes enviados y los no enviados. \\
+\textbf{Entorno}: Normal.\\
+\textbf{Artefacto}: Sistema.\\
+\textbf{Respuesta}: Se procesa el pedido de visualizar el estado de la campaña.\\
+\textbf{Medición de la respuesta}: El pedido debe resolverse en menos de un segundo. \\
 
-\item[Disponibilidad] Se pueden generar fallas de comunicación durante la transición de servidores.
+\item[Disponibilidad] \textit{Se pueden generar fallas de comunicación durante la transición de servidores.}\\
+\textbf{Fuente}: Interna.\\
+\textbf{Estímulo}: Falla por omisión.\\
+\textbf{Entorno}: Normal, el sistema funciona en su modo habitual.\\
+\textbf{Artefacto}: Canal de comunicación.\\
+\textbf{Respuesta}: Se deberá pasar a un entorno degradado, donde se solucionen los pedidos realizados durante la transición, sin importar la performance del sistema.\\
+\textbf{Medición de la respuesta}:  Se permanecerá en modo degradado hasta que se termine la transicción.\\
 
-\textbf{Fuente}: Interna
-\textbf{Estímulo}: Falla por omisión
-\textbf{Entorno}: Normal, el sistema funciona en su modo habitual
-\textbf{Artefacto}: Canal de comunicación
-\textbf{Respuesta}: Se deberá pasar a un entorno degradado, donde se solucionen los pedidos realizados durante la transición, sin importar la performance del sistema.
-\textbf{Medición de la respuesta}:  Se permanecerá en modo degradado hasta que se termine la transicción.
+\item[Modificabilidad] \textit{Cambio de servidores de etapa en Córdoba (ArSAT) a etapa país.}\\
+\textbf{Fuente}: Administrador. \\
+\textbf{Estímulo}: Se quiere aumentar la cantidad de servidores para poder almacenar datos de todos los usuarios del país. \\
+\textbf{Entorno}: En ejecución. \\
+\textbf{Artefacto}: Sistema. \\
+\textbf{Respuesta}: Los nuevos servidores son agregados al sistema y ya estarán listos para ser usados. \\
+\textbf{Medición de la respuesta}:  Tres horas.\\
 
-\item[Modificabilidad] Cambio de servidores entre etapa de Córdoba a etapa país.
-
-\textbf{Fuente}: Administrador \\
-\textbf{Estímulo}: Se quiere aumentar la cantidad de servidores para poder almacendar datos de todos los usuarios del pa\'is' \\
-\textbf{Entorno}: En ejecución \\
-\textbf{Artefacto}: Sistema \\
-\textbf{Respuesta}: Los nuevos servidores son agregados al sistema y estan listos para ser usados \\
-\textbf{Medición de la respuesta}:  \\
-
-%\item[Seguridad] modificación (campañas y evaluación).
-
-\item[Seguridad] Proteger datos.
-
-\textbf{Fuente}: Gestor Mensajes\\
-\textbf{Estímulo}: Intenta enviar un mensaje\\
+\item[Seguridad] \textit{Un empleado de la munincipalidad no podrá ingresar a campañas creadas a nivel nacional por el gobernador de la provincia.}\\
+\textbf{Fuente}: Usuario.\\
+\textbf{Estímulo}: Intenta acceder al repositorio. \\
 \textbf{Entorno}: Online \\
-\textbf{Artefacto}: Sistema de env\'ios de Mensajes\\
-\textbf{Respuesta}: Se logra enviar el mensaje encriptado por alguno de los canales de comunicaci\'on disponibles \\
-\textbf{Medición de la respuesta}: La probabilidad de que una persona logre decoficar el algoritmo es de 0.0001\% \\
+\textbf{Artefacto}: Sistema de almacenamiento. \\
+\textbf{Respuesta}: Se le bloquea el acceso y, además, se registra el intento fallido de acceso. \\
+\textbf{Medición de la respuesta}: La probabilidad de que una persona logre ingresar al sistema de almacenamiento es de 0,01\%. \\
 
-\item[Seguridad] Auditar
+\item[Seguridad] \textit{Se requiere almacenar todas las creaciones, modificaciones y accesos a los datos que se realicen. Por ejemplo, si el gobernador de Tierra del Fuego crea una campaña ''Contra el frío'', se debe registrar esa acción. }\\
+\textbf{Fuente}: Usuario válido.\\
+\textbf{Estímulo}: El usuario ingresa un nuevo dato a un repositorio.\\
+\textbf{Entorno}: Control de accesos.\\
+\textbf{Artefacto}: Repositorio.\\
+\textbf{Respuesta}: Se almacena en otro repositorio el id del usuario, con la descripción del tipo de dato al que accedió y que tipo de acción realiza sobre el mismo.\\
+\textbf{Medición de la respuesta}: Se registrarán todos los accesos.\\
 
-\textbf{Fuente}: \\
-\textbf{Estímulo}: \\
-\textbf{Entorno}: \\
-\textbf{Artefacto}: \\
-\textbf{Respuesta}: \\
-\textbf{Medición de la respuesta}: \\
-
-\item[Disponibilidad] Envio de mensajes. (Patagonia)
-
-
-\textbf{Fuente}: Gestor de Mensajes \\
-\textbf{Estímulo}: Se intenta enviar un mensaje a un usuario en la Patagonia \\
-\textbf{Entorno}: Normal \\
-\textbf{Artefacto}: Sistema de env\'io de Mensajes \\
-\textbf{Respuesta}: El mensaje es enviado al usuario en cuesti\'on por medio del uso de los drones \\
-\textbf{Medición de la respuesta}: El mensaje a la Patagonia llega el 98\% de las veces \\
+\item[Disponibilidad] \textit{Falla de comunicación para el envío del mensaje a través del canal de comunicación normal en la provincia de Chubut.}\\
+\textbf{Fuente}: Gestor de Mensajes. \\
+\textbf{Estímulo}: Se intenta enviar un mensaje a un usuario en Chubut. \\
+\textbf{Entorno}: Normal. \\
+\textbf{Artefacto}: Sistema de env\'io de Mensajes. \\
+\textbf{Respuesta}: El mensaje es enviado al usuario en cuesti\'on por medio del uso de los drones que replican la señal. Para lograrlo, se avisará de la necesidad a una empresa tercerizada encargada. \\
+\textbf{Medición de la respuesta}: El mensaje a los habitantes de la provincia llega el 98\% de las veces. \\
 
 
-\item[Certeza de Datos] Para la estimacion de campa\~nas
+\item[Certeza de Datos] \textit{El presidente actual del país quiere analizar los posibles resultados para todas las campañas a nivel nacional en actual funcionamiento.}\\
+\textbf{Fuente}: Usuario. \\
+\textbf{Estímulo}: Pide ver el estado actual de todas las campa\~nas. \\
+\textbf{Entorno}: Normal. \\
+\textbf{Artefacto}: Cliente resultados. \\
+\textbf{Respuesta}: Se muestra por una interfaz un listado (de manera incremental) de todas las campa\~as con datos aproximados de sus estados actuales. \\
+\textbf{Medición de la respuesta}: El 80\% del estado de las campa\~nas mostradas es correcto. \\
 
-\textbf{Fuente}: Usuario \\
-\textbf{Estímulo}: Pide ver el estado actual de todas las campa\~nas \\
-\textbf{Entorno}: Normal \\
-\textbf{Artefacto}: Cliente resultados \\
-\textbf{Respuesta}: Se muestra por una interfaz un listado (de manera incremental) de todas las campa\~as con datos aproximados de sus estados actuales \\
-\textbf{Medición de la respuesta}: El 80\% del estado de las campa\~nas mostradas es correcto \\
+\item[Escalabilidad] \textit{Mantener la performance en el envío de mensajes
+Se quiere expandir el sistema de la provincia de Córdoba a nivel nacional manteniendo la performance en el envio de mensajes.}\\
+\textbf{Fuente}: Sistema. \\
+\textbf{Estímulo}: Creación de una nueva campaña. \\
+\textbf{Entorno}: Funcionamiento con 40 millones de posibles destinatarios para todos los mensajes. \\
+\textbf{Artefacto}: Sistema de envío. \\
+\textbf{Respuesta}: No se realiza ninguna modificación en el sistema, ya que el mismo ya se encuentra preparado para soportar los nuevos volúmenes de datos. \\
+\textbf{Medición de la respuesta}: El tiempo de envío de mensajes aumenta en menos de un 10\%.\\
 
-\item[Modificabilidad-]
-\item[Scalabilidad] Volumen de datos
+\item[Modificabilidad] \textit{A futuro se quiere poder permitir a empresas privadas crear campañas de promoción de productos.}\\
+\textbf{Fuente}: Representantes de una empresa privada. \\
+\textbf{Estímulo}: Carga de campaña. \\
+\textbf{Entorno}: Normal. \\
+\textbf{Artefacto}: Aplicación web. \\
+\textbf{Respuesta}: Se adapta la aplicación para permitir la carga de campañas privadas de productos, con el agregado de todos los permisos que se requieran. \\
+\textbf{Medición de la respuesta}: En menos de 2 semanas se deben hacer los cambios y poner en producción la nueva funcionalidad para la carga de campañas por empresas privadas. \\
 
-\textbf{Fuente}:  \\
-\textbf{Estímulo}: \\
-\textbf{Entorno}: \\
-\textbf{Artefacto}: \\
-\textbf{Respuesta}: \\
-\textbf{Medición de la respuesta}: \\
+\item[Flexibilidad] \textit{Permitir que diferentes proveedores de contenido adapten campañas nacionales a las condiciones locales de cada region.} \\
+\textbf{Fuente}:  Proveedor de contenido.  \\
+\textbf{Estímulo}: Adaptación de campaña. \\
+\textbf{Entorno}: Funcionamiento normal. \\
+\textbf{Artefacto}: Aplicacion web. \\
+\textbf{Respuesta}: Se adapta la campaña a las condiciones de la región. \\
+\textbf{Medición de la respuesta}: Se adapta la campaña en tiempo de ejecución ( sin necesidad de bajar el servidor o detener la aplicación ). \\
 
-\item[Performance-]
-\item[Escalabilidad] Mantener la performance en el envio de mensajes
-Se quiere expandir el sistema de la provincia de Cordoba a Nivel nacional manteniendo la performance en el envio de mensajes.
+\item[Usabilidad] \textit{Se desea que los usuarios puedan crear campañas correctamente de forma fácil y rápida.} \\
+\textbf{Fuente}:  Usuario. \\
+\textbf{Estímulo}: Pedido de creación de campaña. \\
+\textbf{Entorno}: Funcionamiento normal. \\
+\textbf{Artefacto}: Aplicación web. \\
+\textbf{Respuesta}: El usuario crea una campaña correctamente. \\
+\textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logra crear una campaña correctamente en menos de 5 minutos. \\
 
-\textbf{Fuente}: Sitema \\
-\textbf{Estímulo}: Envio de mensaje \\
-\textbf{Entorno}: Funcionamiento con 40 millones de posibles destinatarios. \\
-\textbf{Artefacto}: Sistema de envio \\
-\textbf{Respuesta}: Se mantiene en valores similares el tiempo de envío \\
-\textbf{Medición de la respuesta}: El tiempo de envío de mensajes aumenta en menos de un 20\% \\
+\item[Usabilidad] \textit{Se desea poder ver toda la información referida a una campaña de forma clara.} \\
+\textbf{Fuente}:  Usuario. \\
+\textbf{Estímulo}: Pedido de visualizacion de campaña. \\
+\textbf{Entorno}: Funcionamiento normal. \\
+\textbf{Artefacto}: Aplicación web. \\
+\textbf{Respuesta}: Se visualiza toda la información disponible relacionada con la campaña. \\
+\textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logran extraer la información esperada en menos de 30 segundos. \\
 
-\item[Modificabilidad] Campanias privadas
-
-A futuro se quiere poder permitir a empresas privadas crear campañas de promoción de productos \\
-\textbf{Fuente}: Representante empresa privada \\
-\textbf{Estímulo}: Carga de campaña \\
-\textbf{Entorno}: Funcionamiento normal \\
-\textbf{Artefacto}: Aplicacion web \\
-\textbf{Respuesta}: Se adapta la aplicacion para permitir la carga de campañas privadas de productos \\
-\textbf{Medición de la respuesta}: En menos de 2 semanas se deben hacer los cambios y poner en produccion la nueva funcionalidad para la carga de campañas por empresas privadas \\
-
-\item[Flexibilidad] politica nacional de metricas
-
-Permitir que diferentes proveedores de contenido adapten campañas nacionales a las condiciones locales de cada region \\
-\textbf{Fuente}:  Proveedor de contenido  \\
-\textbf{Estímulo}: Adaptacion de campaña \\
-\textbf{Entorno}: Funcionamiento normal \\
-\textbf{Artefacto}: Aplicacion web \\
-\textbf{Respuesta}: Se adapta la campaña a las condiciones de la region \\
-\textbf{Medición de la respuesta}: Se adapta la campaña en tiempo de ejecución ( sin necesidad de bajar el servidor o detener la aplicacion ) \\
-
-\item[Usabilidad] Crear campanias
-
-Se desea que los usuarios puedan crear campañas correctamente de forma facil y rapida \\
-\textbf{Fuente}:  Usuario \\
-\textbf{Estímulo}: Pedido de creacion de campaña \\
-\textbf{Entorno}: Funcionamiento normal \\
-\textbf{Artefacto}: Aplicacion web \\
-\textbf{Respuesta}: El usuario crea una campaña correctamente \\
-\textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logra crear una campaña correctamente en menos de 5 minutos \\
-
-\item[Usabilidad] Visualizar campanias
-
-Se desea poder ver toda la informacion referida a una campaña de forma clara. \\
-\textbf{Fuente}:  Usuario \\
-\textbf{Estímulo}: Pedido de visualizacion de campaña \\
-\textbf{Entorno}: Funcionamiento normal \\
-\textbf{Artefacto}: Aplicación web \\
-\textbf{Respuesta}: Se visualiza toda la informacion disponible relacionada con la campaña \\
-\textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logran extraer la información esperada en menos de 30 segundos \\
-
-\item[Usabilidad] Visualizar Resultados
-
-Se desea poder comparar resultados de varias campañas de forma comparable, fàcil de entender. \\
-\textbf{Fuente}: Usuario \\
-\textbf{Estímulo}: Pedido de comparación de resultados de 2 campañas \\
-\textbf{Entorno}: Funcionamiento normal \\
-\textbf{Artefacto}: Aplicacion web \\
-\textbf{Respuesta}: Se muestran los resultados de ambas campañas en la misma pantalla \\
-\textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logran comprender los resultados en menos de 5 minutos \\
+\item[Usabilidad] \textit{Se desea poder comparar resultados de varias campañas de forma comparable, fácil de entender.} \\
+\textbf{Fuente}: Usuario. \\
+\textbf{Estímulo}: Pedido de comparación de resultados de 2 campañas. \\
+\textbf{Entorno}: Funcionamiento normal. \\
+\textbf{Artefacto}: Aplicacion web. \\
+\textbf{Respuesta}: Se muestran los resultados de ambas campañas en la misma pantalla. \\
+\textbf{Medición de la respuesta}: En un test de usabilidad el 95\% de los usuarios logran comprender los resultados en menos de 5 minutos. \\
 
 \end{itemize}
-\subsection{Escenarios de Atributos de calidad}
-\begin{table}[H]
-\centering
-\begin{tabular}{ | p{5cm} | p{8cm} | p{1.5cm} | }
-\hline
-Clasificación & Caso de Uso & Horas H.\\ \hline \hline
-\multirow{2}{5cm}{Usuarios} & Ingresando al sistema & 36 \\ \cline{2-3}
-& Cargando usuario & 13 \\ \hline
-\end{tabular}
-\end{table}
+%\subsection{Escenarios de Atributos de calidad}
+%\begin{table}[H]
+%\centering
+%\begin{tabular}{ | p{5cm} | p{8cm} | p{1.5cm} | }
+%\hline
+%Clasificación & Caso de Uso & Horas H.\\ \hline \hline
+%\multirow{2}{5cm}{Usuarios} & Ingresando al sistema & 36 \\ \cline{2-3}
+%& Cargando usuario & 13 \\ \hline
+%\end{tabular}
+%\end{table}
 
 
 \newpage
@@ -245,6 +216,7 @@ Por otro lado, cuando un usuario, tanto Docente como personal de la Secretaría 
 
 El \textbf{Sistema de envío} es el encargado de enviar los mensajes. El \emph{Timer} le envía cada hora un mensaje asincrónico al \emph{Scheduler} con la hora y fecha actuales. El \emph{Scheduler} se encargará de leer en la base de datos aquellos menajes que cumplan con esa hora y fecha de envío. Al obtener todos los mensajes, los traducirá para poder ser interpretados por el \textbf{Servicio envío SMS}. Este último es un sistema externo que se contratará para cumplir la función de enviar los SMS necesarios. 
 
+\newpage
 \subsection{Arquitectura TP2}
 \subsubsection{Vista Componentes y conectores}
 La arquitectura de esta parte se realizó contemplando los atributos de calidad nombrados en la sección anterior. A continuación se muestra el diseño realizado para esta parte, seguido de un detalle de desiciones tomadas.
@@ -297,6 +269,7 @@ Volviendo al requerimiento de visualizar el resultado de campañas de manera ág
 Se tomó esta decisión teniendo en cuenta el volumen de información a procesas y los recursos con los que se cuentan, ya que durante la vigencia de una campaña se van a obtener volumenes muy grandes de resultados parciales,  que los mismos se quieren ver reflejados en el dashboard, pero también se desea tener la información correcta del resultado final conseguido a través de la campaña concretada. Al considerar resultados parciales se desea conseguir valores representativos al volumen total de insidencia de la campaña, por lo que esos resultados parciales se deben evaluar a nivel porcentaje de insidencia de dicho volumen para que al visualizar se pueda reflejar la métrica utilizada por la campaña.
 Teniendo en cuenta los escenarios de performance se tomó la Decisión dicha anteriormente.
 
+\newpage
 \subsubsection{Vista Alocación}
 
 \centerline{\includegraphics[width=0.8\textwidth]{./diagramas/VistaAlocacion.png}}
@@ -309,6 +282,7 @@ Por último, se puede destacar el componente \textbf{Empresa de telecomunicacion
 
 
 %~ \subsection{Discusión de Arquitecturas}
+\newpage
 \include{large_vs_small}
 
 \newpage
